@@ -1,4 +1,5 @@
 ﻿using LuckyForm.DAL;
+using LuckyForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,14 @@ namespace LuckyForm.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(formDB.GetAllForms());
+            return View();
+        }
+
+        public ActionResult GetFormsInType(string Type)
+        {
+
+            return View("Index",formDB.GetAllForms(Type));
         }
     }
+    
 }

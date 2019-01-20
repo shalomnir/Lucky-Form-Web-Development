@@ -75,7 +75,22 @@
         </div>
     </div>
     <div class="wrapper">
+        <div class="pop-up-Window">
+            <div class="sign-up">
+                <form action="~/">
+                    <select name="gender">
+                        <option value="Title">Title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </form>
+            </div>
+            <div class="login">
+                <form action="~/">
 
+                </form>
+            </div>
+        </div>
         <ul id="social-icon">
 
             <li id="headLiveSupport">
@@ -97,14 +112,14 @@
         <div class="main">
             <div class="sub_menu">
                 <ul>
-                    <li class="home"><a href="" class="home"> <i class="fas fa-home"></i></a></li>
-                    <li><a href="/Cart.html"><img src="~/content/Images/Home/logos/Lotto-sml.png" /></a></li>
-                    <li><a href="/GameOption.html"><img src="~/content/Images/Home/logos/Chance-sml.png" /></a></li>
-                    <li><a href="/Register.html"><img src="~/content/Images/Home/logos/_777-sml.png" /></a></li>
-                    <li><a href="/Login.html"><img src="~/content/Images/Home/logos/_123-sml.png" /></a></li>                  
+                    <li class="home" ><a href="" class="home"> <i class="fas fa-home"></i></a></li>
+                    <li value="1"><a href="" ><img src="~/content/Images/Home/logos/Lotto-sml.png" /></a></li>
+                    <li value="2"><a href=""><img src="~/content/Images/Home/logos/Chance-sml.png" /></a></livalue="1">
+                    <li value="3"><a href=""><img src="~/content/Images/Home/logos/_777-sml.png" /></a></li>
+                    <li value="4"><a href=""><img src="~/content/Images/Home/logos/_123-sml.png" /></a></li>                  
                 </ul>
             </div>
-            <div class="content">
+            <div class="content" id="LotteryContent">
                 @RenderBody()
             </div>
 

@@ -15,3 +15,20 @@ function myFunction() {
         header.classList.remove("sticky");
     }
 }
+
+$(".sub_menu li").click(function () {
+    $.ajax({
+        url: "/Home/GetFormsInType?Type=1",
+        dataType: "html",
+        success: function (data) {
+            $('#LotteryContent').html(data);
+        }
+    }
+);
+/*$.ajax({
+        url: "Home/GetFormsInType?Type=" + this.attr("value"),
+        success: function (result) {
+            $("#LotteryContent").html(result);
+        }
+    });
+});*/

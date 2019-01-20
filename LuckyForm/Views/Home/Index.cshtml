@@ -2,7 +2,7 @@
 @{
      Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 }
-@model List<Form>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,13 +12,17 @@
 </head>
 <body>
     <div class="loterries">
-        @foreach (Form form in Model)
-        {
+        @if(Model != null)
+        { 
+            foreach (Form form in Model)
+            {
             <div class="lottery">
                 <a href="loto.html">@form.Name</a>
                 <button class="play_now">Play Now</button>
             </div>
+            }
         }
+        
     </div>
     
     <h3>On Scroll Sticky Header</h3>
