@@ -1,0 +1,186 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>masterPageHome</title>
+    <link href="~/content/css/master_pages_css/masterPageHome.css" rel="stylesheet" />
+    <script src="~/content/js/JavaScript.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+    <div class="menu" id="menu">
+        <div class="content">
+            <ul>
+
+                <li>
+                    <a href="/ConectUs.html">
+                        Conect Us
+                        <i class="far fa-envelope-open"></i>
+                    </a>
+
+
+                </li>
+                <li class="dropdown">
+                    <a href="/Cart.html">
+                        Cart
+                        <i class="fas fa-shopping-cart"></i>
+                    </a> 
+                    <div class="dropdown-option">
+                        <a href="#">asdasd</a>
+                        <!--TO DO A LOOP THAT OVER ON ALL PRUDACTS-->
+                    </div>                           
+                </li>
+                <li class="dropdown">
+                    <a href="/GameOption.html">
+                        Game Option
+                        <i class="fas fa-location-arrow"></i>
+                    </a>
+                    <div class="dropdown-option">
+                        <a href="#">Play Now</a>
+                        <a href="#">Rapid Now</a>
+                        <a href="#">Sub-1</a>
+                        <a href="#">Sub-2</a>
+                        <a href="#">Sub-3</a>
+                        <a href="#">Sub-4</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/Register.html">
+                        Register
+                        <i class="fas fa-user"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Login.html">
+                        Login
+                        <i class="fas fa-lock"></i>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="">
+                        Home
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper">
+
+        <ul id="social-icon">
+
+            <li id="headLiveSupport">
+                <a href="#" class="support">
+                    <i class="fas fa-phone" id="phone"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com" class="facebook" title="Visit us on Facebook">
+                    <i class="fab fa-facebook" id="facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.twitter.com" class="twitter" title="Visit us on Twitter">
+                    <i class="fab fa-twitter" id="twitter"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="main">
+            <div class="sub_menu">
+                <ul>
+                    <li class="home"><a href="" class="home"> <i class="fas fa-home"></i></a></li>
+                    <li><a href="/Cart.html"><img src="~/content/Images/Home/logos/Lotto-sml.png" /></a></li>
+                    <li><a href="/GameOption.html"><img src="~/content/Images/Home/logos/Chance-sml.png" /></a></li>
+                    <li><a href="/Register.html"><img src="~/content/Images/Home/logos/_777-sml.png" /></a></li>
+                    <li><a href="/Login.html"><img src="~/content/Images/Home/logos/_123-sml.png" /></a></li>                  
+                </ul>
+            </div>
+            <div class="content">
+                @RenderBody()
+            </div>
+
+        </div>
+        <div>
+        </div>
+    </div>
+    <footer>
+        <div class="web_details">
+            <div class="content">
+                <div class="site_map">
+                    <h4>Site Map</h4>
+                    <ul class="list">
+                        <li><a rel="nofollow" href="/en/about-playusalotteries.html">About us</a></li>
+                        <li><a title="Play lottery online and win the lottery on the internet" href="/">USA Lottery online</a></li>
+                        <li><a title="Learn how to play the lottery online" href="/en/how-to-play-the-lottery.html">How to play USA Lotteries on the internet</a></li>
+                        <li><a title="Play the lottery on the internet" href="/en/play-the-lottery.html">Play American lotteries online</a></li>
+                        <li><a title="Results of online lottery numbers" href="/en/lotto-results-and-winning-numbers.html">USA lottery results</a></li>
+                        <li><a title="Best tips for playing and winning the lottery online" href="/en/lottery-news.html">American lottery news</a></li>
+                        <li><a title="Payment options" href="/en/payment.html">Payment options</a></li>
+                        <li><a title="Mobile site" href="http://mobile.playusalotteries.com">Mobile site</a></li>
+                        <li><a target="_blank" href="http://www.lottarewards.com/en/home">Become an affiliate</a></li>
+                        <li><a rel="nofollow" href="/en/lottery-horoscope.html">Lottery horoscope</a></li>
+
+                    </ul>
+                </div>
+                <div class="lotteries">
+                    <h4>Lotteries</h4>
+                    <ul class="list">
+                        <li>
+                            <a title="Play El Gordo Lottery online, buy ElGordo lotto tickets at PlayUSAlotteries.com" href="/en/play-the-lottery/play-el-gordo.html">El Gordo</a>
+                        </li>
+                        <li>
+                            <a title="Play the EuroJackpot Lottery online, buy Euro Jackpot lotto tickets at PlayUSAlotteries.com" href="/en/play-the-lottery/the-euro-jackpot-lottery.html">EuroJackpot</a>
+                        </li>
+                        <li>
+                            <a title="Buy EuroMillions Lottery tickets online at PlayUSAlotteries.com, play the Euro Millions lottery" href="/en/play-the-lottery/the-euromillions-lottery.html">EuroMillions</a>
+                        </li>
+                        <li>
+                            <a title="Play France Loto Lottery online, buy France Lotto tickers at PlayUSAlotteries.com" href="/en/play-the-lottery/play-france-loto.html">France Loto</a>
+                        </li>
+                        <li>
+                            <a title="Play SuperEnaLotto online, buy Super Ena Lotto Italian lottery tickets at PlayUSAlotteries.com" href="/en/play-the-lottery/the-superenalotto-lottery.html">SuperEnaLotto</a>
+                        </li>
+                        <li>
+                            <a title="Play the SuperEna Max lottery online, buy SuperEna Max lotto tickets at PlayUSAlotteries.com" href="/en/play-the-lottery/the-superena-max.html">SuperEna Max</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pay_and_lic">
+                    <h4>Payment Methods</h4>
+                    <ul class="pay_methods">
+                        <li><img alt="Visa" src="https://www.playusalotteries.com/images/financial/phl_visa.svg"></li>
+                        <li><img alt="Visa" src="https://www.playusalotteries.com/images/financial/phl_mastercard.svg"></li>
+                        <!--DB table methods and show table-->
+                    </ul>
+                    <h4>Licence</h4>
+                    <img style="width:90px; " src="https://booongo.com/static/img/certificate/curacao-logo.png" />
+                </div>
+
+            </div>
+        </div>
+        <div class="rights">
+            <div class="content">
+                <p>
+                    <a rel="nofollow" title="Terms and conditions" href="/en/terms.html">Terms and conditions</a>            	 | <a rel="nofollow" title="Please read our privacy policy" href="/en/privacy-policy.html">Privacy policy</a>                <br>
+                    This website is owned and operated by Secure View Services Limited, of 3rd Floor, Methonis Tower 73, Archbishop Makarios Avenue, 2082, Nicosia, Cyprus using the Curacao gaming license (No: 8048/JAZ) of its holding company Play UK Internet N.V.
+                </p>
+                <p> </p>
+                <p> © 2019 Play UK Internet N.V</p>
+            </div>
+
+        </div>
+
+    </footer>
+    
+    
+</body>
+</html>

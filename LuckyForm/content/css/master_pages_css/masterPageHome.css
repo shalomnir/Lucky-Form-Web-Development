@@ -1,0 +1,230 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body{
+    background:#efefef;   
+}
+.menu {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 47px;
+    background-color: #1A5C7A;
+}
+.menu .content {
+    margin: 0 auto;
+    width: 1000px;
+    direction: rtl;
+    
+}
+.menu .content ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu .content ul li{
+        text-align:center;
+        list-style-type: none;
+        
+}
+
+.menu .content ul li a{
+    display:block;
+    color:#efefef;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    color: #efefef;
+    padding-top: 17px;
+    width:120px;
+    padding-bottom: 15px;
+}
+.menu .content ul li .dropdown-option {
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    position:absolute;
+}
+.menu .content ul li:hover > a{
+    background-color: rgb(91, 192, 222);
+}
+
+
+.menu .content ul .dropdown:hover > .dropdown-option {
+   
+    visibility: visible;
+    opacity: 1;
+}
+.menu .content ul .dropdown .dropdown-option {
+    
+}
+.menu .content ul .dropdown .dropdown-option a{
+    background-color: #5bc0de;
+    margin-top:1px;
+    display:block;
+}
+.menu .content ul .dropdown .dropdown-option a:hover{
+    background-color: #2a91af;
+   
+
+}
+
+/********************************************************************/
+#social-icon {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+#social-icon li{
+    margin-right: 20px;
+    list-style-type: none;
+}
+#social-icon li a{
+      
+}
+#social-icon li a i {
+    font-size: 30px;
+    color: #1A5C7A;
+}
+#social-icon li a #twitter:hover {
+    color: #1da1f2;
+}
+#social-icon li a #facebook:hover {
+    color: #3b5998;
+}
+#social-icon li a #phone:hover {
+    color: #009900;
+}
+/********************************************************************/
+.wrapper {
+    margin: 0 auto;
+    width:1160px;
+    direction: rtl;
+}
+.wrapper .main{
+    direction:ltr;
+    margin-top:30px;
+}
+.wrapper .main .sub_menu{
+    margin-bottom:2px;
+    background-color:#fff;
+
+}
+.wrapper .main .sub_menu ul {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.wrapper .main .sub_menu ul li {
+    list-style-type: none;
+    text-align:center;   
+    width:270px;
+}
+.wrapper .main .sub_menu ul li:hover {
+    background-color: #67be13 !important;
+   
+}
+.wrapper .main .sub_menu ul li a{
+   
+    text-decoration: none;
+    display: block;
+}
+.wrapper .main .sub_menu ul li img {
+   height:68px;
+}
+.wrapper .main .sub_menu ul .home{
+    width:80px;   
+}
+.wrapper .main .sub_menu ul .home .home{
+    font-size: 30px;
+    color: #666;
+    text-decoration: none;   
+    display:block;
+    width:100%;
+    text-align:center;
+    line-height:1;
+    width:80px; 
+    height:100%;
+}
+.wrapper .main .sub_menu ul .home .home i{   
+    margin-top:17px;
+}
+.wrapper .content{
+    background-color:#fff;
+    padding-top:20px;
+    padding:20px 10px 30px 10px;
+}
+/********************************************************/
+
+footer .web_details{
+     width: 100%;
+    background-color:#add8e6;
+   
+}
+footer .web_details .content{
+    width:1100px;
+    display:flex;
+    flex-wrap:wrap;
+    margin:0 auto;
+    padding-top:60px;
+    padding-bottom:30px;
+}
+footer .web_details ul{
+    list-style-type: none;
+}
+footer .web_details div{
+    margin-left:50px;
+    margin-right:50px;
+}
+footer li a {
+    text-decoration: none;
+    color: #428BCA;
+}
+footer .web_details .content .pay_and_lic{
+    width:200px;
+}
+footer .web_details .content .pay_and_lic .pay_methods {
+    display:flex;
+    flex-wrap:wrap;
+}
+footer .web_details .content .pay_and_lic .pay_methods li img{
+    display:block;
+}
+footer li {
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+footer h4 {
+    color: #1A5C7A;
+    margin-bottom: 20px;
+}
+footer .rights {
+    width: 100%;
+    background-color: #123042;
+    text-align: center;
+    font-size: 12px;
+}
+footer .rights .content{
+    width:1150px;
+    margin: 0 auto;
+    padding-top:40px;
+    padding-bottom:50px;
+}
+footer .rights .content a{
+    color:#fff;
+    
+}
+footer .rights .content p{
+    color: rgba(255, 255, 255, .5);
+    margin-top:12px;
+}
+/*************************************************/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
