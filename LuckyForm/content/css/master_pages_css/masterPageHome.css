@@ -121,7 +121,28 @@ body{
     list-style-type: none;
     text-align:center;   
     width:270px;
+   background-repeat:no-repeat;
+    background-position:center center;
+padding:20px 0;
 }
+
+.loto {
+    background-image: url('../../Images/Home/logos/Lotto-sml.png');
+}
+.chance {
+    background-image: url('../../Images/Home/logos/Chance-sml.png');
+}
+._777{
+    background-image: url('../../Images/Home/logos/_777-sml.png');
+}
+._123 {
+    background-image: url('../../Images/Home/logos/_123-sml.png');
+}
+
+
+
+
+
 .wrapper .main .sub_menu ul li:hover {
     background-color: #67be13 !important;
    

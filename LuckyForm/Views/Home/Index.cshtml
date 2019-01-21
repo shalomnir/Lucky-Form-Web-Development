@@ -1,4 +1,4 @@
-﻿@using LuckyForm.Models
+﻿
 @{
      Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 }
@@ -11,19 +11,7 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="loterries">
-        @if(Model != null)
-        { 
-            foreach (Form form in Model)
-            {
-            <div class="lottery">
-                <a href="loto.html">@form.Name</a>
-                <button class="play_now">Play Now</button>
-            </div>
-            }
-        }
-        
-    </div>
+    
     
     <h3>On Scroll Sticky Header</h3>
     <p>The header will stick to the top when you reach its scroll position.</p>

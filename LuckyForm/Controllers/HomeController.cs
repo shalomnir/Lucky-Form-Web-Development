@@ -16,11 +16,10 @@ namespace LuckyForm.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult GetFormsInType(string Type)
         {
-
-            return View("Index",formDB.GetAllForms(Type));
+            return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
     }
     

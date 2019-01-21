@@ -25,7 +25,7 @@ namespace LuckyForm.DAL
 
         public List<Form> GetAllForms(string Type)
         {
-            string sql = @"SELECT * FROM Forms WHERE Type=" + Type;           
+            string sql = @"SELECT * FROM Forms WHERE TypeID='"+Type+"'";           
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {

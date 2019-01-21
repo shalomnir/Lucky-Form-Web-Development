@@ -1,0 +1,30 @@
+﻿@using LuckyForm.Models
+@{
+    Layout = null;
+}
+@model List<Form>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>lotteries</title>
+</head>
+<body>
+    <div> 
+        <div class="loterries">
+            @if (Model != null)
+            {
+                foreach (Form form in Model)
+                {
+                    <div class="lottery">
+                        <a href="loto.html">@form.Name</a>
+                        <button class="play_now">Play Now</button>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</body>
+</html>
