@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="D:\nir\Lucky-Form-Web-Development\LuckyForm\Views/Home/Index.cshtml" />
+
 $("document").ready(
     function () {
         // When the user scrolls the page, execute myFunction 
@@ -18,7 +19,8 @@ $("document").ready(
         $(".sub_menu li").click(
             function () {
                 var index = $(this).index();
-                
+                if (index == '0')
+                    $('#LotteryContent').html('Views/Home/Index.cshtml');
                 $.ajax({
                     url: '/Home/GetFormsInType?Type=' + index,
                     dataType: "html",
@@ -26,6 +28,7 @@ $("document").ready(
                         var img = "<img src='/Content/Images/wait.GIF' width=500>";
                         $('#readerDitals').html(img)
                     },*/
+                   
                     success: function (data) {
                         $('#LotteryContent').html(data);
                     }

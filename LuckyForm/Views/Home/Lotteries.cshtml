@@ -9,10 +9,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>lotteries</title>
+    <link href="~/content/css/Home/Lotteries.css" rel="stylesheet" />
 </head>
-<body>
-    <div> 
-        <div class="loterries">
+<body>  
+        <div class="lottoryblocks-wrapper">
             @if (Model != null)
             {
                 foreach (Form form in Model)
@@ -25,6 +25,5 @@
             }
 
         </div>
-    </div>
 </body>
 </html>

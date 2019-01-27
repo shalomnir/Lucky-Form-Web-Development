@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DatabaseLotto.accdb" />
+    <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\Images\Background.jpg" />
     <Content Include="content\Images\Home\casino_card_main0.jpg" />
@@ -133,9 +134,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\css\Home\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

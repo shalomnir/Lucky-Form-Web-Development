@@ -1,0 +1,18 @@
+﻿body {
+}
+.lottoryblocks-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    width:905px;
+    margin:0 auto;
+}
+.lottoryblocks-wrapper .lottery{
+    width:250px;
+    border:solid 0;
+    border-radius:5px;
+    text-align:center;
+    background:#EFEFEF;
+    margin-left:25px;
+    margin-right:25px;
+    margin-bottom:30px;
+}
