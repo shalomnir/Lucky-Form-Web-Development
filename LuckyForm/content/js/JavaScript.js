@@ -1,7 +1,9 @@
 ﻿/// <reference path="D:\nir\Lucky-Form-Web-Development\LuckyForm\Views/Home/Index.cshtml" />
 
 $("document").ready(
+
     function () {
+        var index = 0;
         // When the user scrolls the page, execute myFunction 
         window.onscroll = function () { myFunction() };
         // Get the header
@@ -16,11 +18,22 @@ $("document").ready(
                 header.classList.remove("sticky");
             }
         }
+        $(".sub_menu li").hover(
+            function () {
+                $(".sub_menu li").css({ "background-color": "#fff" });
+                $(this).css({ "background-color": "#67be13" });
+                $(".sub_menu li:eq(" + index + ")").css({ "background-color": "#67be13" });
+            });
+
         $(".sub_menu li").click(
             function () {
-                var index = $(this).index();
-                if (index == '0')
-                    $('#LotteryContent').html('Views/Home/Index.cshtml');
+                $(".sub_menu li").css({ "background-color": "#fff" });
+                $(this).css({ "background-color": "#67be13" });
+                index = $(this).index();
+                if (index != '0')
+                    $('.content .home-wrapper').css({ "display": "hide" });
+                else
+                    $('.content .home-wrapper').css({ "display": "block" });
                 $.ajax({
                     url: '/Home/GetFormsInType?Type=' + index,
                     dataType: "html",

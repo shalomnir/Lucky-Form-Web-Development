@@ -117,13 +117,18 @@ body{
     flex-wrap: wrap;
    
 }
+.wrapper .main .sub_menu ul:hover {
+    background-color:#fff;
+   
+}
 .wrapper .main .sub_menu ul li {
     list-style-type: none;
     text-align:center;   
     width:270px;
    background-repeat:no-repeat;
     background-position:center center;
-padding:20px 0;
+    padding:20px 0;
+    border-radius:15px 15px 0 0;
 }
 
 .loto {
