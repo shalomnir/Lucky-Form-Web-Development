@@ -3,6 +3,7 @@
 $("document").ready(
 
     function () {
+        $('.customStyleTabs').simpleTabs();
         var index = 0;
         // When the user scrolls the page, execute myFunction 
         window.onscroll = function () { myFunction() };
@@ -47,4 +48,11 @@ $("document").ready(
                     }
                 });
             });
+
+        $(".xxx").click(
+            function()
+            {
+                alert("Hello");
+            }
+                );
     });

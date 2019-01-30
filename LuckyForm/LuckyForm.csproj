@@ -102,7 +102,9 @@
     <Content Include="content\Images\Home\logos\Lotto-sml.png" />
     <Content Include="content\Images\Home\logos\_123-sml.png" />
     <Content Include="content\Images\Home\logos\_777-sml.png" />
-    <Content Include="content\js\JavaScript.js" />
+    <Content Include="content\js\master_page.js" />
+    <Content Include="content\js\simpleTabs.js" />
+    <Content Include="content\js\simpleTabs.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

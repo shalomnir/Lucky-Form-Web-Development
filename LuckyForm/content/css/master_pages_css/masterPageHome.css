@@ -1,4 +1,5 @@
-﻿* {
+﻿@charset "utf-8"; 
+* {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -107,7 +108,7 @@ body{
     direction:ltr;
     margin-top:30px;
 }
-.wrapper .main .sub_menu{
+/*.wrapper .main .sub_menu{
     margin-bottom:2px;
     background-color:#fff;
 
@@ -130,7 +131,7 @@ body{
     padding:20px 0;
     border-radius:15px 15px 0 0;
 }
-
+    */
 .loto {
     background-image: url('../../Images/Home/logos/Lotto-sml.png');
 }
@@ -147,7 +148,7 @@ body{
 
 
 
-
+/*
 .wrapper .main .sub_menu ul li:hover {
     background-color: #67be13 !important;
    
@@ -182,6 +183,20 @@ body{
     padding-top:20px;
     padding:20px 10px 30px 10px;
 }
+
+    */
+*{margin:0; padding:0; box-sizing:border-box; }
+        
+        
+/*simpleTabs_button*/
+.simpleTabs_button{list-style:none; font-size:0;}
+.simpleTabs_button li{display:inline-block; font-size:15px; padding:10px 20px; margin:0 5px 5px 0; border:1px solid #e9ecef; text-align:center; cursor:pointer; 
+                      -ms-user-select:none; -webkit-user-select:none; user-select:none;}
+.simpleTabs_button li.active{ background:#f1f3f5; }
+
+/*simpleTabs_contents*/
+[data-st-title]{min-height:100px; padding:10px; display:none; opacity:0; transition:opacity 0.4s;}
+[data-st-title].active{ opacity:1; }
 /********************************************************/
 
 footer .web_details{
