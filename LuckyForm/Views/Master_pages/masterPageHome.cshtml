@@ -12,9 +12,6 @@
     <link href="~/content/css/master_pages_css/masterPageHome.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="~/content/js/master_page.js"></script>
-    
-    <script src="~/content/js/simpleTabs.js"></script>
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
@@ -122,15 +119,9 @@
                     <li class="_123"></li>                  
                 </ul>
             </div>
+
             <div class="content">
-                <div class="customStyleTabs">
-                    <div  data-st-title="Button 01">@RenderBody()</div>
-                    <div  data-st-title="Button 02">Contents 02 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-                    <div  data-st-title="Button 03">Contents 03 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit consequatur</div>
-                    <div  data-st-title="Button 04">Contents 04 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit consequatur, ipsum ullam, vero quo</div>
-                    <div  data-st-title="Button 05">Contents 05 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit consequatur, ipsum ullam</div>
-                </div>
-               
+                @RenderBody()
             </div>
 
         </div>

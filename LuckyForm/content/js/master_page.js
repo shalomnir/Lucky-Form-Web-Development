@@ -3,8 +3,6 @@
 $("document").ready(
 
     function () {
-        $('.customStyleTabs').simpleTabs();
-        var index = 0;
         // When the user scrolls the page, execute myFunction 
         window.onscroll = function () { myFunction() };
         // Get the header
@@ -19,40 +17,21 @@ $("document").ready(
                 header.classList.remove("sticky");
             }
         }
-        $(".sub_menu li").hover(
-            function () {
-                $(".sub_menu li").css({ "background-color": "#fff" });
-                $(this).css({ "background-color": "#67be13" });
-                $(".sub_menu li:eq(" + index + ")").css({ "background-color": "#67be13" });
-            });
+       
 
         $(".sub_menu li").click(
             function () {
-                $(".sub_menu li").css({ "background-color": "#fff" });
-                $(this).css({ "background-color": "#67be13" });
-                index = $(this).index();
-                if (index != '0')
-                    $('.content .home-wrapper').css({ "display": "hide" });
-                else
-                    $('.content .home-wrapper').css({ "display": "block" });
+                
+                var index = $(this).index();
+                
                 $.ajax({
                     url: '/Home/GetFormsInType?Type=' + index,
-                    dataType: "html",
-                    /*beforeSend: function () {
-                        var img = "<img src='/Content/Images/wait.GIF' width=500>";
-                        $('#readerDitals').html(img)
-                    },*/
-                   
+                    dataType: "html",                   
                     success: function (data) {
                         $('#LotteryContent').html(data);
                     }
                 });
             });
 
-        $(".xxx").click(
-            function()
-            {
-                alert("Hello");
-            }
-                );
+       
     });
