@@ -1,6 +1,6 @@
 ﻿@using LuckyForm.Models
 @{
-    Layout = null;
+    Layout = null;    
 }
 @model List<Form>
 <link href="http://localhost:2973/content/css/Home/flipclock.css" rel="stylesheet" />
@@ -16,12 +16,12 @@
                     foreach (Form form in Model)
                     {
                         <div class="lottery">
-                            <p align="center" style="font-family: 'Spoiler Black'; font-size: 36pt;">
-                                <span style="background-color: #ee2e24; color: white;">&nbsp;לוֹטוֹ </span> 
-                                <span style="background-color: #16478e; color: white;">&nbsp;שיטתי&nbsp;</span>
-                            </p>
+                            <img src="~/content/Images/Home/logos/@form.ImagePath" />
+                                               
                             <a href="loto.html">@form.Name</a>
+                            
                             <button class="play_now">Play Now</button>
+
                         </div>
                     }
                 }
@@ -42,7 +42,7 @@
 		        }
 		    });
 
-		    clock.setTime(220880);
+		    clock.setTime(10);
 		    clock.setCountdown(true);
 		    clock.start();
 

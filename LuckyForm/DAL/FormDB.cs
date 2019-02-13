@@ -25,7 +25,9 @@ namespace LuckyForm.DAL
 
         public List<Form> GetAllForms(string Type)
         {
-            string sql = @"SELECT * FROM Forms WHERE TypeID='"+Type+"'";           
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumsInTable, Forms.FormsNumOfTables, Forms.FormsName, Forms.TypeID, Type.TypeImagePath
+            FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
+            WHERE (((Forms.TypeID)='" + Type+"'));";           
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
@@ -37,6 +39,7 @@ namespace LuckyForm.DAL
                     form.Name = dr["FormsName"].ToString();
                     form.NumOfTables = int.Parse(dr["FormsNumOfTables"].ToString());
                     form.NumsInTables = int.Parse(dr["FormsNumsInTable"].ToString());
+                    form.ImagePath = dr["TypeImagePath"].ToString();
                     allForms.Add(form);
                 }
                 return allForms;
