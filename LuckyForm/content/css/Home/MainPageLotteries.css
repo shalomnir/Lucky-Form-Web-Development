@@ -1,0 +1,77 @@
+﻿.LotteriesWrapper{
+    direction:ltr;
+}
+
+.LotteriesWrapper .sub_menu{
+    margin-bottom:2px;
+    background-color:#fff;
+
+}
+.LotteriesWrapper .sub_menu ul {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.LotteriesWrapper .sub_menu ul:hover {
+    background-color:#fff;
+   
+}
+.LotteriesWrapper .sub_menu ul li {
+    list-style-type: none;
+    text-align:center;   
+    width:270px;
+   background-repeat:no-repeat;
+    background-position:center center;
+    padding:20px 0;
+}
+.loto {
+    background-image: url('../../Images/Home/logos/Lotto-sml.png');
+}
+.chance {
+    background-image: url('../../Images/Home/logos/Chance-sml.png');
+}
+._777{
+    background-image: url('../../Images/Home/logos/_777-sml.png');
+}
+._123 {
+    background-image: url('../../Images/Home/logos/_123-sml.png');
+}
+
+
+.LotteriesWrapper .sub_menu ul li:hover {
+    background-color: #67be13 !important;
+    cursor:pointer;
+   
+}
+.LotteriesWrapper .sub_menu ul li a{
+   
+    text-decoration: none;
+    display: block;
+}
+.LotteriesWrapper .sub_menu ul li img {
+   height:68px;
+}
+.LotteriesWrapper .sub_menu ul .home{
+    width:80px;   
+}
+.LotteriesWrapper .sub_menu ul .home .home{
+    font-size: 30px;
+    color: #666;
+    text-decoration: none;   
+    display:block;
+    width:100%;
+    text-align:center;
+    line-height:1;
+    width:80px; 
+    height:100%;
+}
+.LotteriesWrapper .sub_menu ul .home .home i{   
+    margin-top:17px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+

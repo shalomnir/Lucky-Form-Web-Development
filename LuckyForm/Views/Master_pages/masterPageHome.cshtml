@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+    string[] MONTHS = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+   
+
+
 }
 
 <!DOCTYPE html>
@@ -20,7 +24,7 @@
             <ul>
 
                 <li>
-                    <a href="/ConectUs.html">
+                    <a class="menu_section" href="/ConectUs.html">
                         Conect Us
                         <i class="far fa-envelope-open"></i>
                     </a>
@@ -28,7 +32,7 @@
 
                 </li>
                 <li class="dropdown">
-                    <a href="/Cart.html">
+                    <a class="menu_section" href="/Cart.html">
                         Cart
                         <i class="fas fa-shopping-cart"></i>
                     </a> 
@@ -38,7 +42,7 @@
                     </div>                           
                 </li>
                 <li class="dropdown">
-                    <a href="/GameOption.html">
+                    <a class="menu_section" href="/GameOption.html">
                         Game Option
                         <i class="fas fa-location-arrow"></i>
                     </a>
@@ -52,20 +56,20 @@
                     </div>
                 </li>
                 <li>
-                    <a href="/Register.html">
+                    <a class="menu_section" href="/Register.html">
                         Register
                         <i class="fas fa-user"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="/Login.html">
+                    <a class="menu_section" onclick="document.getElementById('modal-wrapper').style.display='block'">
                         Login
                         <i class="fas fa-lock"></i>
-                    </a>
+                    </a>                   
 
                 </li>
                 <li>
-                    <a href="">
+                    <a class="menu_section" href="">
                         Home
                         <i class="fas fa-home"></i>
                     </a>
@@ -74,7 +78,7 @@
             </ul>
         </div>
     </div>
-    <div class="wrapper">
+    <div class="Wrapper">
         <div class="pop-up-Window">
             <div class="sign-up">
                 <form action="~/">
@@ -109,21 +113,149 @@
                 </a>
             </li>
         </ul>
-        <div class="main">
-            <div class="sub_menu">
-                <ul>
-                    <li class="home" ><a href="" class="home"> <i class="fas fa-home"></i></a></li>
-                    <li class="loto"></li>
-                    <li class = "chance"></li>
-                    <li class="_777"></li>
-                    <li class="_123"></li>                  
-                </ul>
-            </div>
+        <div class="main">           
+            <div id="modal-wrapper" class="modal">
 
-            <div class="content">
-                @RenderBody()
-            </div>
+                <div class="modal-content animate">                    
+                    <form id="#commentForm" class="sign-up" method="post" action="/Home/SignUp">
+                        <div class="modal-header">SIGN UP</div>
+                        <div class="sign_up_block">
 
+
+                            <div class="row">
+                                <label>YOUR PERSONAL INFORMATION</label>
+                                <select class="custom-select" name="gender">
+                                    <option value="">Title</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Ms</option>
+                                </select>
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input id="cname" class="first_name" type="text" placeholder="First name" name="first_name" required>
+                            </div>
+                            <div class="last_name row">
+                                <span class="icon">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input id="cname" type="text" placeholder="Last name" name="last_name" required>
+                            </div>
+                            <div class="email row">
+                                <span class="icon">
+                                    <i class="far fa-envelope"></i>
+                                </span>
+                                <input type="text" placeholder="Email" name="email" required>
+                            </div>
+
+                            <div class="date row">
+                                <label>DATE OF BIRTH</label>
+                                <select class="custom-select" name="select_year" required>
+                                    @for (int year = 1900; year <= int.Parse(DateTime.Now.Year.ToString()); year++)
+                                    {
+                                         <option value="@year">@year</option>
+                                    }
+                                </select>
+                                <select class="custom-select" name="select_month" required>
+                                    @for(int month = 1;month <= 12;month++)
+                                    {
+                                        <option value="@month">@MONTHS[month-1]</option>
+                                    }
+                                </select>
+                                <select class="custom-select" name="select_day" required>
+                                    @for (int day = 1; day <= 31; day++)
+                                    {
+                                        <option value="@day">@day</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="row">
+                                <label>YOUR PASSWORD</label>
+                                <span class="icon">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <input id="psw-signup" type="password" placeholder="Password" name="password" required>
+                                <span onclick="ShowPass('psw-signup')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
+                            </div>
+                            <script>
+                                function ShowPass(id) {
+                                    var x = document.getElementById(id);
+                                    if (x.type === "password") {
+                                        x.type = "text";
+                                    } else {
+                                        x.type = "password";
+                                    }
+                                }
+                            </script>
+
+                            <div class="row">
+                                <label>CONTACT NUMBER</label>
+                                <span class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                                <input type="text" placeholder="Mobile number" name="mobile_number" required>
+                            </div>
+
+                            <button class="sign_up_button submit_button" type="submit">Crate Account</button>
+                        </div>
+
+                    </form>
+                    <form class="login" action="/action_page.php">
+                        <div class="modal-header">ALREADY A MEMBER</div>
+                        <div class="login_block">
+
+                            <div class="email row">
+                                <label>YOUR EMAIL</label>
+                                <span class="icon">
+                                    <i class="far fa-envelope"></i>
+                                </span>
+                                <input type="text" placeholder="Email" name="email">
+                            </div>
+                            <div class="row">
+                                <label>YOUR PASSWORD</label>
+                                <span class="icon">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                                <input id="psw-login" type="password" placeholder="Password" name="password">
+                                <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
+                            </div>
+                            <button class="login_button submit_button" type="submit">Login</button>
+                            <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+                        </div>
+
+                    </form>
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                    </div>
+                </div>
+                     <script>
+                         var $form = $("form"),
+                             $successMsg = $(".alert");
+
+                         $.validity.setup({
+                             outputMode: "label"
+                         });
+
+                         $form.validity(function () {
+                             $form.find("input[name='first_name'] input[name='last_name']")
+                                 .require()
+                                 .match(
+                                 /^[a-zA-Z\s]{3,}$/gmi,
+                                 "A valid name (only letters and spaces are allowed)"
+                                 );
+                             $form.find("input[name='email']")
+                                 .require("Please specify #{field} if you want to be on the mailing list.")
+                                 .match("email");
+                         });
+
+                         $form.on("submit", function (e) {
+                             if (!$(".error").length) {
+                                 e.preventDefault();
+                                 $successMsg.show();
+                             }
+                         });
+                     </script>      
+            </div>
+            @RenderBody()
         </div>
         <div>
         </div>

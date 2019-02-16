@@ -93,6 +93,7 @@
     <Content Include="App_Data\DatabaseLotto.accdb" />
     <Content Include="content\css\Home\flipclock.css" />
     <Content Include="content\css\Home\Lotteries.css" />
+    <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\Images\Background.jpg" />
     <Content Include="content\Images\Home\casino_card_main0.jpg" />
@@ -103,6 +104,7 @@
     <Content Include="content\Images\Home\logos\Lotto-sml.png" />
     <Content Include="content\Images\Home\logos\_123-sml.png" />
     <Content Include="content\Images\Home\logos\_777-sml.png" />
+    <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />
     <Content Include="content\js\plugins\flipclock.min.js" />
     <Content Include="Global.asax" />
@@ -113,6 +115,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\FormDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
+    <Compile Include="DAL\UserDB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,6 +132,8 @@
     <Content Include="Views\Master_pages\masterPageHome.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Lotteries.cshtml" />
+    <Content Include="Views\Home\MainPageLotteries.cshtml" />
+    <Content Include="content\fonts\HelveticaNeueLight.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

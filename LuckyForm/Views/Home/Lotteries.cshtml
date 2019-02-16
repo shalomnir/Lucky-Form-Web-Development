@@ -6,46 +6,48 @@
 <link href="http://localhost:2973/content/css/Home/flipclock.css" rel="stylesheet" />
 <script src="http://localhost:2973/content/js/plugins/flipclock.min.js"></script>
 <link href="~/content/css/Home/Lotteries.css" rel="stylesheet" />
-        <div class="stam">
-           <div class="clock" style="margin:2em;"></div>
-           <div class="message"></div>
-</div>
-            <div class="lottoryblocks-wrapper">            
-                @if (Model != null)
-                {
-                    foreach (Form form in Model)
-                    {
-                        <div class="lottery">
-                            <img src="~/content/Images/Home/logos/@form.ImagePath" />
-                                               
-                            <a href="loto.html">@form.Name</a>
-                            
-                            <button class="play_now">Play Now</button>
 
-                        </div>
-                    }
-                }
+
+<div class="stam">
+    <!--<div class="clock" style="margin:2em;"></div>-->
+    <div class="message"></div>
+</div>
+<div class="lottoryblocks-Wrapper">            
+    @if (Model != null)
+    {
+        foreach (Form form in Model)
+        {
+            <div class="lottery">
+                <img src="~/content/Images/Home/logos/@form.ImagePath" />
+                                   
+                <a href="loto.html">@form.Name</a>
+                
+                <a href="#" class="play_now_button">Play Now</a>
 
             </div>
-    <script type="text/javascript">
+        }
+    }
+
+</div>
+<script type="text/javascript">
+	var clock;
+	$(document).ready(function() {
 		var clock;
-		$(document).ready(function() {
-			var clock;
 
-			clock = $('.clock').FlipClock({
-		        clockFace: 'DailyCounter',
-		        autoStart: false,
-		        callbacks: {
-		        	stop: function() {
-		        		$('.message').html('The clock has stopped!')
-		        	}
-		        }
-		    });
+		clock = $('.clock').FlipClock({
+	        clockFace: 'DailyCounter',
+	        autoStart: false,
+	        callbacks: {
+	        	stop: function() {
+	        		$('.message').html('The clock has stopped!')
+	        	}
+	        }
+	    });
 
-		    clock.setTime(10);
-		    clock.setCountdown(true);
-		    clock.start();
+	    clock.setTime(10);
+	    clock.setCountdown(true);
+	    clock.start();
 
-		});
-    </script>
+	});
+</script>
 

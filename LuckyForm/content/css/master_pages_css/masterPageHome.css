@@ -1,4 +1,8 @@
-﻿@charset "utf-8"; 
+﻿@charset "utf-8";
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../../fonts/HelveticaNeueLight.ttf') format('truetype');
+}
 * {
     margin: 0;
     padding: 0;
@@ -41,6 +45,7 @@ body{
     padding-top: 17px;
     width:120px;
     padding-bottom: 15px;
+    cursor:pointer;
 }
 .menu .content ul li .dropdown-option {
     
@@ -100,88 +105,203 @@ body{
     color: #009900;
 }
 /********************************************************************/
-.wrapper {
+
+.Wrapper {
     margin: 0 auto;
     width:1160px;
     direction: rtl;
 }
-.wrapper .main{
+.Wrapper .main{
     direction:ltr;
     margin-top:30px;
 }
-.wrapper .main .sub_menu{
-    margin-bottom:2px;
-    background-color:#fff;
 
-}
-.wrapper .main .sub_menu ul {
-    display: flex;
-    flex-wrap: wrap;
-   
-}
-.wrapper .main .sub_menu ul:hover {
-    background-color:#fff;
-   
-}
-.wrapper .main .sub_menu ul li {
-    list-style-type: none;
-    text-align:center;   
-    width:270px;
-   background-repeat:no-repeat;
-    background-position:center center;
-    padding:20px 0;
-}
-.loto {
-    background-image: url('../../Images/Home/logos/Lotto-sml.png');
-}
-.chance {
-    background-image: url('../../Images/Home/logos/Chance-sml.png');
-}
-._777{
-    background-image: url('../../Images/Home/logos/_777-sml.png');
-}
-._123 {
-    background-image: url('../../Images/Home/logos/_123-sml.png');
-}
-
-
-
-
-.wrapper .main .sub_menu ul li:hover {
-    background-color: #67be13 !important;
-   
-}
-.wrapper .main .sub_menu ul li a{
-   
-    text-decoration: none;
-    display: block;
-}
-.wrapper .main .sub_menu ul li img {
-   height:68px;
-}
-.wrapper .main .sub_menu ul .home{
-    width:80px;   
-}
-.wrapper .main .sub_menu ul .home .home{
-    font-size: 30px;
-    color: #666;
-    text-decoration: none;   
-    display:block;
-    width:100%;
-    text-align:center;
-    line-height:1;
-    width:80px; 
-    height:100%;
-}
-.wrapper .main .sub_menu ul .home .home i{   
-    margin-top:17px;
-}
-.wrapper .content{
+.Wrapper .content{
     background-color:#fff;
     padding-top:20px;
     padding:20px 10px 30px 10px;
 }
 
+
+.custom-select {
+    border-radius: 4px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #bbb;
+    box-shadow: none;
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 1.7;
+    margin: 0px;
+    padding: 10px 12px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    text-rendering: auto;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #bbb;
+    box-shadow: none;
+    color: #666;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 1.7;
+    margin: 0px;
+    padding: 10px 12px;
+    border-radius: 0 4px 4px 0;
+    width: 80%;
+}
+.first_name {
+    width: 60.5%!important;
+}
+.row{
+    
+    margin: 15px auto;
+}
+.icon {
+    font-size: 18px;
+    font-weight: 400;
+    padding:9px 5px 11px 10px;
+    height:40px;
+    color: #555;
+    text-align: center;
+   
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    border-right:none;
+}
+/* Set a style for all buttons */
+.login_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    font-size: 20px;
+}
+
+.submit_button {
+    display: block;
+    width: 90%;
+    padding: 15px 21px;
+    font-size: 18px;
+    border-radius: 6px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #67be13 !important;
+    color: #FFF !important;
+    border: 1px solid transparent;
+    margin:0 auto;
+    
+}
+/* The Modal (background) */
+.modal {
+    
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+    border: 1px solid #888;
+    width: 910px;
+    padding-bottom: 30px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.modal-content .modal-header{
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #B4B4B4;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: #1a5c7a;
+}
+.modal-content label{
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #1a5c7a;
+    display:block;
+}
+.main .modal form {
+    width: 420px;
+    display: inline-block;
+    margin:10px 10px;
+}
+.main .modal .sign-up {
+   
+}
+
+.main .modal .login {
+   
+}
+
+.main .modal .sign-up .sign_up_block {
+    width:400px;
+    margin: 0 auto;
+}
+.main .modal .login .login_block {
+    width: 400px;
+    margin: 0 auto;
+}
+.imgcontainer {
+    text-align: center;
+    margin: 10px 0 12px 0;
+    position: relative;
+}
+    /* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    animation: zoom 0.6s
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
    
 
 footer .web_details{
