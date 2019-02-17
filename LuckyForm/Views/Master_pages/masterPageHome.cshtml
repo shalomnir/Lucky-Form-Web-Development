@@ -15,6 +15,7 @@
     <title>masterPageHome</title>        
     <link href="~/content/css/master_pages_css/masterPageHome.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/content/js/plugins/jquery.validate.min.js"></script>
     <script src="~/content/js/master_page.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
@@ -117,7 +118,7 @@
             <div id="modal-wrapper" class="modal">
 
                 <div class="modal-content animate">                    
-                    <form id="#commentForm" class="sign-up" method="post" action="/Home/SignUp">
+                    <form id="commentForm" class="sign-up" method="post" action="/Home/SignUp">
                         <div class="modal-header">SIGN UP</div>
                         <div class="sign_up_block">
 
@@ -150,7 +151,7 @@
                             <div class="date row">
                                 <label>DATE OF BIRTH</label>
                                 <select class="custom-select" name="select_year" required>
-                                    @for (int year = 1900; year <= int.Parse(DateTime.Now.Year.ToString()); year++)
+                                    @for (int year = int.Parse(DateTime.Now.Year.ToString()); year >= 1900; year--)
                                     {
                                          <option value="@year">@year</option>
                                     }
@@ -173,7 +174,7 @@
                                 <span class="icon">
                                     <i class="fa fa-lock"></i>
                                 </span>
-                                <input id="psw-signup" type="password" placeholder="Password" name="password" required>
+                                <input class="password" id="psw-signup" type="password" placeholder="Password" name="password" required>
                                 <span onclick="ShowPass('psw-signup')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
                             </div>
                             <script>
@@ -215,7 +216,7 @@
                                 <span class="icon">
                                     <i class="fa fa-lock"></i>
                                 </span>
-                                <input id="psw-login" type="password" placeholder="Password" name="password">
+                                <input class="password" id="psw-login" type="password" placeholder="Password" name="password">
                                 <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
                             </div>
                             <button class="login_button submit_button" type="submit">Login</button>
