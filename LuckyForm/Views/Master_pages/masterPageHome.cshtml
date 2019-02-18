@@ -130,39 +130,39 @@
                                     <option value="Mr">Mr</option>
                                     <option value="Mrs">Ms</option>
                                 </select>
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="fa fa-user"></i>
                                 </span>
-                                <input id="cname" class="first_name" type="text" placeholder="First name" name="first_name" required>
+                                <input id="cname" class="first_name form-group" type="text" placeholder="First name" name="first_name" required>
                             </div>
                             <div class="last_name row">
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="fa fa-user"></i>
                                 </span>
-                                <input id="cname" type="text" placeholder="Last name" name="last_name" required>
+                                <input id="cname" class="form-group" type="text" placeholder="Last name" name="last_name" required>
                             </div>
                             <div class="email row">
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="far fa-envelope"></i>
                                 </span>
-                                <input type="text" placeholder="Email" name="email" required>
+                                <input type="text" class="form-group" placeholder="Email" name="email" required>
                             </div>
 
                             <div class="date row">
                                 <label>DATE OF BIRTH</label>
-                                <select class="custom-select" name="select_year" required>
+                                <select class="custom-select form-group" name="select_year" required>
                                     @for (int year = int.Parse(DateTime.Now.Year.ToString()); year >= 1900; year--)
                                     {
                                          <option value="@year">@year</option>
                                     }
                                 </select>
-                                <select class="custom-select" name="select_month" required>
+                                <select class="custom-select form-group" name="select_month" required>
                                     @for(int month = 1;month <= 12;month++)
                                     {
                                         <option value="@month">@MONTHS[month-1]</option>
                                     }
                                 </select>
-                                <select class="custom-select" name="select_day" required>
+                                <select class="custom-select form-group" name="select_day" required>
                                     @for (int day = 1; day <= 31; day++)
                                     {
                                         <option value="@day">@day</option>
@@ -171,10 +171,10 @@
                             </div>
                             <div class="row">
                                 <label>YOUR PASSWORD</label>
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="fa fa-lock"></i>
                                 </span>
-                                <input class="password" id="psw-signup" type="password" placeholder="Password" name="password" required>
+                                <input class="password form-group" id="psw-signup" type="password" placeholder="Password" name="password" required>
                                 <span onclick="ShowPass('psw-signup')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
                             </div>
                             <script>
@@ -190,10 +190,10 @@
 
                             <div class="row">
                                 <label>CONTACT NUMBER</label>
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="fa fa-phone"></i>
                                 </span>
-                                <input type="text" placeholder="Mobile number" name="mobile_number" required>
+                                <input type="text" class="form-group" placeholder="Mobile number" name="mobile_number" required>
                             </div>
 
                             <button class="sign_up_button submit_button" type="submit">Crate Account</button>
@@ -206,10 +206,10 @@
 
                             <div class="email row">
                                 <label>YOUR EMAIL</label>
-                                <span class="icon">
+                                <span class="icon form-group-icon">
                                     <i class="far fa-envelope"></i>
                                 </span>
-                                <input type="text" placeholder="Email" name="email">
+                                <input type="text" class="form-group" placeholder="Email" name="email">
                             </div>
                             <div class="row">
                                 <label>YOUR PASSWORD</label>
@@ -227,34 +227,7 @@
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
                     </div>
-                </div>
-                     <script>
-                         var $form = $("form"),
-                             $successMsg = $(".alert");
-
-                         $.validity.setup({
-                             outputMode: "label"
-                         });
-
-                         $form.validity(function () {
-                             $form.find("input[name='first_name'] input[name='last_name']")
-                                 .require()
-                                 .match(
-                                 /^[a-zA-Z\s]{3,}$/gmi,
-                                 "A valid name (only letters and spaces are allowed)"
-                                 );
-                             $form.find("input[name='email']")
-                                 .require("Please specify #{field} if you want to be on the mailing list.")
-                                 .match("email");
-                         });
-
-                         $form.on("submit", function (e) {
-                             if (!$(".error").length) {
-                                 e.preventDefault();
-                                 $successMsg.show();
-                             }
-                         });
-                     </script>      
+                </div>                   
             </div>
             @RenderBody()
         </div>

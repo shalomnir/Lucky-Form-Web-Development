@@ -323,7 +323,19 @@ input[type=text], input[type=password] {
         transform: scale(1)
     }
 }
-   
+
+label.error{
+    color:red!important;
+
+}
+.has-error.form-group-icon{
+    border-right:none!important;
+} 
+.has-error{
+    
+    outline:0;
+    border:1px solid red!important;
+}
 
 footer .web_details{
      width: 100%;
