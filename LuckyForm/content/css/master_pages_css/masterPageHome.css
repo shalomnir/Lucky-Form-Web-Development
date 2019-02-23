@@ -323,10 +323,17 @@ input[type=text], input[type=password] {
         transform: scale(1)
     }
 }
-
-label.error{
-    color:red!important;
-
+#loading {
+    display: none;
+    width: 250px;
+    margin: 0 auto;
+}
+#loading img{
+    width:200px;
+    margin:-60px auto 0 auto
+}
+label.error {
+    color: red !important;
 }
 .has-error.form-group-icon{
     border-right:none!important;
@@ -334,9 +341,9 @@ label.error{
 .has-error{
     
     outline:0;
-    border:1px solid red!important;
+    border-color:red!important;
 }
-
+/********************************************************************/
 footer .web_details{
      width: 100%;
     background-color:#add8e6;

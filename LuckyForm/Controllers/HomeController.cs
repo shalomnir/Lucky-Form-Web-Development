@@ -23,19 +23,29 @@ namespace LuckyForm.Controllers
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
         [HttpPost]
-        public bool SignUp(string gender, string first_name, string last_name, string email, string select_year, string select_month, string select_day, string password, string mobile_number)
+        public ActionResult SignUp(string gender, string first_name, string last_name, string email, string select_year, string select_month, string select_day, string password, string mobile_number)
         {
+            
             DateTime BirthDate = new DateTime(int.Parse(select_year), int.Parse(select_month), int.Parse(select_day));
-            User user = new User(gender,first_name,last_name,email,BirthDate.ToString(),password,mobile_number);
+            User user = new User(gender,first_name,last_name,email,BirthDate.ToShortDateString(),password,mobile_number);
+            System.Threading.Thread.Sleep(5000);
+            if((DateTime.Now - BirthDate).TotalDays > 18*365)
+                this.ViewBag.isOverEigtheen = true;
+            else
+                this.ViewBag.isOverEigtheen = false;
 
             if (userDB.IsUserExist(user))
-                return false;
+            {
+                this.ViewBag.isUserExist = true;
+                return View("MainPageLotteries");
+            }
             else
             {
+                this.ViewBag.isUserExist = false;
                 userDB.SignUser(user);
-                return true;
+                return View("MainPageLotteries");
             }
-               
+            
 
         }
     }

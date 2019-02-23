@@ -11,6 +11,10 @@ namespace LuckyForm.DAL
     {
         DataTable dt;
         SqlHelper sqlHelper;
+        public UserDB()
+        {
+            this.sqlHelper = new SqlHelper();
+        }
         public User GetUserByEmail(string email)
         {
             string sql = @"SELECT * FROM Users WHERE UsersEmail='" + email + "'";
@@ -40,9 +44,9 @@ namespace LuckyForm.DAL
         }
         public void SignUser(User user)
         {
-            string sql = @"INSERT INTO Users (UsersFirstName, UsersLastName, UsersEmail, UsersPhoneNumber, UsersSex, UsersBirthDate) 
+            string sql = @"INSERT INTO Users (UsersFirstName, UsersLastName, UsersEmail, UsersPhoneNumber, UsersSex, UsersPassword, UsersBirthDate) 
                             VALUES('" + user.FirstName + "','" + user.LastName + "','" + user.Email + "','" + user.PhoneNumber + "','"
-                            + user.Sex + "','" + user.BirthDate + "');";
+                            + user.Sex + "','" + user.Password + "','" + user.BirthDate + "');";
             this.sqlHelper.GetData(sql);
         }
     }

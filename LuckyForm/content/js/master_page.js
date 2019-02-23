@@ -18,9 +18,9 @@ $("document").ready(
             }
         }
 
-
+        
         $.validator.setDefaults({
-            highlight: function (element) {               
+            highlight: function (element) {              
                 $(element).siblings()                  
                   .addClass('has-error');
                 $(element)                   
@@ -30,16 +30,25 @@ $("document").ready(
             unhighlight: function(element) {
                 $(element)
                   .closest('.form-group')
-                  .removeClass('has-error');
+                   .removeClass('has-error');
+                $(element).siblings()
+                    .removeClass('has-error');
             },
             errorPlacement: function (error, element) {
                 if (element.prop('type') === 'checkbox') {
+                    error.insertAfter(element.parent());
+                } else if (element.prop('name') === 'password') {
                     error.insertAfter(element.parent());
                 } else {
                     error.insertAfter(element);
                 }
             }
         });
+        $.validator.addMethod('lettersOnly', function (value, element) {
+            return this.optional(element)
+                || value.length >= 2               
+            && value.match(new RegExp("^[a-zA-Z\s]+$"));
+        }, 'Your password must contain at least 2 characters and can contain letters only\.')
 
         $.validator.addMethod('strongPassword', function(value, element) {
             return this.optional(element) 
@@ -47,45 +56,55 @@ $("document").ready(
               && /\d/.test(value)
               && /[a-z]/i.test(value);
         }, 'Your password must be at least 6 characters long and contain at least one number and one char\'.')
+        function costumValidate() {
+            $("#verified_form_sign_up,#verified_form_login").each(function () {
+                $(this).validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true,
 
-        $("#commentForm").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true,
-                    
-                },
-                password: {
-                    required: true,
-                    strongPassword: true
-                },
-                
-                first_name: {
-                    required: true,
-                    nowhitespace: true,
-                    lettersonly: true
-                },
-                last_name: {
-                    required: true,
-                    nowhitespace: true,
-                    lettersonly: true
-                },
-               
-                mobile_number: {
-                    required: true,
-                    digits: true,
-                    phonesUK: true
-                }
-            },
-            messages: {
-                email: {
-                    required: 'Please enter an email address.',
-                    email: 'Please enter a <em>valid</em> email address.',
-                    remote: $.validator.format("{0} is already associated with an account.")
-                }
+                        },
+                        password: {
+                            required: true,
+                            strongPassword: true
+                        },
+
+                        first_name: {
+                            required: true,
+                            lettersOnly: true
+                        },
+
+                        last_name: {
+                            required: true,
+                            lettersOnly: true
+                        },
+
+                        mobile_number: {
+                            required: true,
+                            digits: true,
+                            
+                        }
+                    },
+                    messages: {
+                        email: {
+                            required: 'Please enter an email address.',
+                            email: 'Please enter a <em>valid</em> email address.',
+                            remote: $.validator.format("{0} is already associated with an account.")
+                        }
+                    }
+                });
+            });
+        }
+        costumValidate();        
+        var form = $("#verified_form_sign_up,#verified_form_login");
+        form.submit(function () {
+            if (form.valid()) {
+                $("#loading").show();                
+                $(".sign_up_button").css("display", "none");
             }
         });
-
+        
     });
 
         
