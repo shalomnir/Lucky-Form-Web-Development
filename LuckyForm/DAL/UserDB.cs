@@ -34,9 +34,9 @@ namespace LuckyForm.DAL
             }
             return null;
         }
-        public bool IsUserExist(User user)
+        public bool IsUserExistByEmail(string email)
         {
-            string sql = @"SELECT * FROM Users WHERE UsersEmail='" + user.Email + "'";
+            string sql = @"SELECT * FROM Users WHERE UsersEmail='" + email + "'";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
                 return true;
@@ -48,6 +48,21 @@ namespace LuckyForm.DAL
                             VALUES('" + user.FirstName + "','" + user.LastName + "','" + user.Email + "','" + user.PhoneNumber + "','"
                             + user.Sex + "','" + user.Password + "','" + user.BirthDate + "');";
             this.sqlHelper.GetData(sql);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool UserAuthentication(string email, string password)
+        {
+            string sql = @"SELECT * FROM Users WHERE UsersEmail = '" + email + "' AND UsersPassword='"+ password + "'";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+                return true;
+            return false;
+
         }
     }
 }

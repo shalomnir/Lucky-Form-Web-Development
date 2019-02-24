@@ -323,12 +323,12 @@ input[type=text], input[type=password] {
         transform: scale(1)
     }
 }
-#loading {
+.loading {
     display: none;
     width: 250px;
     margin: 0 auto;
 }
-#loading img{
+.loading img{
     width:200px;
     margin:-60px auto 0 auto
 }

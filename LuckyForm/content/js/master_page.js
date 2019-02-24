@@ -55,56 +55,77 @@ $("document").ready(
               || value.length >= 6
               && /\d/.test(value)
               && /[a-z]/i.test(value);
-        }, 'Your password must be at least 6 characters long and contain at least one number and one char\'.')
-        function costumValidate() {
-            $("#verified_form_sign_up,#verified_form_login").each(function () {
-                $(this).validate({
-                    rules: {
-                        email: {
-                            required: true,
-                            email: true,
+        }, 'Your password must be at least 6 characters long and contain at least one number and one char\'.')        
+       $("#verified_form_sign_up").validate({
+           rules: {
+               email: {
+                   required: true,
+                   email: true,
 
-                        },
-                        password: {
-                            required: true,
-                            strongPassword: true
-                        },
+               },
+               password: {
+                   required: true,
+                   strongPassword: true
+               },
 
-                        first_name: {
-                            required: true,
-                            lettersOnly: true
-                        },
+               first_name: {
+                   required: true,
+                   lettersOnly: true
+               },
 
-                        last_name: {
-                            required: true,
-                            lettersOnly: true
-                        },
+               last_name: {
+                   required: true,
+                   lettersOnly: true
+               },
 
-                        mobile_number: {
-                            required: true,
-                            digits: true,
-                            
-                        }
-                    },
-                    messages: {
-                        email: {
-                            required: 'Please enter an email address.',
-                            email: 'Please enter a <em>valid</em> email address.',
-                            remote: $.validator.format("{0} is already associated with an account.")
-                        }
-                    }
-                });
-            });
-        }
-        costumValidate();        
-        var form = $("#verified_form_sign_up,#verified_form_login");
-        form.submit(function () {
-            if (form.valid()) {
-                $("#loading").show();                
-                $(".sign_up_button").css("display", "none");
+               mobile_number: {
+                   required: true,
+                   digits: true,
+                   
+               }
+           },
+           messages: {
+               email: {
+                   required: 'Please enter an email address.',
+                   email: 'Please enter a <em>valid</em> email address.',
+                   remote: $.validator.format("{0} is already associated with an account.")
+               }
+           }
+       });
+
+       $("#verified_form_login").validate({
+           rules: {
+               email: {
+                   required: true,
+                   email: true,
+
+               },
+               password: {
+                   required: true,
+               }
+           },
+           messages: {
+               email: {
+                   required: 'Please enter an email address.',
+                   email: 'Please enter a <em>valid</em> email address.'
+               }
+           }
+       });
+        var signupForm = $("#verified_form_sign_up");
+        signupForm.submit(function () {
+            if (signupForm.valid()) {
+                $(this).find(".loading").show();                
+                $(this).find(".submit_button").css("display", "none");
             }
         });
-        
+        var loginForm = $("#verified_form_login");
+        loginForm.submit(function () {
+            if (loginForm.valid()) {
+                $(this).find(".loading").show();
+                $(this).find(".submit_button").css("display", "none");
+            }
+        });
+
     });
 
         

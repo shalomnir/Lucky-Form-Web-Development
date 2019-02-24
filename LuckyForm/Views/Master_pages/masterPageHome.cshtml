@@ -1,8 +1,8 @@
-﻿
+﻿@using LuckyForm.Models
 @{
     Layout = null;
     string[] MONTHS = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-   
+    SessionUser sessionUser = Session["user"] as SessionUser;
 
 
 }
@@ -18,7 +18,7 @@
     <script src="~/content/js/plugins/jquery.validate.min.js"></script>
     <script src="~/content/js/master_page.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    @if(this.ViewBag.isUserExist == true || this.ViewBag.isOverEigtheen == false)
+    @if (this.ViewBag.isUserExist == true || this.ViewBag.isOverEigtheen == false)
     {
         <style>
             #modal-wrapper {
@@ -65,19 +65,32 @@
                         <a href="#">Sub-4</a>
                     </div>
                 </li>
-                <li>
-                    <a class="menu_section" href="/Register.html">
-                        Register
-                        <i class="fas fa-user"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="menu_section" onclick="document.getElementById('modal-wrapper').style.display='block'">
-                        Login
-                        <i class="fas fa-lock"></i>
-                    </a>                   
+                @if (Session["user"] != null)
+                {
+                    <li>
+                        <a class="menu_section" href="/Register.html">
+                            Hello @sessionUser.FirstName
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="menu_section" href="/Register.html">
+                            Register
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu_section" onclick="document.getElementById('modal-wrapper').style.display='block'">
+                            Login
+                            <i class="fas fa-lock"></i>
+                        </a>
 
-                </li>
+                    </li>
+                }
+
                 <li>
                     <a class="menu_section" href="">
                         Home
@@ -212,14 +225,14 @@
                                 </span>
                                 <input type="text" class="form-group" placeholder="Mobile number" name="mobile_number" required>
                             </div>
-                            <div id="loading">
+                            <div class="loading">
                                 <img src="~/content/Images/Home/wait.gif" />
                             </div>
                             <button class="sign_up_button submit_button" type="submit">Crate Account</button>
                         </div>
 
                     </form>
-                    <form id="verified_form_login" class="login" method="post" action="/action_page.php">
+                    <form id="verified_form_login" class="login" method="post" action="/Home/login">
                         <div class="modal-header">ALREADY A MEMBER</div>
                         <div class="login_block">
 
@@ -237,6 +250,9 @@
                                 </span>
                                 <input class="password form-group" id="psw-login" type="password" placeholder="Password" name="password">
                                 <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
+                            </div>
+                            <div class="loading">
+                                <img src="~/content/Images/Home/wait.gif" />
                             </div>
                             <button class="login_button submit_button" type="submit">Login</button>
                             <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>

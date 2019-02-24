@@ -34,7 +34,7 @@ namespace LuckyForm.Controllers
             else
                 this.ViewBag.isOverEigtheen = false;
 
-            if (userDB.IsUserExist(user))
+            if (userDB.IsUserExistByEmail(user.Email))
             {
                 this.ViewBag.isUserExist = true;
                 return View("MainPageLotteries");
@@ -43,10 +43,27 @@ namespace LuckyForm.Controllers
             {
                 this.ViewBag.isUserExist = false;
                 userDB.SignUser(user);
-                return View("MainPageLotteries");
+                return Login(user.Email, user.Password);
             }
             
 
+        }
+        [HttpPost]
+        public ActionResult Login(string email, string password)
+        {
+            System.Threading.Thread.Sleep(5000);
+            if (!userDB.IsUserExistByEmail(email))
+                ViewBag.isUserExistLogin = false;
+            else if(!userDB.UserAuthentication(email, password))
+                ViewBag.isUserAuthenticated = false;
+            else
+                Session["user"] = (SessionUser)userDB.GetUserByEmail(email);
+
+            return new RedirectResult("~/Home/MainPageView");
+        }
+        public ActionResult MainPageView()
+        {
+            return View("MainPageLotteries");
         }
     }
     
