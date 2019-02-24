@@ -18,7 +18,7 @@
     <script src="~/content/js/plugins/jquery.validate.min.js"></script>
     <script src="~/content/js/master_page.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    @if (this.ViewBag.isUserExist == true || this.ViewBag.isOverEigtheen == false)
+    @if (this.ViewBag.isUserExistSignup == true || this.ViewBag.isOverEigtheen == false || this.ViewBag.isUserAuthenticated == false)
     {
         <style>
             #modal-wrapper {
@@ -39,17 +39,25 @@
                         <i class="far fa-envelope-open"></i>
                     </a>
 
-
                 </li>
+                @if(sessionUser != null)
+                {
+                    <li>
+                        <a class="menu_section" href="/Users/Logout">
+                            Logout
+                        <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                }
                 <li class="dropdown">
                     <a class="menu_section" href="/Cart.html">
                         Cart
                         <i class="fas fa-shopping-cart"></i>
-                    </a> 
+                    </a>
                     <div class="dropdown-option">
                         <a href="#">asdasd</a>
                         <!--TO DO A LOOP THAT OVER ON ALL PRUDACTS-->
-                    </div>                           
+                    </div>
                 </li>
                 <li class="dropdown">
                     <a class="menu_section" href="/GameOption.html">
@@ -65,19 +73,26 @@
                         <a href="#">Sub-4</a>
                     </div>
                 </li>
-                @if (Session["user"] != null)
+
+                <li>
+                    <a class="menu_section" href="/Home/MainPageView">
+                        Home
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+                @if (sessionUser != null)
                 {
                     <li>
-                        <a class="menu_section" href="/Register.html">
-                            Hello @sessionUser.FirstName
-                            <i class="fas fa-user"></i>
+                        <a class="menu_section user_name" href="/PersonalArea.html">
+                            !Welcome, <i class="fas fa-user"></i> @sessionUser.FirstName @sessionUser.LastName
+                        
                         </a>
-                    </li>
+                    </li>                    
                 }
                 else
                 {
                     <li>
-                        <a class="menu_section" href="/Register.html">
+                        <a class="menu_section"onclick="document.getElementById('modal-wrapper').style.display='block'">
                             Register
                             <i class="fas fa-user"></i>
                         </a>
@@ -87,16 +102,9 @@
                             Login
                             <i class="fas fa-lock"></i>
                         </a>
-
+                    
                     </li>
                 }
-
-                <li>
-                    <a class="menu_section" href="">
-                        Home
-                        <i class="fas fa-home"></i>
-                    </a>
-                </li>
 
             </ul>
         </div>
@@ -140,7 +148,7 @@
             <div id="modal-wrapper" class="modal">
 
                 <div class="modal-content animate">                    
-                    <form id="verified_form_sign_up" class="sign-up" method="post" action="/Home/SignUp">
+                    <form id="verified_form_sign_up" class="sign-up" method="post" action="/Users/SignUp">
                         <div class="modal-header">SIGN UP</div>
                         <div class="sign_up_block">
 
@@ -168,7 +176,7 @@
                                     <i class="far fa-envelope"></i>
                                 </span>
                                 <input type="text" class="form-group" placeholder="Email" name="email" required>
-                                @if (this.ViewBag.isUserExist == true)
+                                @if (this.ViewBag.isUserExistSignup == true)
                                 {
                                     <label id="email-error" class="error" for="email">Your email address has already been registered.</label>
                                 }
@@ -232,7 +240,7 @@
                         </div>
 
                     </form>
-                    <form id="verified_form_login" class="login" method="post" action="/Home/login">
+                    <form id="verified_form_login" class="login" method="post" action="/Users/login">
                         <div class="modal-header">ALREADY A MEMBER</div>
                         <div class="login_block">
 
@@ -250,6 +258,10 @@
                                 </span>
                                 <input class="password form-group" id="psw-login" type="password" placeholder="Password" name="password">
                                 <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
+                                @if(ViewBag.isUserAuthenticated == false)
+                                {
+                                <label class="error" for="email"><strong>Invalid ID or password.</strong><br> Please try again..</label>
+                                }
                             </div>
                             <div class="loading">
                                 <img src="~/content/Images/Home/wait.gif" />

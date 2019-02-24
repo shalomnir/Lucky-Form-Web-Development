@@ -47,12 +47,17 @@ body{
     padding-bottom: 15px;
     cursor:pointer;
 }
-.menu .content ul li .dropdown-option {
+.menu .content ul li a.user_name{
+    padding-right:10px;
+    padding-left:10px;
     
+    width:auto!important;
+}
+.menu .content ul li .dropdown-option {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
-    position:absolute;
+    position: absolute;
 }
 .menu .content ul li:hover > a{
     background-color: rgb(91, 192, 222);
