@@ -3,21 +3,17 @@
     Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 }
 @model User
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>PersonalArea</title>
-    <link href="~/content/css/Users/PersonalArea.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="personal_wrapper"> 
-        <p class="head_personal">Personal Area</p>
-        <p class="personal_details">@Model.Sex @Model.FirstName @Model.LastName</p>
-        <p class="personal_details">@Model.Email</p>
-        <p class="personal_details">@Model.PhoneNumber</p>
-        
+<link href="~/content/css/Users/PersonalArea.css" rel="stylesheet" />
+
+<div class="personal_wrapper">
+    
+    <div class="personal_details_wrapper">
+
+        <span class="head_personal underline">Personal Area</span>
+        <p class="personal_details">Hello @Model.FirstName, Here you can see your personal details</p>
+        <p class="personal_details"><b>Name:</b> @Model.FirstName @Model.LastName</p>
+        <p class="personal_details"><b>Email:</b> @Model.Email</p>
+        <p class="personal_details"><b>Contact Number:</b> @Model.PhoneNumber</p>
     </div>
-</body>
-</html>
+</div>

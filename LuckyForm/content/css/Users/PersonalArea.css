@@ -1,12 +1,34 @@
 ﻿body {
-    background-color: #fefefe;
-}
-
-.personal_wrapper{
     
+}
+.personal_wrapper {
+    background-color: #ffffff;
+    padding: 20px 0 200px 0;
+    background-image: url('../../Images/page_pic_50.jpg');
+    background-size: 1500px;
+    background-repeat: no-repeat;
+    background-position: -70px 0px;
+}
+.personal_wrapper img{
+    width: 900px;
+}
+.personal_wrapper .personal_details_wrapper{
+   
+    width:700px;
+    margin:0 auto;
+}
+.personal_wrapper .underline {
+    font-size: 40px;
+    border-bottom: 2px solid currentColor;
+    margin:0 auto;
+    width:250px;
 }
 
 .personal_wrapper p.head_personal{
-    font-size:40px;
-    text-decoration:underline;
+    
+    
+}
+
+.personal_wrapper .personal_details{
+    margin-top:15px;
 }

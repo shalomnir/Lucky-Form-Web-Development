@@ -21,7 +21,7 @@ namespace LuckyForm.Controllers
             last_name = last_name.First().ToString().ToUpper() + last_name.Substring(1);
             DateTime BirthDate = DesignDate(select_year, select_month, select_day);
             User user = new User(gender, first_name, last_name, email, BirthDate.ToShortDateString(), password, mobile_number);
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(3000);
             if ((DateTime.Now - BirthDate).TotalDays > 18 * 365)
                 TempData["isOverEigtheen"] = "true";
             else
@@ -42,7 +42,7 @@ namespace LuckyForm.Controllers
         public ActionResult Login(string email, string password)
         {
             
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(3000);
             
             if (!userDB.UserAuthentication(email, password))
                 TempData["isUserAuthenticated"] = "false";

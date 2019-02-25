@@ -27,7 +27,7 @@ namespace LuckyForm.DAL
         {
             string sql = @"SELECT Forms.FormsID, Forms.FormsNumsInTable, Forms.FormsNumOfTables, Forms.FormsName, Forms.TypeID, Type.TypeImagePath
             FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
-            WHERE (((Forms.TypeID)='" + Type+"'));";           
+            WHERE (((Forms.TypeID)='" + Type + "'));";           
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
