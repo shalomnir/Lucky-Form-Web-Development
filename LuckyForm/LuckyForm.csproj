@@ -95,6 +95,7 @@
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
+    <Content Include="content\css\Users\PersonalArea.css" />
     <Content Include="content\Images\Background.jpg" />
     <Content Include="content\Images\Home\Logo.png" />
     <Content Include="content\Images\Home\logos\Chance-sml.png" />
@@ -135,6 +136,7 @@
     <Content Include="Views\Home\Lotteries.cshtml" />
     <Content Include="Views\Home\MainPageLotteries.cshtml" />
     <Content Include="content\fonts\HelveticaNeueLight.ttf" />
+    <Content Include="Views\Users\PersonalArea.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,9 +144,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Users\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

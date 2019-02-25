@@ -19,7 +19,7 @@ namespace LuckyForm.Controllers
            
             first_name = first_name.First().ToString().ToUpper() + first_name.Substring(1);
             last_name = last_name.First().ToString().ToUpper() + last_name.Substring(1);
-            DateTime BirthDate = new DateTime(int.Parse(select_year), int.Parse(select_month), int.Parse(select_day));
+            DateTime BirthDate = DesignDate(select_year, select_month, select_day);
             User user = new User(gender, first_name, last_name, email, BirthDate.ToShortDateString(), password, mobile_number);
             System.Threading.Thread.Sleep(5000);
             if ((DateTime.Now - BirthDate).TotalDays > 18 * 365)
@@ -37,8 +37,6 @@ namespace LuckyForm.Controllers
                 userDB.SignUser(user);
                 return Login(user.Email, user.Password);
             }
-
-
         }
         [HttpPost]
         public ActionResult Login(string email, string password)
@@ -58,10 +56,21 @@ namespace LuckyForm.Controllers
             Session["user"] = null;
             return RedirectToAction("../Home/MainPageView");
         }
-        // GET: Users
-        public ActionResult Index()
+        private DateTime DesignDate(string year, string month, string day)
         {
-            return View();
+        
+            string shortMonth = "4 6 9 11";
+            if (shortMonth.Contains(month) && int.Parse(day) > 30)
+                day = "30";
+            else if (month == "2" && int.Parse(day) > 28)
+                day = "28";
+            return new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+        }
+        // GET: Users
+        public ActionResult PersonalArea(string email)
+        {
+            SessionUser sessionUser = Session["user"] as SessionUser;
+            return View(userDB.GetUserByEmail(sessionUser.Email));
         }
     }
 }

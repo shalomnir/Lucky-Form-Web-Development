@@ -1,0 +1,12 @@
+﻿body {
+    background-color: #fefefe;
+}
+
+.personal_wrapper{
+    
+}
+
+.personal_wrapper p.head_personal{
+    font-size:40px;
+    text-decoration:underline;
+}

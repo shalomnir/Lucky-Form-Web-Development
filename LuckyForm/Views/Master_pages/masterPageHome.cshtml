@@ -83,7 +83,7 @@
                 @if (sessionUser != null)
                 {
                     <li>
-                        <a class="menu_section user_name" href="/PersonalArea.html">
+                        <a class="menu_section user_name" href="/Users/PersonalArea">
                             !Welcome, <i class="fas fa-user"></i> @sessionUser.FirstName @sessionUser.LastName
                         
                         </a>
@@ -197,6 +197,7 @@
 }
                                 </select>
                                 <select class="custom-select form-group" name="select_day" required>
+                                    
                                     @for (int day = 1; day <= 31; day++)
         {
                             <option value="@day">@day</option>
@@ -260,7 +261,7 @@
                                 <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
                                 @if(ViewBag.isUserAuthenticated == false)
                                 {
-                                <label class="error" for="email"><strong>Invalid ID or password.</strong><br> Please try again..</label>
+                                <label class="error" for="email">Invalid ID or password.Please try again..</label>
                                 }
                             </div>
                             <div class="loading">
