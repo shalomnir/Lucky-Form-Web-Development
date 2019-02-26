@@ -97,6 +97,13 @@
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\css\Users\PersonalArea.css" />
     <Content Include="content\Images\Background.jpg" />
+    <Content Include="content\Images\Home\ConectUs\ar.svg" />
+    <Content Include="content\Images\Home\ConectUs\en.svg" />
+    <Content Include="content\Images\Home\ConectUs\fr.svg" />
+    <Content Include="content\Images\Home\ConectUs\hu.svg" />
+    <Content Include="content\Images\Home\ConectUs\pl.svg" />
+    <Content Include="content\Images\Home\ConectUs\pt.svg" />
+    <Content Include="content\Images\Home\ConectUs\ro.svg" />
     <Content Include="content\Images\Home\Logo.png" />
     <Content Include="content\Images\Home\logos\Chance-sml.png" />
     <Content Include="content\Images\Home\logos\Lotto-sml.png" />
@@ -116,12 +123,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAL\CountryDB.cs" />
     <Compile Include="DAL\FormDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\UserDB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Data.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Models\Lottery.cs" />
@@ -139,6 +148,7 @@
     <Content Include="Views\Home\MainPageLotteries.cshtml" />
     <Content Include="content\fonts\HelveticaNeueLight.ttf" />
     <Content Include="Views\Users\PersonalArea.cshtml" />
+    <Content Include="Views\Home\ConectUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

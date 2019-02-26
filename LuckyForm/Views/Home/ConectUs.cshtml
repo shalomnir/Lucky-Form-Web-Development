@@ -1,0 +1,34 @@
+﻿@using LuckyForm.Models
+@{
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+}
+@model List<Country>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConectUs</title>
+</head>
+<body>
+    <div>
+        <div class="countries-Wrapper">
+            @if (Model != null)
+            {
+                foreach (Country country in Model)
+                {
+                    <div class="country">                        
+                        <img src="~/content/Images/Home/ConectUs/@country.Img" />
+                        <span>@country.Name</span>
+                        <span>Tel. @country.Tel</span>
+                        <span>fax. @country.Fax</span>
+
+                        
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</body>
+</html>

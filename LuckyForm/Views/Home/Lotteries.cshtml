@@ -1,6 +1,10 @@
 ﻿@using LuckyForm.Models
 @{
-    Layout = null;    
+    Layout = null;
+
+    SessionUser sessionUser = Session["user"] as SessionUser;
+    
+
 }
 @model List<Form>
 <link href="http://localhost:2973/content/css/Home/flipclock.css" rel="stylesheet" />
@@ -22,7 +26,14 @@
                                    
                 <a href="loto.html">@form.Name</a>
                 
-                <a href="#" class="play_now_button">Play Now</a>
+                @if (sessionUser == null)
+                {
+                    <a onclick="document.getElementById('modal-wrapper').style.display='block'" class="play_now_button">Play Now</a>
+                }
+                else
+                {
+                    <a href="#" class="play_now_button">Play Now</a>
+                }
 
             </div>
         }

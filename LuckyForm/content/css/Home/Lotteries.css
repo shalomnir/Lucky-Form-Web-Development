@@ -27,7 +27,7 @@
     font-size: 25px;
     text-decoration: none;
     display:block;
-    width:inherit;
+    width:inherit;     
 }
 .lottoryblocks-Wrapper .lottery .play_now_button{
     margin-top:50px;
@@ -42,8 +42,12 @@
     border: none;    
     font-weight: 700;
     border-radius: 5px;
-
+   
+}
+.play_now_button{
+     cursor:pointer;
 }
 .lottoryblocks-Wrapper .lottery .play_now_button:hover{
     background-color: #5ba911!important;
+    
 }

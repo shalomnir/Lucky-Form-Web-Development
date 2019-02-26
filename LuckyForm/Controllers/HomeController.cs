@@ -22,7 +22,10 @@ namespace LuckyForm.Controllers
         {
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
-        
+        public ActionResult ConectUs()
+        {
+            
+        }
         public ActionResult MainPageView()
         {
             
