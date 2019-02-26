@@ -1,0 +1,44 @@
+﻿body {
+}
+.conect_wrapper {
+    width: 810px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align:center;
+    border-radius:30px;
+}
+.conect_wrapper .conect_us_header{
+    font-size:50px;    
+    font-weight:600;
+ 
+   
+    
+}
+.conect_wrapper .countries-Wrapper {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.conect_wrapper .conect_icons {
+    width: 800px;
+    text-align: center;
+    margin-top:45px;
+    margin-bottom:45px;
+}
+.conect_wrapper .conect_icons img{
+    width: 120px;
+    margin-left:30px;
+    margin-right:30px;
+    display:inline-block;
+}
+.countries-Wrapper .country {
+    width:220px;
+    margin-left:25px;
+    margin-right:25px;
+    margin-bottom:30px;
+    
+}
+.countries-Wrapper .country h3{
+    display:inline-block;
+}

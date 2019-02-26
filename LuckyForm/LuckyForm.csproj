@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DatabaseLotto.accdb" />
+    <Content Include="content\css\Home\ConectUs.css" />
     <Content Include="content\css\Home\flipclock.css" />
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
@@ -98,12 +99,16 @@
     <Content Include="content\css\Users\PersonalArea.css" />
     <Content Include="content\Images\Background.jpg" />
     <Content Include="content\Images\Home\ConectUs\ar.svg" />
+    <Content Include="content\Images\Home\ConectUs\br.svg" />
+    <Content Include="content\Images\Home\ConectUs\contact-us.png" />
     <Content Include="content\Images\Home\ConectUs\en.svg" />
+    <Content Include="content\Images\Home\ConectUs\fax.svg" />
     <Content Include="content\Images\Home\ConectUs\fr.svg" />
     <Content Include="content\Images\Home\ConectUs\hu.svg" />
     <Content Include="content\Images\Home\ConectUs\pl.svg" />
-    <Content Include="content\Images\Home\ConectUs\pt.svg" />
     <Content Include="content\Images\Home\ConectUs\ro.svg" />
+    <Content Include="content\Images\Home\ConectUs\telephone.svg" />
+    <Content Include="content\Images\Home\ConectUs\worldwide.svg" />
     <Content Include="content\Images\Home\Logo.png" />
     <Content Include="content\Images\Home\logos\Chance-sml.png" />
     <Content Include="content\Images\Home\logos\Lotto-sml.png" />

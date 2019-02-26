@@ -8,25 +8,31 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/content/css/Home/ConectUs.css" rel="stylesheet" />
     <title>ConectUs</title>
 </head>
 <body>
-    <div>
+    <div class="conect_wrapper">
+        
+        <span class="conect_us_header">Conect Us</span>
         <div class="countries-Wrapper">
+            <div class="conect_icons">
+                <img src="~/content/Images/Home/ConectUs/fax.svg" />
+                <img src="~/content/Images/Home/ConectUs/worldwide.svg" />
+                <img src="~/content/Images/Home/ConectUs/telephone.svg" />
+            </div>
             @if (Model != null)
-            {
-                foreach (Country country in Model)
-                {
-                    <div class="country">                        
-                        <img src="~/content/Images/Home/ConectUs/@country.Img" />
-                        <span>@country.Name</span>
-                        <span>Tel. @country.Tel</span>
-                        <span>fax. @country.Fax</span>
-
-                        
-                    </div>
-                }
-            }
+    {
+        foreach (Country country in Model)
+        {
+            <div class="country">
+                <img src="~/content/Images/Home/ConectUs/@country.Img" />
+                <h3>@country.Name</h3><br />
+                <span>Tel. @country.Tel</span><br />
+                <span>fax. @country.Fax</span>
+            </div>
+}
+}
 
         </div>
     </div>
