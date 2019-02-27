@@ -51,14 +51,16 @@ namespace LuckyForm.DAL
         }
         public Form GetFormById(string id)
         {
-            string sql = @"SELECT * FROM Forms WHERE FormsID='" + id + "'";
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Type.TypeImagePath
+                            FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
+                            WHERE (((Forms.FormsID)="+id+"));";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
                 Form form = new Form(
                     dt.Rows[0]["FormsID"].ToString(),
-                    (int)dt.Rows[0]["FormsNumOfTables"],
-                    (int)dt.Rows[0]["FormsNumsInTable"],
+                    int.Parse(dt.Rows[0]["FormsNumOfTables"].ToString()),
+                    int.Parse(dt.Rows[0]["FormsNumsInTable"].ToString()),
                     dt.Rows[0]["FormsName"].ToString(),
                     dt.Rows[0]["TypeID"].ToString(),
                     dt.Rows[0]["TypeImagePath"].ToString()

@@ -1,17 +1,18 @@
-﻿
+﻿@using LuckyForm.Models
 @{
-    Layout = null;
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 }
-
+@model Form
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Chance</title>
+    <title></title>
 </head>
 <body>
-    <div> 
+    <div>
+        @Model.Name
     </div>
 </body>
 </html>

@@ -93,6 +93,7 @@
     <Content Include="App_Data\DatabaseLotto.accdb" />
     <Content Include="content\css\Home\ContactUs.css" />
     <Content Include="content\css\Home\flipclock.css" />
+    <Content Include="content\css\Home\Forms\Forms.css" />
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />

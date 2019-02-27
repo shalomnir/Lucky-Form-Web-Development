@@ -1,17 +1,38 @@
-﻿
+﻿@using LuckyForm.Models
 @{
-    Layout = null;
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 }
-
+@model Form
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_123</title>
+
+    <link href="~/content/css/Home/Forms/Forms.css" rel="stylesheet" />
+    <title></title>
 </head>
 <body>
-    <div> 
+    <div>
+        <div class="form_wrapper">
+            <span class="form_name">@Model.Name</span>
+            <div class="tables_wrapper">
+                @for(int t = 1; t <= Model.NumOfTables;t++)
+                {
+                    
+                    <div class="table">
+                        @for(int i = 1; i<= Model.NumsInTables; i++)
+                        {
+                            <span class="number">
+                                <input type="checkbox" name="number" value="@i" /> @i
+                            </span>
+                            
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+       
     </div>
 </body>
 </html>
