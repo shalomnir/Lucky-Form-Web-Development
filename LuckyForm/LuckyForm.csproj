@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DatabaseLotto.accdb" />
-    <Content Include="content\css\Home\ConectUs.css" />
+    <Content Include="content\css\Home\ContactUs.css" />
     <Content Include="content\css\Home\flipclock.css" />
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\CountryDB.cs" />
@@ -153,7 +154,11 @@
     <Content Include="Views\Home\MainPageLotteries.cshtml" />
     <Content Include="content\fonts\HelveticaNeueLight.ttf" />
     <Content Include="Views\Users\PersonalArea.cshtml" />
-    <Content Include="Views\Home\ConectUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Forms\Lotto.cshtml" />
+    <Content Include="Views\Forms\Chance.cshtml" />
+    <Content Include="Views\Forms\_777.cshtml" />
+    <Content Include="Views\Forms\_123.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

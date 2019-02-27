@@ -22,9 +22,9 @@
         foreach (Form form in Model)
         {
             <div class="lottery">
-                <img src="~/content/Images/Home/logos/@form.ImagePath" />
+                <img href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID" src="~/content/Images/Home/logos/@form.ImagePath" />
                                    
-                <a href="loto.html">@form.Name</a>
+                <a href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID">@form.Name</a>
                 
                 @if (sessionUser == null)
                 {
@@ -32,7 +32,7 @@
                 }
                 else
                 {
-                    <a href="#" class="play_now_button">Play Now</a>
+                    <a href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID" class="play_now_button">Play Now</a>
                 }
 
             </div>

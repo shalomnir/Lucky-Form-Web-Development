@@ -1,6 +1,6 @@
 ﻿body {
 }
-.conect_wrapper {
+.contact_wrapper {
     width: 810px;
     background-color: white;
     margin: 0 auto;
@@ -8,25 +8,25 @@
     text-align:center;
     border-radius:30px;
 }
-.conect_wrapper .conect_us_header{
+.contact_wrapper .contact_us_header{
     font-size:50px;    
     font-weight:600;
  
    
     
 }
-.conect_wrapper .countries-Wrapper {
+.contact_wrapper .countries-Wrapper {
     display: flex;
     flex-wrap: wrap; 
 }
 
-.conect_wrapper .conect_icons {
+.contact_wrapper .contact_icons {
     width: 800px;
     text-align: center;
     margin-top:45px;
     margin-bottom:45px;
 }
-.conect_wrapper .conect_icons img{
+.contact_wrapper .contact_icons img{
     width: 120px;
     margin-left:30px;
     margin-right:30px;

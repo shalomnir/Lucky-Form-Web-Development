@@ -316,7 +316,7 @@ input[type=text], input[type=password] {
 
 /* Add Zoom Animation */
 .animate {
-    animation:  0.6s
+    animation: 0.6s;
 }
 
 @keyframes zoom {

@@ -23,7 +23,7 @@ namespace LuckyForm.Controllers
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
         [HttpGet]
-        public ActionResult ConectUs()
+        public ActionResult ContactUs()
         {
             CountryDB countryDB = new CountryDB();
             return View(countryDB.GetAllCountries());

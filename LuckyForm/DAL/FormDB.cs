@@ -34,15 +34,36 @@ namespace LuckyForm.DAL
                 List<Form> allForms = new List<Form>();
                 foreach (DataRow dr in this.dt.Rows)
                 {
-                    Form form = new Form();
-                    form.ID = dr["FormsID"].ToString();
-                    form.Name = dr["FormsName"].ToString();
-                    form.NumOfTables = int.Parse(dr["FormsNumOfTables"].ToString());
-                    form.NumsInTables = int.Parse(dr["FormsNumsInTable"].ToString());
-                    form.ImagePath = dr["TypeImagePath"].ToString();
+                    Form form = new Form(
+                         dr["FormsID"].ToString(),
+                         int.Parse(dr["FormsNumOfTables"].ToString()),
+                         int.Parse(dr["FormsNumsInTable"].ToString()),
+                         dr["FormsName"].ToString(),
+                         dr["TypeID"].ToString(),
+                         dr["TypeImagePath"].ToString()
+                         );
+                    
                     allForms.Add(form);
                 }
                 return allForms;
+            }
+            return null;
+        }
+        public Form GetFormById(string id)
+        {
+            string sql = @"SELECT * FROM Forms WHERE FormsID='" + id + "'";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                Form form = new Form(
+                    dt.Rows[0]["FormsID"].ToString(),
+                    (int)dt.Rows[0]["FormsNumOfTables"],
+                    (int)dt.Rows[0]["FormsNumsInTable"],
+                    dt.Rows[0]["FormsName"].ToString(),
+                    dt.Rows[0]["TypeID"].ToString(),
+                    dt.Rows[0]["TypeImagePath"].ToString()
+                    );
+                return form;
             }
             return null;
         }
