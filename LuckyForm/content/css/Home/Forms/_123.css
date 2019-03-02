@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.tables_wrapper {
+    width: 1200px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.table {
+    border: solid;
+    width: 198px;
+    margin: 20px;
+}
