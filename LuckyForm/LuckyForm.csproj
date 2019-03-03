@@ -122,6 +122,7 @@
     <Content Include="content\Images\Home\page_pic_81.jpg" />
     <Content Include="content\Images\Home\wait.gif" />
     <Content Include="content\Images\page_pic_50.jpg" />
+    <Content Include="content\js\Lotto.js" />
     <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />
     <Content Include="content\js\plugins\flipclock.min.js" />
