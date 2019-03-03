@@ -11,30 +11,80 @@
 
 .tables_wrapper .table {
     border: solid;
-    width: 400px;
+    width: 310px;
     margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
+    padding:10px;
+    font-size: 18px;
 }
+.table .inner_table{
+    
+    
+}
+.table .top_table{
+    background: #2A7698;
+    color:#fff;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    border-radius:5px 5px 0 0;
+}
+.table .top_table .top_table_content{
+    width:90%;
+    margin:auto;
+}
+.table .top_table .table_number{
 
+}
+.table .top_table .quick_pick_button{
+    float:right;
+    
+}
+.table .top_table .quick_pick_button button{
+    background-color: #67be13!important;
+    color: #FFF!important;
+    border-bottom: 2px solid #5ba911!important;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size:16px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.table .instruction{
+    background:#1A5C7A;
+    color:#fff;
+    height:35px;
+    padding-top:7px;
+    padding-left:20px;
+}
+.table .instruction span{
+   
+}
+.table .regular_numbers{
+    display: flex;
+    flex-wrap:wrap;
+}
+.table .strong_numbers{
+    display: flex;
+    flex-wrap:wrap;
+}
 .table input[type=checkbox] {
     display: none;
 }
-.table .table_number {
-    width: 138px;
-    display: block;
-    margin: 13px -3px 0 10px;
-    font-weight:700;
-}
+
 .table .number {
-    border: 1px solid black;
-    width: 20px;
-    display: block;
-    text-align: center;
-    margin: 10px 10px;
-    padding: 3px;
-}
-.table .number::after{
-    border: 1px solid blue;
-    background-color:aqua;
+    border: 1px solid #CECECE;
+    font-weight: 700;
+    padding: 4px;
+    text-align:center;
+    cursor: pointer;
+    min-width: 30px;
+    border-spacing: 2px;
+    border-collapse: inherit;
+    color: #666;
+    text-transform: initial !important;
+    margin:2px;
 }

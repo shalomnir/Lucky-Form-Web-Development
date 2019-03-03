@@ -21,14 +21,43 @@
                 {
                     
                     <div class="table">
-                        <span class="table_number">Table No. @t</span>
-                        @for(int i = 1; i<= Model.NumsInTables; i++)
-                        {
-                            <span class="number">
-                                <input type="checkbox" name="number" value="@i" /> @i
-                            </span>
+                        <div class="inner_table">
+                            <div class="top_table">
+                                <div class="top_table_content">
+                                    <span class="table_number">Table No. @t</span>
+                                    <span class="quick_pick_button"><button>Quick pick  <i class="fa fa-magic"></i> </button></span>
+                                </div>
+                                
+                            </div>
+                            <div class="instruction">
+                                <span>Choose 7 numbers</span>
+                            </div>
+                            <div class="regular_numbers">
+                                @for (int i = 1; i <= Model.NumsInTables; i++)
+                                {
+                                    <span class="number">
+                                        <input type="checkbox" name="number" value="@i" /> @i
+                                    </span>
+
+                                }
+
+                            </div>
+                            <div class="instruction">
+                                <span class="instruction">Choose 1 number</span>
+                            </div>
                             
-                        }
+                            <div class="strong_numbers">
+
+                                @for (int i = 1; i <= 7; i++)
+                                {
+                                    <span class="number">
+                                        <input type="checkbox" name="number" value="@i" /> @i
+                                    </span>
+
+                                }
+                            </div>
+                        </div>
+                      
                     </div>
                 }
             </div>
