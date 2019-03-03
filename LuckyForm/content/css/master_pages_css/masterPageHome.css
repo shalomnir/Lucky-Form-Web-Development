@@ -121,7 +121,7 @@ body{
     margin-top:30px;
 }
 
-.Wrapper .content{
+.Wrapper #LotteryContent{
     background-color:#fff;
     padding-top:20px;
     padding:20px 10px 30px 10px;
@@ -350,8 +350,8 @@ label.error {
 }
 /********************************************************************/
 footer .web_details{
-     width: 100%;
-    background-color:#add8e6;
+   width: 100%;
+   background-color:#add8e6;
    margin-top:30px;
 }
 footer .web_details .content{

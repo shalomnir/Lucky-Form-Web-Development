@@ -23,6 +23,12 @@
     
     
 }
+.table_perfect {
+    border: 3px solid #67be13 !important;
+}
+.table_error {
+    border: 3px solid #BF390F !important;
+}
 .table .top_table{
     background: #2A7698;
     color:#fff;
@@ -55,6 +61,11 @@
     border: none;
     border-radius: 5px;
     cursor:pointer;
+
+    
+}
+.table .top_table .quick_pick_button button i{
+    margin-left: 3px;
 }
 .table .instruction{
     background:#1A5C7A;

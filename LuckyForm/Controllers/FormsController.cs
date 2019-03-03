@@ -19,7 +19,7 @@ namespace LuckyForm.Controllers
         public ActionResult GetViewByType(string Type, string formID)
         {
             if (Type == "1")
-                return View("Lotto", formDB.GetFormById(formID));
+                return PartialView("Lotto", formDB.GetFormById(formID));
             else if (Type == "2")
                 return View("Chance", formDB.GetFormById(formID));
             else if (Type == "3")

@@ -16,15 +16,15 @@
     <!--<div class="clock" style="margin:2em;"></div>-->
     <div class="message"></div>
 </div>
-<div class="lottoryblocks-Wrapper">            
+<div class="lottoryblocks-Wrapper" id="lottoryblocks-Wrapper">            
     @if (Model != null)
     {
         foreach (Form form in Model)
         {
-            <div class="lottery">
-                <img href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID" src="~/content/Images/Home/logos/@form.ImagePath" />
+            <div class="lottery" data-type=@form.Type data-ID=@form.ID>
+                <img data-type=@form.Type data-formId=@form.ID src="~/content/Images/Home/logos/@form.ImagePath" />
                                    
-                <a href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID">@form.Name</a>
+                <a data-type=@form.Type data-formId=@form.ID>@form.Name</a>
                 
                 @if (sessionUser == null)
                 {
@@ -32,7 +32,7 @@
                 }
                 else
                 {
-                    <a href="/Forms/GetViewByType?Type=@form.Type&formID=@form.ID" class="play_now_button">Play Now</a>
+                    <a data-type=@form.Type data-formid=@form.ID class="play_now_button">Play Now</a>
                 }
 
             </div>
@@ -40,6 +40,21 @@
     }
 
 </div>
+<script>
+    $(".lottery a").click(
+        function () {
+            
+            var type = $(this).data('type');
+            var id = $(this).data('formid');
+            $.ajax({
+                url: '/Forms/GetViewByType?Type=' + type + '&formID=' + id,
+                dataType: "html",
+                success: function (data) {
+                    $('#LotteryContent').html(data);
+                }
+            });
+        });
+</script>
 <script type="text/javascript">
 	var clock;
 	$(document).ready(function() {

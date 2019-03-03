@@ -4,66 +4,58 @@
 }
 @model Form
 <!DOCTYPE html>
+<link href="~/content/css/Home/Forms/Lotto.css" rel="stylesheet" />
+<script src="~/content/js/Lotto.js"></script>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/content/css/Home/Forms/Lotto.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="~/content/js/Lotto.js"></script>
-    <title></title>
-</head>
-<body>
-    <div>
-        <div class="form_wrapper">
-            <span class="form_name">@Model.Name</span>
-            <div class="tables_wrapper">
-                @for(int t = 1; t <= Model.NumOfTables;t++)
-                {
-                    
-                    <div class="table">
-                        <div class="inner_table">
-                            <div class="top_table">
-                                <div class="top_table_content">
-                                    <span class="table_number">Table No. @t</span>
-                                    <span class="quick_pick_button"><button>Quick pick  <i class="fa fa-magic"></i> </button></span>
-                                </div>
-                                
-                            </div>
-                            <div class="instruction">
-                                <span>Choose 7 numbers </span>
-                                <i class="fas fa-trash-alt"></i>
-                            </div>
-                            <div class="regular_numbers">
-                                @for (int i = 1; i <= Model.NumsInTables; i++)
-                                {
-                                    <span class="number">
-                                        <input type="checkbox"  name="number" value="@i" /> @i
-                                    </span>
+<div>
+    <div class="form_wrapper">
+        <span class="form_name">@Model.Name</span>
+        <div class="tables_wrapper">
+            @for (int t = 1; t <= Model.NumOfTables; t++)
+            {
 
-                                }
-
+                <div class="table" id="table">
+                    <div class="inner_table" id="inner_table" name="nir">
+                        <div class="top_table" id="top_table">
+                            <div class="top_table_content">
+                                <span class="table_number">Table No. @t</span>
+                                <span class="quick_pick_button"><button>Quick pick  <i class="fa fa-magic"></i> </button></span>
                             </div>
-                            <div class="instruction">
-                                <span>Choose 1 number</span>
-                            </div>
-                            
-                            <div class="strong_numbers">
 
-                                @for (int i = 1; i <= 7; i++)
-                                {
-                                    <span class="number">
-                                        <input type="checkbox" name="number" value="@i" /> @i
-                                    </span>
-
-                                }
-                            </div>
                         </div>
-                      
+                        <div class="instruction">
+                            <span>Choose 7 numbers </span>
+                            <i class="fas fa-trash-alt trash_icon"></i>
+                        </div>
+                        <div class="regular_numbers">
+                            @for (int i = 1; i <= Model.NumsInTables; i++)
+                            {
+                                <span class="number">
+                                    <input type="checkbox" name="number" value="@i" /> @i
+                                </span>
+
+                            }
+
+                        </div>
+                        <div class="instruction">
+                            <span>Choose 1 number</span>
+                        </div>
+
+                        <div class="strong_numbers">
+
+                            @for (int i = 1; i <= 7; i++)
+                            {
+                                <span class="number">
+                                    <input type="checkbox" name="number" value="@i" /> @i
+                                </span>
+
+                            }
+                        </div>
                     </div>
-                }
-            </div>
+
+                </div>
+            }
         </div>
     </div>
-</body>
-</html>
+</div>
+
