@@ -19,6 +19,7 @@
 }
 .lottoryblocks-Wrapper .lottery img{
     margin-top:10px;
+    cursor:pointer;
 }
 .lottoryblocks-Wrapper .lottery a{
      color:#666;
@@ -27,7 +28,8 @@
     font-size: 25px;
     text-decoration: none;
     display:block;
-    width:inherit;     
+    width:inherit;  
+    cursor:pointer;
 }
 .lottoryblocks-Wrapper .lottery .play_now_button{
     margin-top:50px;

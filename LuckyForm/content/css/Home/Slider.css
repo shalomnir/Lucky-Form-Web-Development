@@ -1,0 +1,9 @@
+﻿#sliderContainer {
+      width: 800px;
+      height:460px;
+      margin: 0;
+      padding: 0px;
+      position: relative;
+      overflow: hidden;
+}
+

@@ -44,10 +44,12 @@
                 var form = $(this).parents('form:first');                
                 if(!formValidation(form))
                 {
+                    alert("not valid");
                     return;
                 }
                 else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0))
                 {
+                    alert("nor pairs");
                     return;
                 }
                 form.submit();
@@ -58,8 +60,7 @@
 function formValidation(form) {
    
     var isValid = true;
-    element.find('.table').each(function () {
-        alert("sdf");
+    form.find('.table').each(function () {
         if ($(this).hasClass("table_error")) {
             isValid = false;
         }
@@ -69,7 +70,7 @@ function formValidation(form) {
 }
 function perfectTableCount(form) {
     var count = 0;
-    element.find('.table').each(function () {
+    form.find('.table').each(function (i) {
         if ($(this).hasClass("table_perfect")) {
             count++;
         }

@@ -1,17 +1,20 @@
 ﻿@using LuckyForm.Models
 @model Form
+
+
 <link href="~/content/css/Home/Forms/Lotto.css" rel="stylesheet" />
 <script src="~/content/js/Lotto.js"></script>
-
+<script src="~/content/js/Slider.js"></script>
+<link href="~/content/css/Home/Slider.css" rel="stylesheet" />
 <div>
     <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/SubmitForm">
         <div class="form_wrapper">
             <span class="form_name">@Model.Name</span>
-            <div class="tables_wrapper">
+            <div class="tables_wrapper" id="sliderContainer">
                 @for (int t = 1; t <= Model.NumOfTables; t++)
-            {
+                {
 
-                    <div class="table" id="table">
+                    <div class="table mySlides" id="table">
                         <div class="inner_table" id="inner_table" name="nir">
                             <div class="top_table" id="top_table">
                                 <div class="top_table_content">
@@ -52,9 +55,16 @@
 
                     </div>
                 }
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
             </div>
         </div>
         <button type="button" class="submit_tables">send</button>
-    </form> 
+    </form>
 </div>
-
