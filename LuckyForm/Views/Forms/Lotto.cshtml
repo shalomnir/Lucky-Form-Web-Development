@@ -1,61 +1,60 @@
 ﻿@using LuckyForm.Models
-@{
-    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
-}
 @model Form
-<!DOCTYPE html>
 <link href="~/content/css/Home/Forms/Lotto.css" rel="stylesheet" />
 <script src="~/content/js/Lotto.js"></script>
 
 <div>
-    <div class="form_wrapper">
-        <span class="form_name">@Model.Name</span>
-        <div class="tables_wrapper">
-            @for (int t = 1; t <= Model.NumOfTables; t++)
+    <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/SubmitForm">
+        <div class="form_wrapper">
+            <span class="form_name">@Model.Name</span>
+            <div class="tables_wrapper">
+                @for (int t = 1; t <= Model.NumOfTables; t++)
             {
 
-                <div class="table" id="table">
-                    <div class="inner_table" id="inner_table" name="nir">
-                        <div class="top_table" id="top_table">
-                            <div class="top_table_content">
-                                <span class="table_number">Table No. @t</span>
-                                <span class="quick_pick_button"><button>Quick pick  <i class="fa fa-magic"></i> </button></span>
+                    <div class="table" id="table">
+                        <div class="inner_table" id="inner_table" name="nir">
+                            <div class="top_table" id="top_table">
+                                <div class="top_table_content">
+                                    <span class="table_number">Table No. @t</span>
+                                    <span class="quick_pick_button"><button type="button">Quick pick  <i class="fa fa-magic"></i> </button></span>
+                                </div>
+
+                            </div>
+                            <div class="instruction">
+                                <span>Choose 7 numbers </span>
+                                <i class="fas fa-trash-alt trash_icon"></i>
+                            </div>
+                            <div class="regular_numbers">
+                                @for (int i = 1; i <= Model.NumsInTables; i++)
+                                {
+                                    <span class="number">
+                                        <input type="checkbox" name="number" value="@i" /> @i
+                                    </span>
+
+                                }
+
+                            </div>
+                            <div class="instruction">
+                                <span>Choose 1 number</span>
                             </div>
 
-                        </div>
-                        <div class="instruction">
-                            <span>Choose 7 numbers </span>
-                            <i class="fas fa-trash-alt trash_icon"></i>
-                        </div>
-                        <div class="regular_numbers">
-                            @for (int i = 1; i <= Model.NumsInTables; i++)
-                            {
-                                <span class="number">
-                                    <input type="checkbox" name="number" value="@i" /> @i
-                                </span>
+                            <div class="strong_numbers">
 
-                            }
+                                @for (int i = 1; i <= 7; i++)
+                                {
+                                    <span class="number">
+                                        <input type="checkbox" name="number" value="@i" /> @i
+                                    </span>
 
-                        </div>
-                        <div class="instruction">
-                            <span>Choose 1 number</span>
+                                }
+                            </div>
                         </div>
 
-                        <div class="strong_numbers">
-
-                            @for (int i = 1; i <= 7; i++)
-                            {
-                                <span class="number">
-                                    <input type="checkbox" name="number" value="@i" /> @i
-                                </span>
-
-                            }
-                        </div>
                     </div>
-
-                </div>
-            }
+                }
+            </div>
         </div>
-    </div>
+        <button type="button" class="submit_tables">send</button>
+    </form> 
 </div>
 

@@ -171,22 +171,22 @@
                                 <label>DATE OF BIRTH</label>
                                 <select class="custom-select form-group" name="select_year" required>
                                     @for (int year = int.Parse(DateTime.Now.Year.ToString()); year >= 1900; year--)
-        {
-                            <option value="@year">@year</option>
-}
+                                    {
+                                        <option value="@year">@year</option>
+                                    }
                                 </select>
                                 <select class="custom-select form-group" name="select_month" required>
                                     @for (int month = 1; month <= 12; month++)
-        {
-                            <option value="@month">@MONTHS[month - 1]</option>
-}
+                                    {
+                                        <option value="@month">@MONTHS[month - 1]</option>
+                                    }
                                 </select>
                                 <select class="custom-select form-group" name="select_day" required>
                                     
                                     @for (int day = 1; day <= 31; day++)
-        {
-                            <option value="@day">@day</option>
-}
+                                    {
+                                        <option value="@day">@day</option>
+                                    }
                                 </select>
                                 @if (this.ViewBag.isOverEigtheen == false)
                                 {

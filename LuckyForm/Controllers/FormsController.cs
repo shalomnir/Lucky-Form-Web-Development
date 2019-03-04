@@ -28,7 +28,11 @@ namespace LuckyForm.Controllers
                 return View("_123", formDB.GetFormById(formID));
 
         }
-        
+        [HttpPost]
+        public ActionResult SubmitForm(string[] number)
+        {
+            return null;
+        }
 
     }
 }

@@ -21,18 +21,18 @@
     {
         foreach (Form form in Model)
         {
-            <div class="lottery" data-type=@form.Type data-ID=@form.ID>
-                <img data-type=@form.Type data-formId=@form.ID src="~/content/Images/Home/logos/@form.ImagePath" />
+            <div class="lottery" data-type=@form.Type data-formId=@form.ID>
+                <img src="~/content/Images/Home/logos/@form.ImagePath" />
                                    
-                <a data-type=@form.Type data-formId=@form.ID>@form.Name</a>
+                <a>@form.Name</a>
                 
                 @if (sessionUser == null)
                 {
-                    <a onclick="document.getElementById('modal-wrapper').style.display='block'" class="play_now_button">Play Now</a>
+                    <a onclick="document.getElementById('modal-wrapper').style.display='block'" data-user="null" class="play_now_button">Play Now</a>
                 }
                 else
                 {
-                    <a data-type=@form.Type data-formid=@form.ID class="play_now_button">Play Now</a>
+                    <a data-user="@sessionUser.FirstName" class="play_now_button">Play Now</a>
                 }
 
             </div>
@@ -41,11 +41,15 @@
 
 </div>
 <script>
-    $(".lottery a").click(
+    $(".lottery").children().click(
         function () {
+            if ($(this).data('user') === null){              
+                return;               
+            }
+                
+            var type = $(this).parent().data('type');
+            var id = $(this).parent().data('formid');
             
-            var type = $(this).data('type');
-            var id = $(this).data('formid');
             $.ajax({
                 url: '/Forms/GetViewByType?Type=' + type + '&formID=' + id,
                 dataType: "html",
