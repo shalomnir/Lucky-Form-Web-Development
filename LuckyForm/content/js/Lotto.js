@@ -1,4 +1,8 @@
-﻿$("document").ready(
+﻿/// <reference path="Slider.js" />
+
+
+
+$("document").ready(
     function () {
         
         $(".number").click(

@@ -1,9 +1,54 @@
-﻿#sliderContainer {
-      width: 800px;
-      height:460px;
-      margin: 0;
-      padding: 0px;
-      position: relative;
-      overflow: hidden;
+﻿
+#exampleSlider .MS-content {
+  width:800px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid red;
+}
+@media (max-width: 600px) {
+  #exampleSlider .MS-content {
+    margin: 0;
+  }
 }
 
+#exampleSlider .MS-content .item {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+  
+}
+
+#exampleSlider .slide_button {
+  
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  outline: 0;
+  
+}
+@media (max-width: 767px) {
+  #exampleSlider .slide_button {
+    display: none;
+  }
+}
+#exampleSlider .slide_button:hover {
+  cursor: pointer;
+}
+#exampleSlider .MS-left {
+  left: 10px;
+}
+@media (max-width: 992px) {
+  #exampleSlider .MS-left {
+    left: -2px;
+  }
+}
+#exampleSlider .MS-right {
+  right: 10px;
+}
+@media (max-width: 992px) {
+  #exampleSlider .MS-right {
+    right: -2px;
+  }
+}
