@@ -13,11 +13,11 @@
     border: 1px solid #E2E2E2;
     border-radius:4px;
     width: 310px;
-    margin: 20px auto;
+    margin: 20px 15px!important;
     padding:10px;
     font-size: 16px;
     font-weight: 700;
-    margin:30px;
+    
 }
 .table .inner_table{
     

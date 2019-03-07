@@ -108,12 +108,10 @@
             if ($multislider.hasClass('ms-PAUSE')) {
                 $multislider.removeClass('ms-PAUSE');
                 animation();
-                animation();
                 $multislider.addClass('ms-PAUSE');
             } else {
                 animation();
             }
-            animation();
             resetInterval();
         }
 
@@ -155,11 +153,9 @@
                 settings.autoSlide = false;
                 continuousLeft();
             } else if (settings.slideAll) {
-                
                 animateSlideRight = $multislider.data('prevAll');
                 animateSlideLeft = $multislider.data('nextAll');
             } else {
-                
                 animateSlideRight = $multislider.data('prev');
                 animateSlideLeft = $multislider.data('next');
             }
@@ -180,7 +176,6 @@
             autoSlideInterval = setInterval(function () {
                 if (!$multislider.hasClass('ms-PAUSE')) {
                     animateSlideLeft();
-
                 }
             }, settings.interval);
         }

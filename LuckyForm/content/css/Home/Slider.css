@@ -1,10 +1,7 @@
 ﻿
-.item {
-    width: 45%!important;
-}
 #exampleSlider {
     position: relative;
-    border: 1px solid black;
+    
 }
 
 @media (max-width: 767px) {
@@ -14,10 +11,10 @@
 }
 
 #exampleSlider .MS-content {
-    margin: 15px 5%;
+    margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
-    border: 1px solid red;
+    width:63%;
 }
 
 @media (max-width: 767px) {
@@ -32,9 +29,7 @@
     overflow: hidden;
     position: relative;
     vertical-align: top;
-    border: 1px solid green;
-    border-right: none;
-    width: 20%;
+    width: 310px!important;
 }
 
 @media (max-width: 1200px) {
@@ -64,13 +59,13 @@
     padding: 10px 0;
 }
 
-#exampleSlider .MS-controls button {
+#exampleSlider button.slide_button {
     position: absolute;
     border: none;
     background: transparent;
     font-size: 30px;
     outline: 0;
-    top: 35px;
+    top: 210px;
 }
 
 @media (max-width: 767px) {
@@ -79,12 +74,12 @@
     }
 }
 
-#exampleSlider .MS-controls button:hover {
+#exampleSlider button:hover {
     cursor: pointer;
 }
 
-#exampleSlider .MS-controls .MS-left {
-    left: 10px;
+#exampleSlider .MS-left {
+    left: 180px;
 }
 
 @media (max-width: 992px) {
@@ -93,8 +88,8 @@
     }
 }
 
-#exampleSlider .MS-controls .MS-right {
-    right: 10px;
+#exampleSlider .MS-right {
+    right: 180px;
 }
 
 @media (max-width: 992px) {
