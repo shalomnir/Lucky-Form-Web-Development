@@ -1,15 +1,20 @@
 ﻿/// <reference path="Slider.js" />
 
 
-
+var formType = "0";
 $("document").ready(
     function () {
-        
+        formType = $(".regular_numbers").data('formtype');
         $(".number").click(
             function () {
-                var limit = 1;
-                if ($(this).parent().hasClass("regular_numbers")){
-                    limit = 6;
+
+                alert("L");
+                var limit = 6;
+                if ($(this).parent().hasClass("strong_numbers")) {
+                    limit = 1;
+                }  
+                if (formType === 3) {                   
+                    limit = 17;
                 }              
                
                 if (countChosenNumbers($(this).parent()) >= limit && !$(this).hasClass("clicked")){
@@ -26,7 +31,7 @@ $("document").ready(
                         $(this).children().attr('checked', true)
                     }
                 }      
-                
+               
                 tableValidition($(this));                    
             });
         $(".trash_icon").click(
@@ -38,25 +43,37 @@ $("document").ready(
             function () {
                 clearAllNumbers($(this).parents('#inner_table'));
                 CheckRandomNumbers($(this).parents('#top_table').siblings('.regular_numbers'));
-                CheckRandomNumbers($(this).parents('#top_table').siblings('.strong_numbers'));
+                if (formType === 1)
+                    CheckRandomNumbers($(this).parents('#top_table').siblings('.strong_numbers'));
 
                 tableValidition($(this));
             });
         
         $(".submit_tables").click(
             function () {
-                var form = $(this).parents('form:first');                
-                if(!formValidation(form))
-                {
-                    alert("not valid");
-                    return;
+                var form = $(this).parents('form:first');
+                if (formType === 1) {                
+                    if (!formValidation(form)) {
+                        alert("not valid");
+                        return;
+                    }
+                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0)) {
+                        alert("not pairs");
+                        return;
+                    }
+                    form.submit();
                 }
-                else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0))
-                {
-                    alert("nor pairs");
-                    return;
+                else {
+                    if (!formValidation(form)) {
+                        alert("not valid");
+                        return;
+                    }
+                    else if (!perfectTableCount(form) > 0 ) {
+                        alert("zero");
+                        return;
+                    }
+                    form.submit();
                 }
-                form.submit();
         });
         
     });
@@ -83,7 +100,13 @@ function perfectTableCount(form) {
     return count;
 }
 function tableValidition(element) {
-    if (countChosenNumbers(element.parents('#inner_table')) < 7 && countChosenNumbers(element.parents('#inner_table')) > 0) {
+    alert("s");
+    var reqNums = 7;
+    if (formType === 3) {
+        reqNums = 17;
+    }
+    
+    if (countChosenNumbers(element.parents('#inner_table')) < reqNums && countChosenNumbers(element.parents('#inner_table')) > 0) {
         element.parents('#table').addClass("table_error");
     }
     else if (countChosenNumbers(element.parents('#inner_table')) == 0) {
@@ -117,7 +140,11 @@ function CheckRandomNumbers(element) {
     var rand_nums = [];
     var limit = 7;
     var checkedCount = 1;
-    if (element.hasClass("regular_numbers")) {
+    if (formType === 3) {
+        limit = 70;
+        checkedCount = 17;
+    }
+    else if (element.hasClass("regular_numbers")) {
         limit = 37;
         checkedCount = 6;
     }   

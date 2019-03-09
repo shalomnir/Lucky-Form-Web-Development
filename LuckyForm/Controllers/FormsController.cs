@@ -18,14 +18,12 @@ namespace LuckyForm.Controllers
         [HttpGet]
         public ActionResult GetViewByType(string Type, string formID)
         {
-            if (Type == "1")
-                return PartialView("Lotto", formDB.GetFormById(formID));
+            if (Type == "1" || Type == "3")
+                return PartialView("LottoAnd777", formDB.GetFormById(formID));
             else if (Type == "2")
-                return View("Chance", formDB.GetFormById(formID));
-            else if (Type == "3")
-                return View("_777", formDB.GetFormById(formID));
+                return PartialView("Chance", formDB.GetFormById(formID));
             else
-                return View("_123", formDB.GetFormById(formID));
+                return PartialView("_123", formDB.GetFormById(formID));
 
         }
         [HttpPost]
