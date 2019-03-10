@@ -2,26 +2,34 @@
 @using System
 @using System.Collections.Generic
 @{
-    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
     Dictionary<string, List<PlayCard>> playCards = ViewBag.PlayCards;
-    
+   
 }
 @model Form
-<!DOCTYPE html>
-
-<html>
-<head>
-    <link href="~/content/css/Home/Forms/Chance.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
+<link href="~/content/css/Home/Forms/Chance.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width" />
+<title></title>
 <body>
-    <div>
-        @foreach (PlayCard card in playCards["clubs"])
-        {
-            <img src="~/content/Images/playCards/@card.Img" />
-        }
+    <div class="chance_table">
+        <div class="instruction">
+            <span>Choose 1 card for each type </span>
+        </div>
+        <form class="chance_form" method="post" action="/Forms/SubmitForm">
+            @foreach (KeyValuePair<string, List<PlayCard>> playCardType in playCards)
+            {
+                <div class="card_type">
+                    @foreach (PlayCard card in playCardType.Value)
+                    {
+                        <input type="checkbox" class="img_checkbox" />
+                        <img class="card_img" src="~/content/Images/playCards/@card.Img" />
+                    }
+                    <img class="card_img card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />
+                </div>
+            }
+        </form>
+
+</div>
+    <div>      
         @Model.Name
     </div>
 </body>
-</html>

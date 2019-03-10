@@ -6,9 +6,7 @@ $("document").ready(
     function () {
         formType = $(".regular_numbers").data('formtype');
         $(".number").click(
-            function () {
-
-                alert("L");
+            function () {               
                 var limit = 6;
                 if ($(this).parent().hasClass("strong_numbers")) {
                     limit = 1;
@@ -100,7 +98,7 @@ function perfectTableCount(form) {
     return count;
 }
 function tableValidition(element) {
-    alert("s");
+    
     var reqNums = 7;
     if (formType === 3) {
         reqNums = 17;
