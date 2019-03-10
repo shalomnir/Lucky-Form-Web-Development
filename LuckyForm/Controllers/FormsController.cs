@@ -10,6 +10,7 @@ namespace LuckyForm.Controllers
     public class FormsController : Controller
     {
         FormDB formDB = new FormDB();
+        PlayCardDB playCardDB = new PlayCardDB();
         // GET: Forms
         public ActionResult Index()
         {
@@ -21,7 +22,10 @@ namespace LuckyForm.Controllers
             if (Type == "1" || Type == "3")
                 return PartialView("LottoAnd777", formDB.GetFormById(formID));
             else if (Type == "2")
+            {
+                ViewBag.PlayCards = playCardDB.GetAllPlayCards();
                 return PartialView("Chance", formDB.GetFormById(formID));
+            }
             else
                 return PartialView("_123", formDB.GetFormById(formID));
 

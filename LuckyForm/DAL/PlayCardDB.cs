@@ -20,9 +20,18 @@ namespace LuckyForm.DAL
         {
             this.sqlHelper = new SqlHelper(path);
         }
+        public Dictionary<string, List<PlayCard>> GetAllPlayCards()
+        {
+            Dictionary<string, List<PlayCard>> playCards = new Dictionary<string, List<PlayCard>>();
+            playCards.Add("clubs", GetPlayCardsByType("clubs"));
+            playCards.Add("hearts", GetPlayCardsByType("hearts"));
+            playCards.Add("diamonds", GetPlayCardsByType("diamonds"));
+            playCards.Add("spades", GetPlayCardsByType("spades"));
+            return playCards;
+        }
         public List<PlayCard> GetPlayCardsByType(string Type)
         {
-            string sql = @"SELECT * FROM PlayCard WHERE PlayCardsType='" + Type + "'";
+            string sql = @"SELECT * FROM PlayCards WHERE PlayCardsType='" + Type + "'";
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
