@@ -123,6 +123,7 @@
     <Content Include="content\Images\Home\page_pic_81.jpg" />
     <Content Include="content\Images\Home\wait.gif" />
     <Content Include="content\Images\page_pic_50.jpg" />
+    <Content Include="content\js\Chance.js" />
     <Content Include="content\js\LottoAnd777.js" />
     <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />

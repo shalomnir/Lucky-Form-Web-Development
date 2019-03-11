@@ -10,11 +10,28 @@
 <meta name="viewport" content="width=device-width" />
 <title></title>
 <body>
-    <div class="chance_table">
-        <div class="instruction">
-            <span>Choose 1 card for each type </span>
-        </div>
-        <form class="chance_form" method="post" action="/Forms/SubmitForm">
+    <div class="choose_chance_type">
+        @for (int i = 1; i < 5; i++)
+        {
+            <span class="chance_type">
+                <input type="radio" name="chance_type" value="1" />
+                <span class="number">@i</span>
+                <span class="chance_type_img _1">
+                    <img src="~/content/Images/Home/logos/Chance-sml.png" />
+                </span>
+
+            </span>
+        }
+        
+        
+    </div>
+    <form class="chance_form" method="post" action="/Forms/SubmitForm">
+        
+        <div class="chance_table">
+            <div class="instruction">
+                <span>Choose 1 card for each type </span>
+            </div>
+
             @foreach (KeyValuePair<string, List<PlayCard>> playCardType in playCards)
             {
                 <div class="card_type">
@@ -23,12 +40,13 @@
                         <input type="checkbox" class="img_checkbox" />
                         <img class="card_img" src="~/content/Images/playCards/@card.Img" />
                     }
-                    <img class="card_img card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />
+                    <img class="card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />
                 </div>
             }
-        </form>
+        </div>
+    </form>
 
-</div>
+
     <div>      
         @Model.Name
     </div>
