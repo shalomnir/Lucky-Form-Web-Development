@@ -31,10 +31,23 @@ namespace LuckyForm.Controllers
 
         }
         [HttpPost]
-        public ActionResult SubmitForm(string[] number)
+        public ActionResult SubmitLottoForm(string[] number)
         {
             return null;
         }
+        public ActionResult Submit777Form(string[] number)
+        {
+            return null;
+        }
+        public ActionResult SubmitChanceForm(string[] number)
+        {
+            return null;
+        }
+        public ActionResult Submit123Form(string[] number)
+        {
+            return null;
+        }
+
 
     }
 }

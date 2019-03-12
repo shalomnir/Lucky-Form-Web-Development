@@ -7,26 +7,26 @@
 }
 @model Form
 <link href="~/content/css/Home/Forms/Chance.css" rel="stylesheet" />
+<script src="~/content/js/Chance.js"></script>
 <meta name="viewport" content="width=device-width" />
 <title></title>
 <body>
-    <div class="choose_chance_type">
-        @for (int i = 1; i < 5; i++)
+    <!--<div class="choose_chance_type">
+        for (int i = 1; i < 5; i++)
         {
             <span class="chance_type">
                 <input type="radio" name="chance_type" value="1" />
-                <span class="number">@i</span>
+                <span class="number">i</span>
                 <span class="chance_type_img _1">
                     <img src="~/content/Images/Home/logos/Chance-sml.png" />
                 </span>
 
             </span>
         }
-        
-        
     </div>
-    <form class="chance_form" method="post" action="/Forms/SubmitForm">
-        
+        -->
+    <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitForm">
+
         <div class="chance_table">
             <div class="instruction">
                 <span>Choose 1 card for each type </span>
@@ -44,10 +44,11 @@
                 </div>
             }
         </div>
+        <button type="submit">send</button>
     </form>
 
 
-    <div>      
+    <div>
         @Model.Name
     </div>
 </body>

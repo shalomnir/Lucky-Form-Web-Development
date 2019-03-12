@@ -18,7 +18,14 @@
     
 </script>
 <div>
-    <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/SubmitForm">
+    @{ 
+        string action = "SubmitLottoForm";
+        if(Model.Type == "3")
+        {
+            action = "Submit777Form";
+        }
+    }   
+    <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/@action">
         <div class="form_wrapper" id="exampleSlider">
             <button type="button" class="MS-left slide_button"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
             <span class="form_name">@Model.Name</span>
