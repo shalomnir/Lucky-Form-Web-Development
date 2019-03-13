@@ -25,7 +25,7 @@
         }
     </div>
         -->
-    <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitForm">
+    <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitChanceForm">
 
         <div class="chance_table">
             <div class="instruction">
@@ -37,14 +37,14 @@
                 <div class="card_type">
                     @foreach (PlayCard card in playCardType.Value)
                     {
-                        <input type="checkbox" class="img_checkbox" />
+                        <input type="checkbox" class="img_checkbox" name="selected_cards" value="@card.ID"/>
                         <img class="card_img" src="~/content/Images/playCards/@card.Img" />
                     }
                     <img class="card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />
                 </div>
             }
         </div>
-        <button type="submit">send</button>
+        <button type="submit" class="submit_tables">send</button>
     </form>
 
 
