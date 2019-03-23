@@ -4,10 +4,17 @@ $("document").ready(
         formID = $(".chance_form").data('formid');
         $(".card_img").click(
             function () {
+<<<<<<< HEAD
                 
                 var limit = 6;
                 if (formID === 10 || formID === 11) {
                     limit = 1;
+=======
+
+                var limit = 1;
+                if (formID == 12) {
+                    limit = 4;
+>>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
                 }
                 
 
@@ -17,11 +24,13 @@ $("document").ready(
                 else {
                     if ($(this).hasClass("clicked")) {
                         $(this).removeClass("clicked");
+                        $(this).siblings(".card_img").removeClass("not_clicked");
                         $(this).siblings("input").attr('checked', false)
                     }
                     else {
                         $(this).addClass("clicked");
-                        $(this).siblings("input").attr('checked', true)
+                        $(this).siblings(".card_img").addClass("not_clicked");
+                        $(this).prev("input").attr('checked', true)
                     }
                 }
 
@@ -30,6 +39,7 @@ $("document").ready(
         $(".submit_tables").click(
             function () {
                 var form = $(this).parents('form:first');
+<<<<<<< HEAD
              
                 if (formID === 11) {
                     if (perfectTableCount(form) < 4) {
@@ -39,6 +49,30 @@ $("document").ready(
                     }
                 }
                 form.submit();
+=======
+                if (formType === 10) {
+                    if (!formValidation(form)) {
+                        alert("not valid");
+                        return;
+                    }
+                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0)) {
+                        alert("not pairs");
+                        return;
+                    }
+                    form.submit();
+                }
+                else {
+                    if (!formValidation(form)) {
+                        alert("not valid");
+                        return;
+                    }
+                    else if (!perfectTableCount(form) > 0) {
+                        alert("zero");
+                        return;
+                    }
+                    form.submit();
+                }
+>>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
             });
 
     });
@@ -65,8 +99,9 @@ function countChosenNumbers(element)
     return count;
 }
 function tableValidition(element) {
-
+    element.parents('.card_type').addClass("table_error");
     var reqNums = 1;
+<<<<<<< HEAD
     if (formID === 10 || formID === 11) {
         reqNums = 1;
     }
@@ -75,12 +110,32 @@ function tableValidition(element) {
         element.parents('.card_type').addClass("table_error");
     }
     else if (countChosenNumbers(element.parents('.card_type')) == 0) {
+=======
+    
+    if (countChosenNumbers(element.parents('.card_type')) == 0) {
+>>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
         element.parents('.card_type').removeClass("table_error");
         element.parents('.card_type').removeClass("table_perfect");
+        return false;
 
     }
     else {
         element.parents('.card_type').removeClass("table_error");
         element.parents('.card_type').addClass("table_perfect");
+        return true;
     }
+}
+
+function formValidation(form) {
+
+    var isValid = true;
+    if(formI)
+    form.find('.card_type').each(function () {
+        if (!tableValidition($(this))) {
+            isValid = false;
+            $(this).addClass("table_error");
+        }
+
+    });
+    return isValid;
 }

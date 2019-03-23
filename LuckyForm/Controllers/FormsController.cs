@@ -39,7 +39,7 @@ namespace LuckyForm.Controllers
         {
             return null;
         }
-        public ActionResult SubmitChanceForm(string[] number)
+        public ActionResult SubmitChanceForm(string[] selected_cards)
         {
             return null;
         }

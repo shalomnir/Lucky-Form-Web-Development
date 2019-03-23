@@ -61,6 +61,11 @@
     height:122px;
     margin-right: 20px;
 }
+.not_clicked{
+    transform:none!important;
+    /*transform:scale(1);*/
+    cursor:default!important;
+}
 .chance_table .card_type img.card_type_img{
     width:80px;
     height:122px;
