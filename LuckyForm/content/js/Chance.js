@@ -4,17 +4,13 @@ $("document").ready(
         formID = $(".chance_form").data('formid');
         $(".card_img").click(
             function () {
-<<<<<<< HEAD
-                
                 var limit = 6;
                 if (formID === 10 || formID === 11) {
                     limit = 1;
-=======
-
+                }
                 var limit = 1;
                 if (formID == 12) {
                     limit = 4;
->>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
                 }
                 
 
@@ -38,25 +34,29 @@ $("document").ready(
             });
         $(".submit_tables").click(
             function () {
-                var form = $(this).parents('form:first');
-<<<<<<< HEAD
-             
+                var form = $(this).parents('form:first');             
                 if (formID === 11) {
                     if (perfectTableCount(form) < 4) {
-                        alert("must fill all tables");
-                        
+                        //alert("must fill all tables");
+                        form.find('.card_type').each(function (i) {
+                            if (!$(this).hasClass("table_perfect")) {
+                                $(this).addClass("table_error");
+                                $(this).removeClass("table_error");
+                                $(this).addClass("table_error");
+                                $(this).removeClass("table_error");
+                                
+                                
+                                //$(this).animate({ transform: 'scale(1.2)'}, "slow");
+                                //$(this).animate({ height: '+=40px'}, "slow");
+                            }
+                        });
                         return;
                     }
                 }
                 form.submit();
-=======
                 if (formType === 10) {
                     if (!formValidation(form)) {
                         alert("not valid");
-                        return;
-                    }
-                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0)) {
-                        alert("not pairs");
                         return;
                     }
                     form.submit();
@@ -72,15 +72,13 @@ $("document").ready(
                     }
                     form.submit();
                 }
->>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
             });
 
     });
 
 function perfectTableCount(form) {
     var count = 0;
-    form.find('.chance_table').each(function (i) {
-        alert("8");
+    form.find('.card_type').each(function (i) {       
         if ($(this).hasClass("table_perfect")) {
             count++;
         }
@@ -101,23 +99,14 @@ function countChosenNumbers(element)
 function tableValidition(element) {
     element.parents('.card_type').addClass("table_error");
     var reqNums = 1;
-<<<<<<< HEAD
     if (formID === 10 || formID === 11) {
         reqNums = 1;
     }
-
-    if (countChosenNumbers(element.parents('.card_type')) < reqNums && countChosenNumbers(element.parents('.card_type')) > 0) {
-        element.parents('.card_type').addClass("table_error");
-    }
-    else if (countChosenNumbers(element.parents('.card_type')) == 0) {
-=======
-    
-    if (countChosenNumbers(element.parents('.card_type')) == 0) {
->>>>>>> 6c99c00282878bf8520870b8b5c330bf72d3b274
+    if (countChosenNumbers(element.parents('.card_type')) === 0) {
         element.parents('.card_type').removeClass("table_error");
         element.parents('.card_type').removeClass("table_perfect");
         return false;
-
+    
     }
     else {
         element.parents('.card_type').removeClass("table_error");
@@ -127,9 +116,7 @@ function tableValidition(element) {
 }
 
 function formValidation(form) {
-
     var isValid = true;
-    if(formI)
     form.find('.card_type').each(function () {
         if (!tableValidition($(this))) {
             isValid = false;
