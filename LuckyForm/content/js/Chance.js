@@ -2,33 +2,32 @@
 $("document").ready(
     function () {
         formID = $(".chance_form").data('formid');
+        var limit = 4;
+        if (formID === 10 || formID === 11) {
+            limit = 1;
+        }
         $(".card_img").click(
             function () {
-                var limit = 6;
-                if (formID === 10 || formID === 11) {
-                    limit = 1;
-                }
-                var limit = 1;
-                if (formID == 12) {
-                    limit = 4;
-                }
+                var countCards = countChosenNumbers($(this).parent());
                 
+                if ($(this).hasClass("clicked")) {
+                    $(this).removeClass("clicked");
+                    $(this).siblings(".card_img").removeClass("not_clicked");
+                    $(this).siblings("input").attr('checked', false)
+                }
+                else if (countCards >= limit)
+                {
+                    $(this).siblings(".card_img:not(.clicked)").addClass("not_clicked");
+                }
+                else {                                      
+                    $(this).addClass("clicked");
+                    if (formID != 12 || countChosenNumbers($(this).parent()) >= limit) {
+                        $(this).siblings(".card_img:not(.clicked)").addClass("not_clicked");
+                    }
+                    $(this).prev("input").attr('checked', true)                    
+                }
 
-                if (countChosenNumbers($(this).parent()) >= limit && !$(this).hasClass("clicked")) {
-                    //error border
-                }
-                else {
-                    if ($(this).hasClass("clicked")) {
-                        $(this).removeClass("clicked");
-                        $(this).siblings(".card_img").removeClass("not_clicked");
-                        $(this).siblings("input").attr('checked', false)
-                    }
-                    else {
-                        $(this).addClass("clicked");
-                        $(this).siblings(".card_img").addClass("not_clicked");
-                        $(this).prev("input").attr('checked', true)
-                    }
-                }
+                
 
                 tableValidition($(this));
             });
@@ -40,14 +39,7 @@ $("document").ready(
                         //alert("must fill all tables");
                         form.find('.card_type').each(function (i) {
                             if (!$(this).hasClass("table_perfect")) {
-                                $(this).addClass("table_error");
-                                $(this).removeClass("table_error");
-                                $(this).addClass("table_error");
-                                $(this).removeClass("table_error");
-                                
-                                
-                                //$(this).animate({ transform: 'scale(1.2)'}, "slow");
-                                //$(this).animate({ height: '+=40px'}, "slow");
+                                $(this).addClass("table_error");                                                                                                                          
                             }
                         });
                         return;
