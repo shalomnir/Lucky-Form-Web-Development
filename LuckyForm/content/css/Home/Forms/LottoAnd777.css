@@ -2,10 +2,7 @@
 }
 
 .tables_wrapper {
-    /*width: 1000px;
-    background-color: white;
-    display: flex;
-    flex-wrap:wrap;*/
+    
     
 }
 
@@ -16,13 +13,9 @@
     margin: 20px 15px!important;
     padding:10px;
     font-size: 16px;
-    font-weight: 700;
-    
+    font-weight: 700;   
 }
-.table .inner_table{
-    
-    
-}
+
 .table_perfect {
     border: 3px solid #67be13 !important;
 }
@@ -98,18 +91,18 @@
 }
 
 .table .number {
-    border: 1px solid #CECECE;
+   border: 1px solid #CECECE;
     font-weight: 700;
     padding: 4px;
-    text-align:center;
+    text-align: center;
     cursor: pointer;
     min-width: 30px;
     border-spacing: 2px;
     border-collapse: inherit;
     color: #666;
     text-transform: initial !important;
-    margin:2px;
-    font-size:16px!important;
+    margin: 2px;
+    font-size: 16px!important;
 }
 .table .clicked{
     background:#1A5C7A;

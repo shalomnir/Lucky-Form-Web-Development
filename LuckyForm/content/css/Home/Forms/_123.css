@@ -2,14 +2,110 @@
 }
 
 .tables_wrapper {
-    width: 1200px;
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
+    margin:0 auto;
+    width:450px;
 }
 
-.table {
-    border: solid;
-    width: 198px;
-    margin: 20px;
+.tables_wrapper .table {
+    border: 1px solid #E2E2E2;
+    border-radius:4px;
+    width: 400px;
+    margin: 20px 15px!important;
+    padding:10px;
+    font-size: 16px;
+    font-weight: 700;   
+
+}
+
+.table_perfect {
+    border: 3px solid #67be13 !important;
+}
+.table_error {
+    border: 3px solid #BF390F !important;
+}
+.table .top_table{
+    background: #2A7698;
+    color:#fff;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    border-radius:5px 5px 0 0;
+}
+.table .top_table .top_table_content{
+    width:90%;
+    margin:auto;
+}
+.table .top_table .table_number{
+
+}
+.table .top_table .quick_pick_button{
+    float:right;
+    
+}
+.table .top_table .quick_pick_button button{
+    background-color: #67be13!important;
+    color: #FFF!important;
+    border-bottom: 2px solid #5ba911!important;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    text-align: center;
+    font-weight: 700;
+    font-size:16px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+
+    
+}
+.table .top_table .quick_pick_button button i{
+    margin-left: 3px;
+}
+.table .instruction{
+    background:#1A5C7A;
+    color:#fff;
+    height:26px;
+    padding-top:10px;
+    padding-left:18px;  
+    margin-bottom:4px;
+}
+.table .instruction span{
+   
+}
+.table .instruction i{
+    float:right;
+    margin-right:10px;
+    cursor:pointer;
+}
+.table .regular_numbers{
+    display: flex;
+    flex-wrap:wrap;
+    
+    margin-bottom:4px;
+}
+.table .strong_numbers{
+    display: flex;
+    flex-wrap:wrap;
+}
+.table input[type=checkbox] {
+    display: none;
+}
+
+.table .number {
+   border: 1px solid #CECECE;
+    font-weight: 700;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    min-width: 30px;
+    border-spacing: 2px;
+    border-collapse: inherit;
+    color: #666;
+    text-transform: initial !important;
+    margin: 2px;
+    font-size: 16px!important;
+}
+.table .clicked{
+    background:#1A5C7A;
+    color:#fff;
 }
