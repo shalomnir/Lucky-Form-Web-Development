@@ -28,8 +28,8 @@ namespace LuckyForm.DAL
                     dt.Rows[0]["UsersEmail"].ToString(),
                     dt.Rows[0]["UsersBirthDate"].ToString(),
                     dt.Rows[0]["UsersPassword"].ToString(),
-                    dt.Rows[0]["UsersPhoneNumber"].ToString());
-              
+                    dt.Rows[0]["UsersPhoneNumber"].ToString(),
+                    dt.Rows[0]["PermissionType"].ToString());
                 return user;
             }
             return null;
@@ -44,9 +44,9 @@ namespace LuckyForm.DAL
         }
         public void SignUser(User user)
         {
-            string sql = @"INSERT INTO Users (UsersFirstName, UsersLastName, UsersEmail, UsersPhoneNumber, UsersSex, UsersPassword, UsersBirthDate) 
+            string sql = @"INSERT INTO Users (UsersFirstName, UsersLastName, UsersEmail, UsersPhoneNumber, UsersSex, UsersPassword, UsersBirthDate, PermissionType) 
                             VALUES('" + user.FirstName + "','" + user.LastName + "','" + user.Email + "','" + user.PhoneNumber + "','"
-                            + user.Sex + "','" + user.Password + "','" + user.BirthDate + "');";
+                            + user.Sex + "','" + user.Password + "','" + user.BirthDate + "', '" + user.PermissionType +"');";
             this.sqlHelper.GetData(sql);
         }
         /// <summary>

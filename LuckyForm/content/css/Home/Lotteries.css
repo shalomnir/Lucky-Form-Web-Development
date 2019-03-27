@@ -1,9 +1,45 @@
-﻿
-.lottoryblocks-Wrapper {
+﻿.lottoryblocks-Wrapper {
+    width: 905px;
+    margin: 0 auto;
+}
+.published {
     display: flex;
     flex-wrap: wrap;
     width: 905px;
-    margin: 0 auto;
+}
+.unpublished {
+    display: flex;
+    flex-wrap: wrap;
+    width: 905px;
+    border-top: 10px dashed #b4b4b4;
+    padding-top: 30px;
+}
+.lottoryblocks-Wrapper h3 {
+    flex: 0 0 100%;
+    color: #555;
+}
+.lottoryblocks-Wrapper p {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    color: #555;
+}
+.lottoryblocks-Wrapper i {
+    color: #b4b4b4;
+    font-size: 20px;
+}
+.lottoryblocks-Wrapper .lottery i {
+    position: absolute;
+    margin: 10px 0 0 170px;
+}
+.published .lottery i:hover {
+    color: #ff2222 !important;
+    transform:scale(1.2);
+    cursor: pointer;
+}
+.unpublished .lottery i:hover {
+    color: #67be13 !important;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 .lottoryblocks-Wrapper .lottery{
     width:250px;

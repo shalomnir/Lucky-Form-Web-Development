@@ -25,9 +25,9 @@ namespace LuckyForm.DAL
 
         public List<Form> GetAllForms(string Type)
         {
-            string sql = @"SELECT Forms.FormsID, Forms.FormsNumsInTable, Forms.FormsNumOfTables, Forms.FormsName, Forms.TypeID, Type.TypeImagePath
-            FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
-            WHERE (((Forms.TypeID)='" + Type + "'));";           
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
+                        FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
+                        WHERE (((Forms.TypeID)='" + Type + "'))";           
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
@@ -40,7 +40,8 @@ namespace LuckyForm.DAL
                          int.Parse(dr["FormsNumsInTable"].ToString()),
                          dr["FormsName"].ToString(),
                          dr["TypeID"].ToString(),
-                         dr["TypeImagePath"].ToString()
+                         dr["TypeImagePath"].ToString(),
+                         (bool)dr["FormsPublished"]
                          );
                     
                     allForms.Add(form);
@@ -51,9 +52,9 @@ namespace LuckyForm.DAL
         }
         public Form GetFormById(string id)
         {
-            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Type.TypeImagePath
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
                             FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
-                            WHERE (((Forms.FormsID)="+id+"));";
+                            WHERE (((Forms.FormsID)=" + id + "));";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -63,7 +64,8 @@ namespace LuckyForm.DAL
                     int.Parse(dt.Rows[0]["FormsNumsInTable"].ToString()),
                     dt.Rows[0]["FormsName"].ToString(),
                     dt.Rows[0]["TypeID"].ToString(),
-                    dt.Rows[0]["TypeImagePath"].ToString()
+                    dt.Rows[0]["TypeImagePath"].ToString(),
+                    (bool)dt.Rows[0]["FormsPublished"]                    
                     );
                 return form;
             }
