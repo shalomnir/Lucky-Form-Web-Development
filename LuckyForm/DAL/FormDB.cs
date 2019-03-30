@@ -71,6 +71,10 @@ namespace LuckyForm.DAL
             }
             return null;
         }
-
+        public void ShowFormByID(string id,bool toShow)
+        {
+            string sql = @"UPDATE Forms SET FormsPublished = " + toShow + " WHERE FormsID=" + id;
+            this.sqlHelper.UpdateData(sql); 
+        }
     }
 }

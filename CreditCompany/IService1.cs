@@ -15,10 +15,10 @@ namespace CreditCompany
     {
 
         [OperationContract]
-        string GetDealVerification(CreditCard card, double amount, int payments);
+        bool GetDealVerification(CreditCard card, double amount, int payments);
 
         [OperationContract]
-        string GetDealsReport(DateTime start, DateTime end);
+        List<Deal> GetDealsReport(DateTime start, DateTime end);
         
         // TODO: Add your service operations here
     }

@@ -13,7 +13,7 @@
     @if (Model != null)
     {
         <div class="published">
-            @if(sessionUser.PermissionType == "2")
+            @if(sessionUser != null && sessionUser.PermissionType == "2")
             {
                 <h3>Published Lotteries</h3><br />
                 <p>To Hide the Lotteries, press the <i class="fas fa-minus-circle"></i> button.</p><br />
@@ -24,9 +24,9 @@
             if (form.Published)
             {
                 <div class="lottery" data-type=@form.Type data-formId=@form.ID>
-                    @if(sessionUser.PermissionType == "2")
+                    @if(sessionUser!=null && sessionUser.PermissionType == "2")
                     {
-                        <i class="fas fa-minus-circle"></i>
+                        <i class="fas fa-minus-circle hide_form"></i>
                     }
                     <img src="~/content/Images/Home/logos/@form.ImagePath" />
 
@@ -45,7 +45,7 @@
             }
         }
             </div>
-        if (sessionUser.PermissionType == "2")//if admin - show unpublished lotteries
+        if (sessionUser != null && sessionUser.PermissionType == "2")//if admin - show unpublished lotteries
         {
             <div class="unpublished">
                 <h3>Unpublished Lotteries</h3><br />
@@ -55,7 +55,7 @@
                     if (!form.Published)
                     {
                         <div class="lottery" data-type=@form.Type data-formId=@form.ID>
-                            <i class="fas fa-plus-circle"></i>
+                            <i class="fas fa-plus-circle add_form"></i>
                             <img src="~/content/Images/Home/logos/@form.ImagePath" />
                             <a>@form.Name</a>
                             <a data-user="@sessionUser.FirstName" class="play_now_button">Play Now</a>
@@ -74,11 +74,33 @@
                 return;
             }
 
-            var type = $(this).parent().data('type');
             var id = $(this).parent().data('formid');
 
             $.ajax({
-                url: '/Forms/GetViewByType?Type=' + type + '&formID=' + id,
+                url: '/Forms/GetViewByType?formID=' + id,
+                dataType: "html",
+                success: function (data) {
+                    $('#LotteryContent').html(data);
+                }
+            });
+        });
+    $(".add_form").click(
+        function () {
+           
+            var id = $(this).parent().data('formid');
+            $.ajax({
+                url: '/Home/AddForm?formID=' + id,
+                dataType: "html",
+                success: function (data) {
+                    $('#LotteryContent').html(data);
+                }
+            });
+        });
+    $(".hide_form").click(
+        function () {
+            var id = $(this).parent().data('formid');
+            $.ajax({
+                url: '/Home/HideForm?formID=' + id,
                 dataType: "html",
                 success: function (data) {
                     $('#LotteryContent').html(data);

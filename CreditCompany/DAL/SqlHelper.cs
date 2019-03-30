@@ -74,5 +74,6 @@ namespace LuckyForm.DAL
             }
             return rows;
         }
+
     }
 }

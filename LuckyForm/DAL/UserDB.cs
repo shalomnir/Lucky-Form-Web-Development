@@ -34,6 +34,16 @@ namespace LuckyForm.DAL
             }
             return null;
         }
+        public string GetUserIdByEmail(string email)
+        {
+            string sql = @"SELECT usersID FROM Users WHERE UsersEmail='" + email + "'";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();                
+            }
+            return null;
+        }
         public bool IsUserExistByEmail(string email)
         {
             string sql = @"SELECT * FROM Users WHERE UsersEmail='" + email + "'";
@@ -47,7 +57,7 @@ namespace LuckyForm.DAL
             string sql = @"INSERT INTO Users (UsersFirstName, UsersLastName, UsersEmail, UsersPhoneNumber, UsersSex, UsersPassword, UsersBirthDate, PermissionType) 
                             VALUES('" + user.FirstName + "','" + user.LastName + "','" + user.Email + "','" + user.PhoneNumber + "','"
                             + user.Sex + "','" + user.Password + "','" + user.BirthDate + "', '" + user.PermissionType +"');";
-            this.sqlHelper.GetData(sql);
+            this.sqlHelper.UpdateData(sql);
         }
         /// <summary>
         /// 

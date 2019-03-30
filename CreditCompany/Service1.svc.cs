@@ -1,4 +1,5 @@
-﻿using CreditCompany.Models;
+﻿using CreditCompany.DAL;
+using CreditCompany.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,14 @@ namespace CreditCompany
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        DealDB dealDB = new DealDB();      
+        public bool GetDealVerification(CreditCard card, double amount, int payments)
         {
-            return string.Format("You entered: {0}", value);
+            return false;
         }
-        public string GetDealVerification(CreditCard card, double amount, int payments)
+        public List<Deal> GetDealsReport(DateTime start, DateTime end)
         {
-            return "x";
-        }
-
-        
-        public string GetDealsReport(DateTime start, DateTime end)
-        {
-            return "x";
+            return dealDB.GetDealsByTimeRange(start, end);
         }
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {

@@ -9,6 +9,6 @@ namespace CreditCompany.Models
     {
         public string Number { get; set; }
         public DateTime ExpirationDate  { get; set; }
-        public string cvv { get; set; }
+        public string CVV { get; set; }
     }
 }

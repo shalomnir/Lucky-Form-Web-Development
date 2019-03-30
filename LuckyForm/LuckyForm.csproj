@@ -136,11 +136,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\FormProtocolHandler.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DAL\CountryDB.cs" />
+    <Compile Include="DAL\DataDB.cs" />
     <Compile Include="DAL\FormDB.cs" />
+    <Compile Include="DAL\OrderDB.cs" />
     <Compile Include="DAL\PlayCardDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\UserDB.cs" />
@@ -171,6 +175,7 @@
     <Content Include="Views\Forms\Chance.cshtml" />
     <Content Include="Views\Forms\_777.cshtml" />
     <Content Include="Views\Forms\_123.cshtml" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\Images\playCards\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

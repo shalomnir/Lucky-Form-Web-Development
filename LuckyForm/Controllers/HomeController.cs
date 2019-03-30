@@ -23,6 +23,25 @@ namespace LuckyForm.Controllers
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
         [HttpGet]
+        public ActionResult AddForm(string formID)
+        {
+            Form form = formDB.GetFormById(formID);
+            string type = form.Type;
+            formDB.ShowFormByID(formID, true);
+            return GetFormsInType(type);
+
+        }
+        [HttpGet]
+        public ActionResult HideForm(string formID)
+        {
+            Form form = formDB.GetFormById(formID);
+            string type = form.Type;
+            formDB.ShowFormByID(formID, false);
+            return GetFormsInType(type);
+
+        }
+        
+        [HttpGet]
         public ActionResult ContactUs()
         {
             CountryDB countryDB = new CountryDB();

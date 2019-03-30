@@ -1,4 +1,5 @@
 ﻿using LuckyForm.DAL;
+using LuckyForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +12,34 @@ namespace LuckyForm.Controllers
     {
         FormDB formDB = new FormDB();
         PlayCardDB playCardDB = new PlayCardDB();
+        OrderDB orderDB = new OrderDB();
+        UserDB userDB = new UserDB();
         // GET: Forms
         public ActionResult Index()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult GetViewByType(string Type, string formID)
+        public ActionResult GetViewByType(string formID)
         {
-            if (Type == "1" || Type == "3")
-                return PartialView("LottoAnd777", formDB.GetFormById(formID));
-            else if (Type == "2")
+            Form form = formDB.GetFormById(formID);
+            string type = form.Type;
+            if (type == "1" || type == "3")
+                return PartialView("LottoAnd777", form);
+            else if (type == "2")
             {
                 ViewBag.PlayCards = playCardDB.GetAllPlayCards();
-                return PartialView("Chance", formDB.GetFormById(formID));
+                return PartialView("Chance", form);
             }
             else
-                return PartialView("_123", formDB.GetFormById(formID));
+                return PartialView("_123", form);
 
         }
-        [HttpPost]
+
         public ActionResult SubmitLottoForm(string[] number)
         {
+
+            //orderDB.CreateNewOrder(DateTime.Now.ToShortDateString, "1", userDB.GetUserIdByEmail(Session["user"].l), false, 12);
             return null;
         }
         public ActionResult Submit777Form(string[] number)
