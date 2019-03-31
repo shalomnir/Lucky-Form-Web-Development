@@ -1,4 +1,5 @@
-﻿using LuckyForm.DAL;
+﻿using LuckyForm.BLL;
+using LuckyForm.DAL;
 using LuckyForm.Models;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,10 @@ namespace LuckyForm.Controllers
 
         }
 
-        public ActionResult SubmitLottoForm(string[] number)
+        public ActionResult SubmitLottoForm(string[] numbers)
         {
-
+            string userEmail = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
+            orderDB.AddOrder("1","1",userEmail,false,14,FormProtocolHandler.CreateProtocolString(numbers,6,1));
             //orderDB.CreateNewOrder(DateTime.Now.ToShortDateString, "1", userDB.GetUserIdByEmail(Session["user"].l), false, 12);
             return null;
         }

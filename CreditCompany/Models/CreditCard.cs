@@ -7,8 +7,8 @@ namespace CreditCompany.Models
 {
     public class CreditCard
     {
-        public string Number { get; set; }
-        public DateTime ExpirationDate  { get; set; }
+        public string ID { get; set; }
+        public DateTime ExpiryDate { get; set; }
         public string CVV { get; set; }
     }
 }

@@ -14,10 +14,15 @@ namespace CreditCompany
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        DealDB dealDB = new DealDB();      
+        DealDB dealDB = new DealDB();
+        CardDB cardDB = new CardDB();  
         public bool GetDealVerification(CreditCard card, double amount, int payments)
         {
-            return false;
+            double frame = cardDB.GetCardFrame(card);
+            if(frame == -1)
+                return false;
+            return true;//TODO
+
         }
         public List<Deal> GetDealsReport(DateTime start, DateTime end)
         {
