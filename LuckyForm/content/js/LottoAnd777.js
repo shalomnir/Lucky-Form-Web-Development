@@ -59,6 +59,10 @@ $("document").ready(
                         alert("not pairs");
                         return;
                     }
+                    $("#reg_numbers").val(countChosenNumbers($(".regular_numbers:first")));
+                    $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
+                   
+                    
                     form.submit();
                 }
                 else {

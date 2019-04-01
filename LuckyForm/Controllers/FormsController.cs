@@ -26,6 +26,7 @@ namespace LuckyForm.Controllers
         {
             Form form = formDB.GetFormById(formID);
             string type = form.Type;
+            Session["formID"] = formID;
             if (type == "1" || type == "3")
                 return PartialView("LottoAnd777", form);
             else if (type == "2")
@@ -38,10 +39,13 @@ namespace LuckyForm.Controllers
 
         }
 
-        public ActionResult SubmitLottoForm(string[] numbers)
+        public ActionResult SubmitLottoForm(string[] numbers, string reg_numbers, string strong_numbers)
         {
-            string userEmail = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
-            tranDB.ExecuteTransactionAddOrder("1","1",userEmail,false,14,FormProtocolHandler.CreateProtocolString(numbers,6,1));
+            string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
+            tranDB.ExecuteTransactionAddOrder("1", Session["formID"].ToString(), userID,
+                false, CalculatePrices.GetLottoPrice(Session["formID"].ToString()),
+                FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers),
+                int.Parse(strong_numbers)));
             //orderDB.CreateNewOrder(DateTime.Now.ToShortDateString, "1", userDB.GetUserIdByEmail(Session["user"].l), false, 12);
             return null;
         }

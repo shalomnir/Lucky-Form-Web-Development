@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
@@ -14,8 +15,8 @@ namespace LuckyForm.DAL
         public TransactionDB()
         {
             this.con = new OleDbConnection();
-            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
-            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
+            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
+            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
             this.com = new OleDbCommand();
             this.com.Connection = this.con;
         }
@@ -36,7 +37,7 @@ namespace LuckyForm.DAL
 
                 this.com = connection.CreateCommand();
                 OleDbTransaction transaction;
-
+                DataTable dt = new DataTable();
                 // Start a local transaction.
                 transaction = connection.BeginTransaction();
 
@@ -53,26 +54,20 @@ namespace LuckyForm.DAL
                     this.com.ExecuteNonQuery();
 
                     this.com.CommandText = @"SELECT MAX(OrderID) FROM Orders";
-                    string orderId = this.com.ExecuteReader().ToString();
+                    dt.Load(this.com.ExecuteReader());
+                    string orderId = dt.Rows[0][0].ToString();
 
                     this.com.CommandText = @"INSERT INTO Data(DataBets) VALUES('" + bets + "');";
                     this.com.ExecuteNonQuery();
 
+                    dt.Clear();
                     this.com.CommandText = @"SELECT MAX(DataID) FROM Data";
-                    string DataId = this.com.ExecuteReader().ToString();
+                    dt.Load(this.com.ExecuteReader());
+                    string DataId = dt.Rows[0][0].ToString();
 
                     this.com.CommandText = "INSERT INTO OrderDetails(OrderID, FormID, DataID)" +
-                             "VALUES('" + orderId + "','" + formID + "'," + DataId + "')";
-                    this.com.ExecuteNonQuery();
-
-
-                    this.com.CommandText =
-                        "Insert into Region (RegionID, RegionDescription) VALUES (100, 'Description')";
-                    this.com.ExecuteNonQuery();
-                    this.com.CommandText =
-                        "Insert into Region (RegionID, RegionDescription) VALUES (101, 'Description')";
-                    this.com.ExecuteNonQuery();
-
+                             "VALUES(" + orderId + "," + formID + "," + DataId + ")";
+                    this.com.ExecuteNonQuery();                  
                     // Attempt to commit the transaction.
                     transaction.Commit();
                     Console.WriteLine("Both records are written to database.");

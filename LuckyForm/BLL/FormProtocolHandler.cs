@@ -19,17 +19,22 @@ namespace LuckyForm.BLL
                 for(int z = 0; z < regInTables; z++)
                 {
                     protocolStr += numbers[i+z];
-                    protocolStr += ",";                   
-                }
-                protocolStr += "*";
+                    if(z < regInTables - 1)
+                        protocolStr += ",";
+                    else
+                        protocolStr += "*";
+                }              
                 i += regInTables;
                 for(int j = 0; j < strongInTables; j++)
                 {
                     protocolStr += numbers[i+j];
-                    protocolStr += ",";                    
+                    if(j < strongInTables)
+                        protocolStr += ",";
+                    else
+                        protocolStr += "#";
                 }
                 i += strongInTables;
-                protocolStr += "#";
+                
             }
             return protocolStr;
 

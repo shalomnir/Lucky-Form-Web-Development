@@ -31,62 +31,63 @@
             <span class="form_name">@Model.Name</span>
             <div class="tables_wrapper MS-content">
                 @for (int t = 1; t <= Model.NumOfTables; t++)
-                {
+            {
 
-                    <div class="table item" id="table">
-                        <div class="inner_table" id="inner_table" name="nir">
-                            <div class="top_table" id="top_table">
-                                <div class="top_table_content">
-                                    <span class="table_number">Table No. @t</span>
-                                    <span class="quick_pick_button"><button type="button">Quick pick  <i class="fa fa-magic"></i> </button></span>
-                                </div>
-
+                <div class="table item" id="table">
+                    <div class="inner_table" id="inner_table" name="nir">
+                        <div class="top_table" id="top_table">
+                            <div class="top_table_content">
+                                <span class="table_number">Table No. @t</span>
+                                <span class="quick_pick_button"><button type="button">Quick pick  <i class="fa fa-magic"></i> </button></span>
                             </div>
-                            <div class="instruction">
-                                @if (Model.Type == "1")
-                                {
-                                    <span>Choose 7 numbers </span>
-                                }
-                                else
-                                {
-                                    <span>Choose 17 numbers </span>
-                                }
-                                <i class="fas fa-trash-alt trash_icon"></i>
-                            </div>
-                            <div class="regular_numbers" data-formtype=@Model.Type>
-                                @for (int i = 1; i <= Model.NumsInTables; i++)
-                                {
-                                    <span class="number">
-                                        <input type="checkbox" name="numbers" value="@i" /> @i
-                                    </span>
 
-                                }
-
-                            </div>
-                             @if (Model.Type == "1")
-                            {
-                                <div class="instruction">
-                                    <span>Choose 1 number</span>
-                                </div>                        
-                                <div class="strong_numbers">
-                                    @for (int i = 1; i <= 7; i++)
-                                    {
-                                        <span class="number">
-                                            <input type="checkbox" name="numbers" value="@i" /> @i
-                                        </span>
-
-                                    }
-                                </div>
-                            }
                         </div>
-
-                    </div>
+                        <div class="instruction">
+                            @if (Model.Type == "1")
+                        {
+                            <span>Choose 7 numbers </span>
+                    }
+                    else
+                    {
+                        <span>Choose 17 numbers </span>
                 }
-               
+                            <i class="fas fa-trash-alt trash_icon"></i>
+                        </div>
+                        <div class="regular_numbers" data-formtype=@Model.Type>
+                            @for (int i = 1; i <= Model.NumsInTables; i++)
+                        {
+                            <span class="number">
+                                <input type="checkbox" name="numbers" value="@i" /> @i
+                            </span>
+
+                    }
+
+                        </div>
+                        @if (Model.Type == "1")
+                    {
+                        <div class="instruction">
+                            <span>Choose 1 number</span>
+                        </div>
+                        <div class="strong_numbers">
+                            @for (int i = 1; i <= 7; i++)
+                        {
+                            <span class="number">
+                                <input type="checkbox" name="numbers" value="@i" /> @i
+                            </span>
+
+                    }
+                        </div>
+                }
+                    </div>
+
+                </div>
+        }
+
             </div>
             <button type="button" class="MS-right slide_button"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         </div>
-        
+        <input hidden name="reg_numbers" id="reg_numbers" value="0"/>
+        <input hidden name="strong_numbers" id="strong_numbers" value="0"/>
         <button type="button" class="submit_tables">send</button>
     </form>
 </div>
