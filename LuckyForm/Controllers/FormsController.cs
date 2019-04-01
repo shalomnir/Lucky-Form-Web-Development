@@ -15,6 +15,7 @@ namespace LuckyForm.Controllers
         PlayCardDB playCardDB = new PlayCardDB();
         OrderDB orderDB = new OrderDB();
         UserDB userDB = new UserDB();
+        TransactionDB tranDB = new TransactionDB();
         // GET: Forms
         public ActionResult Index()
         {
@@ -40,7 +41,7 @@ namespace LuckyForm.Controllers
         public ActionResult SubmitLottoForm(string[] numbers)
         {
             string userEmail = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
-            orderDB.AddOrder("1","1",userEmail,false,14,FormProtocolHandler.CreateProtocolString(numbers,6,1));
+            tranDB.ExecuteTransactionAddOrder("1","1",userEmail,false,14,FormProtocolHandler.CreateProtocolString(numbers,6,1));
             //orderDB.CreateNewOrder(DateTime.Now.ToShortDateString, "1", userDB.GetUserIdByEmail(Session["user"].l), false, 12);
             return null;
         }

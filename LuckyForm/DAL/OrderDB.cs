@@ -21,7 +21,7 @@ namespace LuckyForm.DAL
             try
             {
                 // Start a transaction with the database
-                this.sqlHelper.OpenTransaction();
+                //this.sqlHelper.OpenTransaction();
                
                 //Load the insert statement into the string variable, with all of the passed info
                 string date = DateTime.Now.ToShortDateString();
@@ -42,19 +42,19 @@ namespace LuckyForm.DAL
                          "VALUES('" + orderId + "','" + formID + "'," + DataId + "')";
                 sqlHelper.UpdateData(strSQL);
 
-                this.sqlHelper.CommitTransaction();//End the Transaction
+                //this.sqlHelper.CommitTransaction();//End the Transaction
 
 
                 return true;
             }
             catch (Exception ex)
             {
-                this.sqlHelper.RollbackTransaction(); 
+                //this.sqlHelper.RollbackTransaction(); 
                 return false;
             }
             finally
             {
-                this.sqlHelper.CloseConnection();
+                //this.sqlHelper.CloseConnection();
             }
         }
       

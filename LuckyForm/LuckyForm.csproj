@@ -147,6 +147,7 @@
     <Compile Include="DAL\OrderDB.cs" />
     <Compile Include="DAL\PlayCardDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
+    <Compile Include="DAL\TransactionDB.cs" />
     <Compile Include="DAL\UserDB.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
