@@ -11,5 +11,9 @@ namespace LuckyForm.Models
         public DateTime Date { get; set; }
         public Lottery Lottery { get; set; }
         public User User { get; set; }
+        public Data Data { get; set; }
+        public string Paid { get; set; }
+        public double Sum { get; set; }
+
     }
 }

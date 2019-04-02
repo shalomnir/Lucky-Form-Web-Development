@@ -1,5 +1,7 @@
-﻿using System;
+﻿using LuckyForm.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
@@ -9,54 +11,37 @@ namespace LuckyForm.DAL
     public class OrderDB
     {
         SqlHelper sqlHelper;
-
+        DataTable dt;
         public OrderDB()
         {
             this.sqlHelper = new SqlHelper();
         }
 
-        public bool AddOrder(string lotteryID, string formID, string userID, bool paid, double sum, string bets)
-        {        
-            this.sqlHelper.ToCloseConnection = false; //In the transaction, the connection not need to be closed
-            try
+        public List<OrderDB> GetAllOrders()
+        {
+            string sql = @"SELECT * FROM Countries";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (this.dt != null && this.dt.Rows.Count > 0)
             {
-                // Start a transaction with the database
-                //this.sqlHelper.OpenTransaction();
-               
-                //Load the insert statement into the string variable, with all of the passed info
-                string date = DateTime.Now.ToShortDateString();
-                string strSQL = @"INSERT INTO Orders(OrderDate, LotteryID, UserID, OrderPaid, OrderSum) 
-                           VALUES('" + date + "','" + lotteryID + "'," + userID + "," + paid + "," + sum + ");";
-                sqlHelper.UpdateData(strSQL);
+                List<OrderDB> allOrders = new List<OrderDB>();
+                foreach (DataRow dr in this.dt.Rows)
+                {
+                    Order order = new Order();
+                    order.ID = dr["CountriesID"].ToString();
+                    order.Date = DateTime.Parse(dr["CountriesName"].ToString());
+                    order.Lottery = new Lottery(dr["LotterysID"].ToString(), dr["LotterysResult"].ToString()
+                        dr["CountriesTel"].ToString(), dr["CountriesTel"].ToString());
+                    order.Fax = dr["CountriesFax"].ToString();
+                    order.Img = dr["CountriesImg"].ToString();
 
-                strSQL = @"SELECT MAX(OrdersID) FROM Orders";
-                string orderId = this.sqlHelper.GetValue(strSQL).ToString();
-
-                strSQL = @"INSERT INTO Data(DataBets) VALUES('" + bets + "');";
-                sqlHelper.UpdateData(strSQL);
-
-                strSQL = @"SELECT MAX(DataID) FROM Data";
-                string DataId = this.sqlHelper.GetValue(strSQL).ToString();
-
-                strSQL = "INSERT INTO OrderDetails(OrderID, FormID, DataID)" +
-                         "VALUES('" + orderId + "','" + formID + "'," + DataId + "')";
-                sqlHelper.UpdateData(strSQL);
-
-                //this.sqlHelper.CommitTransaction();//End the Transaction
-
-
-                return true;
+                    allOrders.Add(order);
+                }
+                return allOrders;
             }
-            catch (Exception ex)
-            {
-                //this.sqlHelper.RollbackTransaction(); 
-                return false;
-            }
-            finally
-            {
-                //this.sqlHelper.CloseConnection();
-            }
+            return null;
         }
+       
+       
       
     }
 }

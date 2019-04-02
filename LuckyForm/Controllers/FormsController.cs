@@ -46,7 +46,6 @@ namespace LuckyForm.Controllers
                 false, CalculatePrices.GetLottoPrice(Session["formID"].ToString()),
                 FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers),
                 int.Parse(strong_numbers)));
-            //orderDB.CreateNewOrder(DateTime.Now.ToShortDateString, "1", userDB.GetUserIdByEmail(Session["user"].l), false, 12);
             return null;
         }
         public ActionResult Submit777Form(string[] number)
