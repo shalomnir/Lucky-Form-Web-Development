@@ -9,9 +9,7 @@ namespace LuckyForm.Models
     {
         public string ID { get; set; }        
         public DateTime Date { get; set; }
-        public Form Form { get; set; }
-        public string Result { get; set; }
+        public string Bets { get; set; }
         public string StrongResult { get; set; }
-
     }
 }

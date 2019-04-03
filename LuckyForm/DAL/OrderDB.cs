@@ -17,13 +17,13 @@ namespace LuckyForm.DAL
             this.sqlHelper = new SqlHelper();
         }
 
-        public List<OrderDB> GetAllOrders()
+        public List<Order> GetOrdersByUserID(string ID)
         {
             string sql = @"SELECT * FROM Countries";
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
-                List<OrderDB> allOrders = new List<OrderDB>();
+                List<Order> allOrders = new List<Order>();
                 foreach (DataRow dr in this.dt.Rows)
                 {
                     Order order = new Order();

@@ -49,24 +49,16 @@ namespace LuckyForm.DAL
                 try
                 {
                     string date = DateTime.Now.ToShortDateString();
-                    this.com.CommandText = @"INSERT INTO Orders(OrderDate, LotteryID, UserID, OrderPaid, OrderSum) 
-                           VALUES('" + date + "','" + lotteryID + "'," + userID + "," + paid + "," + sum + ");";
+                    this.com.CommandText = @"INSERT INTO Orders(OrderDate, UserID, OrderPaid, OrderSum) 
+                           VALUES('" + date + "'," + userID + "," + paid + "," + sum + ");";
                     this.com.ExecuteNonQuery();
 
                     this.com.CommandText = @"SELECT MAX(OrderID) FROM Orders";
                     dt.Load(this.com.ExecuteReader());
                     string orderId = dt.Rows[0][0].ToString();
 
-                    this.com.CommandText = @"INSERT INTO Data(DataBets) VALUES('" + bets + "');";
-                    this.com.ExecuteNonQuery();
-
-                    dt.Clear();
-                    this.com.CommandText = @"SELECT MAX(DataID) FROM Data";
-                    dt.Load(this.com.ExecuteReader());
-                    string DataId = dt.Rows[0][0].ToString();
-
-                    this.com.CommandText = "INSERT INTO OrderDetails(OrderID, FormID, DataID)" +
-                             "VALUES(" + orderId + "," + formID + "," + DataId + ")";
+                    this.com.CommandText = "INSERT INTO OrderDetails(OrderID, FormID, LotteryID, OrderDetailsBets)" +
+                             "VALUES(" + orderId + "," + formID + "," + lotteryID + ",'" + bets+"')";
                     this.com.ExecuteNonQuery();                  
                     // Attempt to commit the transaction.
                     transaction.Commit();
