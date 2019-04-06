@@ -1,0 +1,35 @@
+﻿@using LuckyForm.Models
+@{
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+}
+@model Order
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/content/css/Order/Cart.css" rel="stylesheet" />
+    <title>Cart</title>
+</head>
+<body>
+    <div class="lottoryblocks-Wrapper">
+        @foreach (OrderDetails det in Model.Orders)
+        {
+
+            <div class="lottery">
+                <i class="fas fa-minus-circle hide_form"></i>               
+                <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+
+                <span>@det.Form.Name</span>
+                <span>@det.Price₪</span>
+                <span>@det.Date.ToShortDateString()</span>
+                <a class="view_form_button">View Form</a>
+
+            </div>
+
+        }
+       
+    </div>
+    <span>@ViewBag.Sum</span>
+</body>
+</html>

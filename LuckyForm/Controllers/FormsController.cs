@@ -14,6 +14,7 @@ namespace LuckyForm.Controllers
         FormDB formDB = new FormDB();
         PlayCardDB playCardDB = new PlayCardDB();
         OrderDB orderDB = new OrderDB();
+        OrderDetailsDB orderDetailsDB = new OrderDetailsDB();
         UserDB userDB = new UserDB();
         TransactionDB tranDB = new TransactionDB();
         // GET: Forms
@@ -41,11 +42,22 @@ namespace LuckyForm.Controllers
 
         public ActionResult SubmitLottoForm(string[] numbers, string reg_numbers, string strong_numbers)
         {
+           
             string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
-            tranDB.ExecuteTransactionAddOrder("1", Session["formID"].ToString(), userID,
-                false, CalculatePrices.GetLottoPrice(Session["formID"].ToString()),
-                FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers),
-                int.Parse(strong_numbers)));
+            string orderID = orderDB.GetOrderIdByUserID(userID);
+            string formID = Session["formID"].ToString();
+            string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers),
+                int.Parse(strong_numbers));
+            double price = CalculatePrices.GetLottoPrice(formID);
+            if (orderID == "-1")
+            {
+                tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
+            }
+            else
+            {
+                orderDetailsDB.AddOrderDetails(orderID, formID,"1", bets, price);
+            }
+            
             return null;
         }
         public ActionResult Submit777Form(string[] number)

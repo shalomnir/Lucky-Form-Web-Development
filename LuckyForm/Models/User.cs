@@ -18,8 +18,9 @@ namespace LuckyForm.Models
         {
 
         }
-        public User(string gender, string firstName, string lastName, string email, string BirthDate, string password, string phoneNumber, string Permission) :base(firstName, lastName, email, Permission)
-        {           
+        public User(string gender, string firstName, string lastName, string email, string BirthDate, string password, string phoneNumber, string Permission, string ID = "0") :base(firstName, lastName, email, Permission)
+        {
+            this.ID = ID;
             this.PhoneNumber = phoneNumber;
             this.Sex = gender;
             this.BirthDate = BirthDate;

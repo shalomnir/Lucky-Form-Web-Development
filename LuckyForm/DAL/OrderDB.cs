@@ -12,31 +12,42 @@ namespace LuckyForm.DAL
     {
         SqlHelper sqlHelper;
         DataTable dt;
+        LotteryDB lotteryDB;
+        UserDB userDB;
+        OrderDetailsDB orderDetailsDB;
         public OrderDB()
         {
+            orderDetailsDB = new OrderDetailsDB();
+            lotteryDB = new LotteryDB();
+            userDB = new UserDB();
             this.sqlHelper = new SqlHelper();
         }
-
-        public List<Order> GetOrdersByUserID(string ID)
+        public string GetOrderIdByUserID(string ID)
         {
-            string sql = @"SELECT * FROM Countries";
+            string sql = @"SELECT * FROM Orders WHERE UserID=" + ID;
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
-                List<Order> allOrders = new List<Order>();
-                foreach (DataRow dr in this.dt.Rows)
-                {
-                    Order order = new Order();
-                    order.ID = dr["CountriesID"].ToString();
-                    order.Date = DateTime.Parse(dr["CountriesName"].ToString());
-                    order.Lottery = new Lottery(dr["LotterysID"].ToString(), dr["LotterysResult"].ToString()
-                        dr["CountriesTel"].ToString(), dr["CountriesTel"].ToString());
-                    order.Fax = dr["CountriesFax"].ToString();
-                    order.Img = dr["CountriesImg"].ToString();
+                return dt.Rows[0]["OrderID"].ToString();
+            }
+            return "-1";
+        }
+        public Order GetOrderByUserID(string ID)
+        {
+            string sql = @"SELECT Orders.OrderID, Orders.OrderPaid, Lotterys.LotterysID, OrderDetails.FormID, Orders.UserID
+                            FROM Users INNER JOIN (Orders INNER JOIN (Lotterys INNER JOIN (Forms INNER JOIN OrderDetails ON Forms.FormsID = OrderDetails.FormID) ON Lotterys.LotterysID = OrderDetails.LotteryID) ON Orders.OrderID = OrderDetails.OrderID) ON Users.UsersID = Orders.UserID
+                            WHERE (((Orders.OrderPaid)=False) AND ((Orders.UserID)=" + ID +"));";
 
-                    allOrders.Add(order);
-                }
-                return allOrders;
+            this.dt = this.sqlHelper.GetData(sql);
+            if (this.dt != null && this.dt.Rows.Count > 0)
+            {     
+                Order order = new Order();
+                order.ID = dt.Rows[0]["OrderID"].ToString();
+                order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
+                order.User = userDB.GetUserById(ID);
+                order.Paid = (bool)dt.Rows[0]["OrderPaid"];
+                //order.Sum = (int)dt.Rows[0]["OrderSum"];//FIX
+                return order;
             }
             return null;
         }

@@ -101,6 +101,7 @@
     <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\Home\Slider.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
+    <Content Include="content\css\Order\Cart.css" />
     <Content Include="content\css\plugins\flipclock.css" />
     <Content Include="content\css\Users\PersonalArea.css" />
     <Content Include="content\Images\Background.jpg" />
@@ -145,7 +146,9 @@
     <Compile Include="DAL\CountryDB.cs" />
     <Compile Include="DAL\DataDB.cs" />
     <Compile Include="DAL\FormDB.cs" />
+    <Compile Include="DAL\LotteryDB.cs" />
     <Compile Include="DAL\OrderDB.cs" />
+    <Compile Include="DAL\OrderDetailsDB.cs" />
     <Compile Include="DAL\PlayCardDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\TransactionDB.cs" />
@@ -178,6 +181,7 @@
     <Content Include="Views\Forms\_777.cshtml" />
     <Content Include="Views\Forms\_123.cshtml" />
     <Content Include="ClassDiagram2.cd" />
+    <Content Include="Views\Order\Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -187,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\Images\playCards\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

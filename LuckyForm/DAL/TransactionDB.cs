@@ -29,7 +29,7 @@ namespace LuckyForm.DAL
             this.com.Connection = this.con;
 
         }
-        public void ExecuteTransactionAddOrder(string lotteryID, string formID, string userID, bool paid, double sum, string bets)
+        public void ExecuteTransactionAddOrder(string lotteryID, string formID, string userID, bool paid, double price, string bets)
         {
             using (OleDbConnection connection = this.con)
             {
@@ -49,16 +49,16 @@ namespace LuckyForm.DAL
                 try
                 {
                     string date = DateTime.Now.ToShortDateString();
-                    this.com.CommandText = @"INSERT INTO Orders(OrderDate, UserID, OrderPaid, OrderSum) 
-                           VALUES('" + date + "'," + userID + "," + paid + "," + sum + ");";
+                    this.com.CommandText = @"INSERT INTO Orders(UserID, OrderPaid) 
+                           VALUES(" + userID + "," + paid + ");";
                     this.com.ExecuteNonQuery();
 
                     this.com.CommandText = @"SELECT MAX(OrderID) FROM Orders";
                     dt.Load(this.com.ExecuteReader());
                     string orderId = dt.Rows[0][0].ToString();
 
-                    this.com.CommandText = "INSERT INTO OrderDetails(OrderID, FormID, LotteryID, OrderDetailsBets)" +
-                             "VALUES(" + orderId + "," + formID + "," + lotteryID + ",'" + bets+"')";
+                    this.com.CommandText = "INSERT INTO OrderDetails(OrderID, FormID, LotteryID, OrderDetailsBets, OrderDetailsPrice, OrderDetailsDate)" +
+                             "VALUES(" + orderId + "," + formID + "," + lotteryID + ",'" + bets + "'," + price + ",'" + date + "')";
                     this.com.ExecuteNonQuery();                  
                     // Attempt to commit the transaction.
                     transaction.Commit();

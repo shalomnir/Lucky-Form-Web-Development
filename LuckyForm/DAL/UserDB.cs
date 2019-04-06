@@ -34,6 +34,26 @@ namespace LuckyForm.DAL
             }
             return null;
         }
+        public User GetUserById(string ID)
+        {
+            string sql = @"SELECT * FROM Users WHERE UsersID=" + ID + "";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                User user = new User(                    
+                    dt.Rows[0]["UsersSex"].ToString(),
+                    dt.Rows[0]["UsersFirstName"].ToString(),
+                    dt.Rows[0]["UsersLastName"].ToString(),
+                    dt.Rows[0]["UsersEmail"].ToString(),
+                    dt.Rows[0]["UsersBirthDate"].ToString(),
+                    dt.Rows[0]["UsersPassword"].ToString(),
+                    dt.Rows[0]["UsersPhoneNumber"].ToString(),
+                    dt.Rows[0]["PermissionType"].ToString(),
+                    dt.Rows[0]["UsersID"].ToString());
+                return user;
+            }
+            return null;
+        }
         public string GetUserIdByEmail(string email)
         {
             string sql = @"SELECT usersID FROM Users WHERE UsersEmail='" + email + "'";
