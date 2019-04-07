@@ -12,24 +12,42 @@
     <title>Cart</title>
 </head>
 <body>
-    <div class="lottoryblocks-Wrapper">
-        @foreach (OrderDetails det in Model.Orders)
-        {
+    <div class="cart_wrapper">
+        <div class="products">
+            <div class="head">
+                <h1>YOUR CART(3)</h1>
+            </div>
+           
+            <div class="lottoryblocks-Wrapper">
+                @foreach (OrderDetails det in Model.Orders)
+            {
 
-            <div class="lottery">
-                <i class="fas fa-minus-circle hide_form"></i>               
-                <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+                    <div class="product">
+                        
+                        <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+                        <div class="product_details">
+                            <span><b>Form Name:</b> @det.Form.Name</span><br />
+                            <span><b>Price:</b> @det.Price₪</span><br />
+                            <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
+                            <div class="buttons">
+                                <a class="remove_form_button">Remove Form</a>
+                                <a class="view_form_button">View Form</a>
+                            </div>
+                        </div>
+                        
+                       
 
-                <span>@det.Form.Name</span>
-                <span>@det.Price₪</span>
-                <span>@det.Date.ToShortDateString()</span>
-                <a class="view_form_button">View Form</a>
+                    </div>
+
+                }
 
             </div>
-
-        }
-       
+        </div>
+        <div class="summary">
+            <h3>SUMMARY</h3>
+        </div>
+        <span>@ViewBag.Sum</span>
     </div>
-    <span>@ViewBag.Sum</span>
+    
 </body>
 </html>
