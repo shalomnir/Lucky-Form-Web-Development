@@ -15,10 +15,10 @@
     <div class="cart_wrapper">
         <div class="products">
             <div class="head">
-                <h1>YOUR CART(3)</h1>
+                <h1><b>YOUR CART ( 3 )</b></h1>
             </div>
            
-            <div class="lottoryblocks-Wrapper">
+            <div class="products-Wrapper">
                 @foreach (OrderDetails det in Model.Orders)
             {
 
@@ -30,8 +30,8 @@
                             <span><b>Price:</b> @det.Price₪</span><br />
                             <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
                             <div class="buttons">
-                                <a class="remove_form_button">Remove Form</a>
-                                <a class="view_form_button">View Form</a>
+                                <a href="#" class="remove_form_button">REMOVE</a>
+                                <a href="#" class="view_form_button"><b>VIEW</b></a>
                             </div>
                         </div>
                         
@@ -44,9 +44,11 @@
             </div>
         </div>
         <div class="summary">
-            <h3>SUMMARY</h3>
+            <h1>SUMMARY</h1>
+            <h3>TOTAL</h3><span>@ViewBag.Sum</span>
+            <a href="#">CHECKOUT</a>
         </div>
-        <span>@ViewBag.Sum</span>
+        
     </div>
     
 </body>
