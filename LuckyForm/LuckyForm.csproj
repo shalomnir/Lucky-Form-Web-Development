@@ -103,6 +103,7 @@
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\css\Order\Cart.css" />
     <Content Include="content\css\plugins\flipclock.css" />
+    <Content Include="content\css\plugins\slick.css" />
     <Content Include="content\css\Users\PersonalArea.css" />
     <Content Include="content\Images\Background.jpg" />
     <Content Include="content\Images\Home\ConectUs\ar.svg" />
@@ -129,8 +130,7 @@
     <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />
     <Content Include="content\js\plugins\jquery.validate.min.js" />
-    <Content Include="content\js\Slider.js" />
-    <Content Include="content\js\_123.css" />
+    <Content Include="content\js\plugins\slick.js" />
     <Content Include="content\js\_123.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

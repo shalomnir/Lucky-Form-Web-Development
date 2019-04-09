@@ -18,7 +18,14 @@ namespace LuckyForm.Controllers
         {
             string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
             ViewBag.Sum = orderDetailsDB.GetOrderSumById(orderDB.GetOrderIdByUserID(userID));
+            ViewBag.ProductsCount = orderDetailsDB.CountOrdersByID(orderDB.GetOrderIdByUserID(userID));
             return View(orderDB.GetOrderByUserID(userDB.GetUserIdByEmail((Session["User"] as SessionUser).Email)));
+        }
+        [HttpGet]
+        public ActionResult RemoveFormByID(string id)
+        {
+            orderDetailsDB.RemoveFormByID(id);
+            return Redirect(Request.UrlReferrer.ToString());//Refreah Page
         }
     }
 }

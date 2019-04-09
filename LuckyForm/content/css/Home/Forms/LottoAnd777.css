@@ -2,8 +2,8 @@
 }
 
 .tables_wrapper {
-    
-    
+    width: 700px!important;
+    margin: 0 auto!important;
 }
 
 .tables_wrapper .table {

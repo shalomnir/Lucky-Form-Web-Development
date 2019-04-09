@@ -56,13 +56,32 @@ namespace LuckyForm.DAL
         }
         public double GetOrderSumById(string id)
         {
-            string sql = @"SELECT SUM(OrderDetailsPrice) AS TotalItemsOrdered FROM OrderDetails WHERE OrderID=" + id;
+            string sql = @"SELECT SUM(OrderDetailsPrice) AS TotalItemsOrdered FROM OrderDetails 
+                            WHERE OrderID=" + id;
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
                 return int.Parse(dt.Rows[0][0].ToString());//FIX
             }
             return -1;
+        }
+        public double CountOrdersByID(string id)
+        {
+            string sql = @"SELECT OrderDetailsID FROM OrderDetails WHERE OrderID=" + id;
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows.Count;
+            }
+            return 0;
+        }
+        
+        public bool RemoveFormByID(string id)
+        {
+            string sql = @"DELETE FROM OrderDetails WHERE OrderDetailsID=" + id;
+            if (this.sqlHelper.UpdateData(sql) != -1)
+                return true;
+            return false;
         }
     }
 }

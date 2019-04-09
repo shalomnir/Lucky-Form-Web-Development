@@ -11,6 +11,8 @@
 .cart_wrapper .products{
     border: 1px solid #eee;
     border-bottom:none;
+    border-right: none;
+    border-left: none;
     width:65%;
 }
 .cart_wrapper .products h1 {
@@ -52,42 +54,57 @@
     background-color:#ccc;
 }
 .cart_wrapper .summary{
-    background-color: #191919;
+    background-color: #1a5c7a;
     margin-left:30px;
-    width:28%;
-    padding-left:30px;
-    color:white;
+    width:250px;    
     height:250px;
-    font-weight:900;
-    
-
-}
-.cart_wrapper .summary h1{
-    line-height: 1em;
-    font-size: 25px;
     color: #efefef;
-    margin-top:30px;
+    font-weight:900;
+    border-radius:5px;
+    padding-bottom:10px
+}
+.cart_wrapper .summary .head{
+    font-size:30px;
+    color: #efefef;
+    padding-left:20px;
+    margin-top:10px;
    
 }
-.cart_wrapper .summary h3{
+.cart_wrapper .summary .total{
+   border-top:1px solid #eee;
+    padding:10px 20px;
+    font-size:25px;
+    margin-top:80px;
+   
+}
+.cart_wrapper .summary .total p{
+     display:inline-block;
+}
+.cart_wrapper .summary .sum{
     display:inline-block;
-   margin-top:70px;
-   margin-bottom:30px;
+    margin-left: 73px;
+    width: 80px;
+    font-size:25px;
 }
-.cart_wrapper .summary span{
-    margin-left:120px;
-    font-weight:900;
-   font-size: 20px;
+.cart_wrapper .summary div:not(:last-child){
+     border-bottom:1px solid #eee;
 }
-.cart_wrapper .summary a{
-    
-     border-top: #333 1px solid;
-   color:white;
+.cart_wrapper .summary button{
     text-decoration:none;
-    font-weight:900;
-    letter-spacing:1px;
-    padding:7px 55px;
-    border-radius:3px;
-    background-color:#ff6a00;
-   
+    background-color: #67be13!important;
+    color: #FFF!important;
+    border-bottom: 2px solid #5ba911!important;   
+    padding: 13px 35px;
+    text-align: center;  
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+   margin-left:25px;
+   margin-top:20px;
+   width:200px;
+   cursor:pointer;
+  font-size:18px;
+}
+.cart_wrapper .summary button:hover {
+    background-color: #5ba911 !important;
 }
