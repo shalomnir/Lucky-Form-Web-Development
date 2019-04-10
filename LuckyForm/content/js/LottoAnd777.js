@@ -2,18 +2,28 @@
 
 
 var formType = "0";
+var formId = "0"
 $("document").ready(
     function () {
         formType = $(".regular_numbers").data('formtype');
+        formId = $(".regular_numbers").data('formid');
         $(".number").click(
             function () {               
                 var limit = 6;
+                if (formId === 3 || formId === 4)
+                    limit = 12
+                else if (formId === 5 || formId === 6 || formId === 7)
+                    limit = 7
+                else if (formId === 8)
+                    limit = 9;
+
+                
+
                 if ($(this).parent().hasClass("strong_numbers")) {
                     limit = 1;
-                }  
-                if (formType === 3) {                   
-                    limit = 17;
-                }              
+                    if (formId === 5 || formId === 6)
+                        limit = 7
+                }               
                
                 if (countChosenNumbers($(this).parent()) >= limit && !$(this).hasClass("clicked")){
                     //error border
@@ -30,12 +40,12 @@ $("document").ready(
                     }
                 }      
                
-                tableValidition($(this));                    
+                tableValidition($(this).parents(".inner_table"));
             });
         $(".trash_icon").click(
             function () {              
                 clearAllNumbers($(this).parents('#inner_table'));
-                tableValidition($(this));
+                tableValidition($(this).parents(".inner_table"));
             });
         $(".quick_pick_button").click(
             function () {
@@ -44,7 +54,7 @@ $("document").ready(
                 if (formType === 1)
                     CheckRandomNumbers($(this).parents('#top_table').siblings('.strong_numbers'));
 
-                tableValidition($(this));
+                tableValidition($(this).parents(".inner_table"));
             });
         
         $(".submit_tables").click(
@@ -103,22 +113,38 @@ function perfectTableCount(form) {
 }
 function tableValidition(element) {
     
-    var reqNums = 7;
-    if (formType === 3) {
-        reqNums = 17;
+    var reqNums = 6;
+    var strongReq = 1;
+    if (formId === 3 || formId === 4)
+    {
+        reqNums = 8;
+        strongReq = 1;
     }
+    else if (formId === 5 || formId === 6 || formId === 7)
+    {
+        reqNums = 7;
+        strongReq = 4;
+    }     
+    else if (formId === 8)
+    {
+        reqNums = 8;
+    }
+   
     
-    if (countChosenNumbers(element.parents('#inner_table')) < reqNums && countChosenNumbers(element.parents('#inner_table')) > 0) {
-        element.parents('#table').addClass("table_error");
-    }
-    else if (countChosenNumbers(element.parents('#inner_table')) == 0) {
+    if (countChosenNumbers(element) === 0)
+    {
         element.parents('#table').removeClass("table_error");
         element.parents('#table').removeClass("table_perfect");
-
+        
     }
+    else if (countChosenNumbers(element.children('.regular_numbers')) < reqNums || ((countChosenNumbers(element.children('.strong_numbers')) < strongReq) && formType != 3)) {
+        element.parents('#table').addClass("table_error");
+       
+    } 
     else {
         element.parents('#table').removeClass("table_error");
         element.parents('#table').addClass("table_perfect");
+        
     }
 }
 function countChosenNumbers(element)
@@ -142,14 +168,41 @@ function CheckRandomNumbers(element) {
     var rand_nums = [];
     var limit = 7;
     var checkedCount = 1;
-    if (formType === 3) {
-        limit = 70;
-        checkedCount = 17;
+
+   
+    if (formId === 1 || formId === 2) {
+        if (element.hasClass("regular_numbers")) {
+            limit = 37;
+            checkedCount = 6;
+        }
     }
-    else if (element.hasClass("regular_numbers")) {
-        limit = 37;
-        checkedCount = 6;
-    }   
+    if (formId === 3 || formId === 4) {
+        limit = 7;
+        checkedCount = 1;
+        if (element.hasClass("regular_numbers")) {
+            limit = 37;
+            checkedCount = 8;
+        }
+    }
+    else if (formId === 5 || formId === 6 ) {
+        limit = 7;
+        checkedCount = 4;
+        if (element.hasClass("regular_numbers")) {
+            limit = 37;
+            checkedCount = 7;
+        }
+    }
+    else if(formId === 7)
+    {
+        limit = 70;
+        checkedCount = 7;
+    }
+    else if (formId === 8) {
+        limit = 70;
+        checkedCount = 8;
+    }
+
+       
     for (var i = 0; i < checkedCount; i++)
     {
         random = Math.floor((Math.random() * limit) + 1);

@@ -17,30 +17,37 @@
             <div class="head">
                 <h1><b>YOUR CART ( @ViewBag.ProductsCount )</b></h1>
             </div>
-           
-            <div class="products-Wrapper">
-                @foreach (OrderDetails det in Model.Orders)
-            {
 
-                    <div class="product">
-                        
-                        <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
-                        <div class="product_details">
-                            <span><b>Form Name:</b> @det.Form.Name</span><br />
-                            <span><b>Price:</b> @det.Price₪</span><br />
-                            <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
-                            <div class="buttons">
-                                <a href="~/Order/RemoveFormByID?id=@det.ID" class="remove_form_button">REMOVE</a>
-                                <a href="#" class="view_form_button"><b>VIEW</b></a>
+            <div class="products-Wrapper">
+                @if (Model != null)
+                {
+                    foreach (OrderDetails det in Model.Orders)
+                    {
+
+                        <div class="product">
+
+                            <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+                            <div class="product_details">
+                                <span><b>Form Name:</b> @det.Form.Name</span><br />
+                                <span><b>Price:</b> @det.Price₪</span><br />
+                                <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
+                                <div class="buttons">
+                                    <a href="~/Order/RemoveFormByID?id=@det.ID" class="remove_form_button">REMOVE</a>
+                                    <a href="#" class="view_form_button"><b>VIEW</b></a>
+                                </div>
                             </div>
+
+
+
                         </div>
-                        
-                       
+
+                    }
+                }
+                else{ 
+                    <div class="product">
 
                     </div>
-
                 }
-
             </div>
         </div>
         <div class="summary">
@@ -53,9 +60,9 @@
             <div>
                 <button href="#">CHECKOUT</button>
             </div>
-       </div>
-        
+        </div>
+
     </div>
-    
+
 </body>
 </html>

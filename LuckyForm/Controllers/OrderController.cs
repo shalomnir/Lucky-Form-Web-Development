@@ -17,7 +17,9 @@ namespace LuckyForm.Controllers
         public ActionResult Cart()
         {
             string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
-            ViewBag.Sum = orderDetailsDB.GetOrderSumById(orderDB.GetOrderIdByUserID(userID));
+            ViewBag.Sum = orderDetailsDB.CountOrdersByID(orderDB.GetOrderIdByUserID(userID));
+            if (ViewBag.Sum != 0)
+                ViewBag.Sum = orderDetailsDB.GetOrderSumById(orderDB.GetOrderIdByUserID(userID));
             ViewBag.ProductsCount = orderDetailsDB.CountOrdersByID(orderDB.GetOrderIdByUserID(userID));
             return View(orderDB.GetOrderByUserID(userDB.GetUserIdByEmail((Session["User"] as SessionUser).Email)));
         }

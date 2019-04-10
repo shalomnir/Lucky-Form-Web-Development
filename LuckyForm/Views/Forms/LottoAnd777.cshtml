@@ -6,6 +6,43 @@
     {
         action = "Submit777Form";
     }
+    string count = "6";
+    string strongCount = "1";
+    switch (Model.ID)
+    {
+
+        case "3":
+            count = "8-12";
+            strongCount = "1";
+            break;
+        case "4":
+            count = "8-12";
+            strongCount = "1";
+            break;
+        case "5":
+            count = "7";
+            strongCount = "4-7";
+            break;
+        case "6":
+            count = "7";
+            strongCount = "4-7";
+            break;
+        case "7":
+            count = "7";
+            strongCount = "1";
+            break;
+        case "8":
+            count = "8-9";
+            strongCount = "0";
+            break;
+        default:
+            count = "6";
+            strongCount = "1";
+            break;
+    }
+    string inst = "Choose " + count + " numbers";
+    string strongInst = "Choose " + strongCount + " number/s";
+
 }
 
 <link href="~/content/css/Home/Forms/LottoAnd777.css" rel="stylesheet" />
@@ -42,39 +79,11 @@
 
                             </div>
                             <div class="instruction">
-                                @switch (Model.ID)
-                                {
-                                    case "1":
-                                        <span>Choose 7 numbers </span>
-                                        break;
-                                    case "2":
-                                        <span>Choose 7 numbers </span>
-                                        break;
-                                    case "3":
-                                        <span>Choose 8-12 numbers </span>
-                                        break;
-                                    case "4":
-                                        <span>Choose 7 numbers </span>
-                                        break;
-                                    case "5":
-                                        <span>Choose 7 numbers </span>
-                                        break;
-                                    default:
-                                        Console.WriteLine("Default case");
-                                        break;
-                                }
-
-                                @if (Model.Type == "1")
-                                {
-                                    <span>Choose 7 numbers </span>
-                                }
-                                else if (Model.ID)
-                                {
-                                    <span>Choose 17 numbers </span>
-                                }
+                                
+                               <span>@inst</span>
                                 <i class="fas fa-trash-alt trash_icon"></i>
                             </div>
-                            <div class="regular_numbers" data-formtype=@Model.Type>
+                            <div class="regular_numbers" data-formtype=@Model.Type data-formid=@Model.ID>
                                 @for (int i = 1; i <= Model.NumsInTables; i++)
                                 {
                                     <span class="number">
@@ -87,7 +96,7 @@
                             @if (Model.Type == "1")
                             {
                                 <div class="instruction">
-                                    <span>Choose 1 number</span>
+                                    <span>@strongInst</span>
                                 </div>
                                 <div class="strong_numbers">
                                     @for (int i = 1; i <= 7; i++)
