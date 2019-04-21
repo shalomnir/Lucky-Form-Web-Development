@@ -60,19 +60,18 @@ $("document").ready(
         $(".submit_tables").click(
             function () {
                 var form = $(this).parents('form:first');
+                $("#reg_numbers").val(countChosenNumbers($(".regular_numbers:first")));
+                $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
                 if (formType === 1) {                
                     if (!formValidation(form)) {
                         alert("not valid");
                         return;
                     }
-                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 == 0)) {
+                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0)) {
                         alert("not pairs");
                         return;
                     }
-                    $("#reg_numbers").val(countChosenNumbers($(".regular_numbers:first")));
-                    $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
-                   
-                    
+                     
                     form.submit();
                 }
                 else {
@@ -137,7 +136,7 @@ function tableValidition(element) {
         element.parents('#table').removeClass("table_perfect");
         
     }
-    else if (countChosenNumbers(element.children('.regular_numbers')) < reqNums || ((countChosenNumbers(element.children('.strong_numbers')) < strongReq) && formType != 3)) {
+    else if (countChosenNumbers(element.children('.regular_numbers')) < reqNums || ((countChosenNumbers(element.children('.strong_numbers')) < strongReq) && formType !== 3)) {
         element.parents('#table').addClass("table_error");
        
     } 

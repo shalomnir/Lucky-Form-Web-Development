@@ -7,7 +7,7 @@ namespace LuckyForm.BLL
 {
     public class CalculatePrices
     {
-        public static double GetLottoPrice(string formID)
+        public static double GetLottoPrice(string bets)
         {
             return 14.7;
 

@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 .choose_chance_type .chance_type {
     -webkit-text-stroke: 1px red;
     color: white;
@@ -47,7 +46,8 @@
     font-weight:700;
 }
 
-.chance_table .card_type {
+.chance_table
+{
     display: flex;
     flex-wrap: wrap;
     border-top: 1px solid #E2E2E2;

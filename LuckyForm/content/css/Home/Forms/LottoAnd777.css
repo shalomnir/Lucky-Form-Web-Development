@@ -15,7 +15,9 @@
     font-size: 16px;
     font-weight: 700;   
 }
-
+.disabled{
+    cursor:not-allowed;
+}
 .table_perfect {
     border: 3px solid #67be13 !important;
 }

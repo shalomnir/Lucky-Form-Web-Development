@@ -18,6 +18,7 @@ namespace LuckyForm.Controllers
         UserDB userDB = new UserDB();
         TransactionDB tranDB = new TransactionDB();
         // GET: Forms
+        
         public ActionResult Index()
         {
             return View();
@@ -26,6 +27,7 @@ namespace LuckyForm.Controllers
         public ActionResult GetViewByType(string formID)
         {
             Form form = formDB.GetFormById(formID);
+            ViewBag.isView = false;
             string type = form.Type;
             Session["formID"] = formID;
             if (type == "1" || type == "3")
@@ -42,35 +44,60 @@ namespace LuckyForm.Controllers
 
         public ActionResult SubmitLottoForm(string[] numbers, string reg_numbers, string strong_numbers)
         {
-           
             string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
             string orderID = orderDB.GetOrderIdByUserID(userID);
             string formID = Session["formID"].ToString();
-            string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers),
-                int.Parse(strong_numbers));
+            string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers), int.Parse(strong_numbers));
             double price = CalculatePrices.GetLottoPrice(formID);
             if (orderID == "-1")
-            {
                 tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
-            }
             else
-            {
-                orderDetailsDB.AddOrderDetails(orderID, formID,"1", bets, price);
-            }
-            
-            return null;
+                orderDetailsDB.AddOrderDetails(orderID, formID, "1", bets, price);
+
+            return RedirectToAction("Cart", "Order");
         }
-        public ActionResult Submit777Form(string[] number)
+        public ActionResult Submit777Form(string[] numbers, string reg_numbers)
         {
-            return null;
+            string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
+            string orderID = orderDB.GetOrderIdByUserID(userID);
+            string formID = Session["formID"].ToString();
+            string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers));
+            double price = CalculatePrices.GetLottoPrice(formID);
+            if (orderID == "-1")
+                tranDB.ExecuteTransactionAddOrder("3", formID, userID, false, price, bets);
+            else
+                orderDetailsDB.AddOrderDetails(orderID, formID, "3", bets, price);
+
+            return RedirectToAction("Cart", "Order");
         }
-        public ActionResult SubmitChanceForm(string[] selected_cards)
+        public ActionResult SubmitChanceForm(string[] cards,string first_row, string second_row, string third_row, string fourth_row)
         {
-            return null;
+            string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
+            string orderID = orderDB.GetOrderIdByUserID(userID);
+            string formID = Session["formID"].ToString();
+            int[] counter = { int.Parse(first_row), int.Parse(second_row), int.Parse(third_row), int.Parse(fourth_row) };
+            string bets = FormProtocolHandler.CreateChanceProtocolString(cards, counter);
+            double price = CalculatePrices.GetLottoPrice(formID);
+            if (orderID == "-1")
+                tranDB.ExecuteTransactionAddOrder("2", formID, userID, false, price, bets);
+            else
+                orderDetailsDB.AddOrderDetails(orderID, formID, "2", bets, price);
+       
+            return RedirectToAction("Cart", "Order");
         }
-        public ActionResult Submit123Form(string[] number)
+        public ActionResult Submit123Form(string[] numbers)
         {
-            return null;
+            string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
+            string orderID = orderDB.GetOrderIdByUserID(userID);
+            string formID = Session["formID"].ToString();
+            string bets = FormProtocolHandler.CreateProtocolString(numbers, 3);
+            double price = CalculatePrices.GetLottoPrice(formID);
+            if (orderID == "-1")
+                tranDB.ExecuteTransactionAddOrder("4", formID, userID, false, price, bets);
+            else
+                orderDetailsDB.AddOrderDetails(orderID, formID, "4", bets, price);
+
+            return RedirectToAction("Cart", "Order");
         }
 
 

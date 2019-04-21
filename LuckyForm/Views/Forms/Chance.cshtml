@@ -3,28 +3,23 @@
 @using System.Collections.Generic
 @{
     Dictionary<string, List<PlayCard>> playCards = ViewBag.PlayCards;
-   
+    int cardCount = 7;
 }
 @model Form
 <link href="~/content/css/Home/Forms/Chance.css" rel="stylesheet" />
-<script src="~/content/js/Chance.js"></script>
+@if (ViewBag.isView == true)
+{
+    <script src="~/content/js/ViewJS/Chance_view.js"></script>
+}
+else //Form To fill
+{
+    <script src="~/content/js/Chance.js"></script>
+}
+    
 <meta name="viewport" content="width=device-width" />
 <title></title>
 <body>
-    <!--<div class="choose_chance_type">
-        for (int i = 1; i < 5; i++)
-        {
-            <span class="chance_type">
-                <input type="radio" name="chance_type" value="1" />
-                <span class="number">i</span>
-                <span class="chance_type_img _1">
-                    <img src="~/content/Images/Home/logos/Chance-sml.png" />
-                </span>
 
-            </span>
-        }
-    </div>
-        -->
     <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitChanceForm">
 
         <div name="ch_table" class="chance_table">
@@ -34,21 +29,27 @@
 
             @foreach (KeyValuePair<string, List<PlayCard>> playCardType in playCards)
             {
+                cardCount = 7;
                 <div class="card_type">
                     @foreach (PlayCard card in playCardType.Value)
                     {
-                        <input type="checkbox" class="img_checkbox" name="selected_cards" value="@card.ID"/>
+                        <input type="checkbox" class="img_checkbox" name="cards" value="@cardCount" />
                         <img class="card_img" src="~/content/Images/playCards/@card.Img" />
+                        cardCount++;
                     }
                     <img class="card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />
                 </div>
             }
         </div>
+        <input hidden id="first_row" name="first_row" value="-1" />
+        <input hidden id="second_row" name="second_row" value="-2" />
+        <input hidden id="third_row" name="third_row" value="-3" />
+        <input hidden id="fourth_row" name="fourth_row" value="-4" />
 
-        <button type="button" class="submit_tables">send</button>       
+        <button type="button" class="submit_tables">send</button>
     </form>
 
-
+    <button type="button" class="test">TEST</button>
     <div>
         @Model.Name
     </div>

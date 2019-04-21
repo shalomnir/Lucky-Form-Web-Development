@@ -46,7 +46,15 @@
 }
 
 <link href="~/content/css/Home/Forms/LottoAnd777.css" rel="stylesheet" />
-<script src="~/content/js/LottoAnd777.js"></script>
+@if (ViewBag.isView == true)
+{
+    <script src="~/content/js/ViewJS/LottoAnd777_view.js"></script>
+}
+else //Form To fill
+{
+    <script src="~/content/js/LottoAnd777.js"></script>
+}
+
 <link href="~/content/css/plugins/slick.css" rel="stylesheet" />
 <script src="~/content/js/plugins/slick.js"></script>
 <div>
@@ -79,8 +87,8 @@
 
                             </div>
                             <div class="instruction">
-                                
-                               <span>@inst</span>
+
+                                <span>@inst</span>
                                 <i class="fas fa-trash-alt trash_icon"></i>
                             </div>
                             <div class="regular_numbers" data-formtype=@Model.Type data-formid=@Model.ID>

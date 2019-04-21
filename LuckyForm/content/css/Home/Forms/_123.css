@@ -3,7 +3,7 @@
 
 .tables_wrapper {
     margin:0 auto;
-    width:450px;
+    width:450px!important;
 }
 
 .tables_wrapper .table {
@@ -69,23 +69,15 @@
     padding-left:18px;  
     margin-bottom:4px;
 }
-.table .instruction span{
-   
+.table .nums_row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 .table .instruction i{
     float:right;
     margin-right:10px;
     cursor:pointer;
-}
-.table .regular_numbers{
-    display: flex;
-    flex-wrap:wrap;
-    
-    margin-bottom:4px;
-}
-.table .strong_numbers{
-    display: flex;
-    flex-wrap:wrap;
 }
 .table input[type=checkbox] {
     display: none;
@@ -105,7 +97,7 @@
     margin: 2px;
     font-size: 16px!important;
 }
-.table .clicked{
+.clicked{
     background:#1A5C7A;
-    color:#fff;
+    color:#fff!important;
 }

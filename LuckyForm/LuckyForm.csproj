@@ -131,6 +131,9 @@
     <Content Include="content\js\master_page.js" />
     <Content Include="content\js\plugins\jquery.validate.min.js" />
     <Content Include="content\js\plugins\slick.js" />
+    <Content Include="content\js\ViewJS\Chance_view.js" />
+    <Content Include="content\js\ViewJS\LottoAnd777_view.js" />
+    <Content Include="content\js\ViewJS\_123_view.js" />
     <Content Include="content\js\_123.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -178,7 +181,6 @@
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Forms\LottoAnd777.cshtml" />
     <Content Include="Views\Forms\Chance.cshtml" />
-    <Content Include="Views\Forms\_777.cshtml" />
     <Content Include="Views\Forms\_123.cshtml" />
     <Content Include="ClassDiagram2.cd" />
     <Content Include="Views\Order\Cart.cshtml" />

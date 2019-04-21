@@ -33,7 +33,7 @@
                                 <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
                                 <div class="buttons">
                                     <a href="~/Order/RemoveFormByID?id=@det.ID" class="remove_form_button">REMOVE</a>
-                                    <a href="#" class="view_form_button"><b>VIEW</b></a>
+                                    <a href="~/Order/ViewFormByID?detId=@det.ID&formId=@det.Form.ID" class="view_form_button"><b>VIEW</b></a>
                                 </div>
                             </div>
 

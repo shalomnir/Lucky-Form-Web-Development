@@ -10,6 +10,8 @@ namespace LuckyForm.Controllers
 {
     public class OrderController : Controller
     {
+        FormDB formDB = new FormDB();
+        PlayCardDB playCardDB = new PlayCardDB();
         UserDB userDB = new UserDB();
         OrderDB orderDB = new OrderDB();
         OrderDetailsDB orderDetailsDB = new OrderDetailsDB();
@@ -28,6 +30,24 @@ namespace LuckyForm.Controllers
         {
             orderDetailsDB.RemoveFormByID(id);
             return Redirect(Request.UrlReferrer.ToString());//Refreah Page
+        }
+
+        [HttpGet]
+        public ActionResult ViewFormByID(string detId, string formId)
+        {
+            Form form = formDB.GetFormById(formId);
+            ViewBag.isView = true;
+            string type = form.Type;
+            Session["formID"] = formId;
+            if (type == "1" || type == "3")
+                return PartialView("LottoAnd777", form);
+            else if (type == "2")
+            {
+                ViewBag.PlayCards = playCardDB.GetAllPlayCards();
+                return PartialView("Chance", form);
+            }
+            else
+                return PartialView("~/Views/Forms/_123.cshtml", form);
         }
     }
 }
