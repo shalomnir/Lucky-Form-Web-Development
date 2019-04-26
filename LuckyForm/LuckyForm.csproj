@@ -129,6 +129,7 @@
     <Content Include="content\js\LottoAnd777.js" />
     <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />
+    <Content Include="content\js\Order\Cart.js" />
     <Content Include="content\js\plugins\jquery.validate.min.js" />
     <Content Include="content\js\plugins\slick.js" />
     <Content Include="content\js\ViewJS\Chance_view.js" />

@@ -16,7 +16,9 @@
 .choose_chance_type .chance_type input{
     display:none;
 }
-
+.disabled {
+    cursor: not-allowed!important;
+}
 .chance_table {
     margin: 0 auto;
     width: 934px;

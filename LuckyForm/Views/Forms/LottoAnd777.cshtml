@@ -70,7 +70,7 @@ else //Form To fill
         });
     </script>
     <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/@action">
-        <div class="form_wrapper">
+        <div class="form_wrapper" id="form_wrapper" data-detid=@ViewBag.detId>
 
             <span class="form_name">@Model.Name</span>
             <div class="tables_wrapper multiple-items">

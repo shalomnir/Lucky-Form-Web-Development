@@ -37,17 +37,24 @@ namespace LuckyForm.Controllers
         {
             Form form = formDB.GetFormById(formId);
             ViewBag.isView = true;
+            ViewBag.detId = detId;
             string type = form.Type;
             Session["formID"] = formId;
             if (type == "1" || type == "3")
-                return PartialView("LottoAnd777", form);
+                return PartialView("~/Views/Forms/LottoAnd777.cshtml", form);
             else if (type == "2")
             {
                 ViewBag.PlayCards = playCardDB.GetAllPlayCards();
-                return PartialView("Chance", form);
+                return PartialView("~/Views/Forms/Chance.cshtml", form);
             }
             else
                 return PartialView("~/Views/Forms/_123.cshtml", form);
+        }
+        [HttpGet]
+        public string GetBetsById(string detId)
+        {
+
+            return orderDetailsDB.GetDetailsBetsById(detId);
         }
     }
 }

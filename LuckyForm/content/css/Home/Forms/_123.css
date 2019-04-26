@@ -1,6 +1,8 @@
 ﻿body {
 }
-
+.disabled {
+    cursor: not-allowed !important;
+}
 .tables_wrapper {
     margin:0 auto;
     width:450px!important;

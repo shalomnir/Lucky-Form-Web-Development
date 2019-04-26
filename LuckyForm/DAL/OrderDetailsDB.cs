@@ -83,5 +83,17 @@ namespace LuckyForm.DAL
                 return true;
             return false;
         }
+        public string GetDetailsBetsById(string id)
+        {
+            string sql = @"SELECT OrderDetailsBets FROM OrderDetails
+                            WHERE (((OrderDetails.OrderDetailsID)=" + id + "));";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            return null;
+
+        }
     }
 }

@@ -9,6 +9,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="~/content/css/Order/Cart.css" rel="stylesheet" />
+    <script src="~/content/js/Order/Cart.js"></script>
     <title>Cart</title>
 </head>
 <body>
@@ -27,13 +28,13 @@
                         <div class="product">
 
                             <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
-                            <div class="product_details">
+                            <div class="product_details" data-detid=@det.ID data-formid=@det.Form.ID>
                                 <span><b>Form Name:</b> @det.Form.Name</span><br />
                                 <span><b>Price:</b> @det.Price₪</span><br />
                                 <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
                                 <div class="buttons">
                                     <a href="~/Order/RemoveFormByID?id=@det.ID" class="remove_form_button">REMOVE</a>
-                                    <a href="~/Order/ViewFormByID?detId=@det.ID&formId=@det.Form.ID" class="view_form_button"><b>VIEW</b></a>
+                                    <a class="view_form_button"><b>VIEW</b></a>
                                 </div>
                             </div>
 
