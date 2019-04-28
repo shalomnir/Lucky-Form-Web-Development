@@ -21,7 +21,7 @@ else //Form To fill
 <body>
 
     <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitChanceForm">
-
+        <p class="explain" style="white-space: pre-line">@Model.Explain</p>
         <div name="ch_table" class="chance_table">
             <div class="instruction">
                 <span>Choose 1 card for each type </span>
@@ -46,11 +46,16 @@ else //Form To fill
         <input hidden id="third_row" name="third_row" value="-3" />
         <input hidden id="fourth_row" name="fourth_row" value="-4" />
 
-        <button type="button" class="submit_tables">send</button>
+        @if (ViewBag.isView == false)
+        {
+            <button type="button" class="submit_tables">Add To Cart</button>
+        }
+        else
+        {
+            <button type="button" class="back">Back To Cart</button>
+        }
+        
     </form>
 
-    <button type="button" class="test">TEST</button>
-    <div>
-        @Model.Name
-    </div>
+   
 </body>

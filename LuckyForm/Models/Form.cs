@@ -14,8 +14,9 @@ namespace LuckyForm.Models
         public string Type { get; set; }
         public string ImagePath { get; set; }
         public bool Published { get; set; }
+        public string Explain { get; set; }
 
-        public Form(string ID, int NumOfTables, int NumsInTables, string Name, string Type, string ImagePath, bool Published)
+        public Form(string ID, int NumOfTables, int NumsInTables, string Name, string Type, string ImagePath, bool Published, string Explain)
         {
             this.ID = ID;
             this.NumOfTables = NumOfTables;
@@ -24,6 +25,7 @@ namespace LuckyForm.Models
             this.Type = Type;
             this.ImagePath = ImagePath;
             this.Published = Published;
+            this.Explain = Explain;
         }
     }
 }

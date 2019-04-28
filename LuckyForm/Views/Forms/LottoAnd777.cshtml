@@ -8,37 +8,38 @@
     }
     string count = "6";
     string strongCount = "1";
-    switch (Model.ID)
-    {
+    
+switch (Model.ID)
+        {
 
-        case "3":
-            count = "8-12";
-            strongCount = "1";
-            break;
-        case "4":
-            count = "8-12";
-            strongCount = "1";
-            break;
-        case "5":
-            count = "7";
-            strongCount = "4-7";
-            break;
-        case "6":
-            count = "7";
-            strongCount = "4-7";
-            break;
-        case "7":
-            count = "7";
-            strongCount = "1";
-            break;
-        case "8":
-            count = "8-9";
-            strongCount = "0";
-            break;
-        default:
-            count = "6";
-            strongCount = "1";
-            break;
+            case "3":
+                count = "8-12";
+                strongCount = "1";
+                break;
+            case "4":
+                count = "8-12";
+                strongCount = "1";
+                break;
+            case "5":
+                count = "7";
+                strongCount = "4-7";
+                break;
+            case "6":
+                count = "7";
+                strongCount = "4-7";
+                break;
+            case "7":
+                count = "7";
+                strongCount = "1";
+                break;
+            case "8":
+                count = "8-9";
+                strongCount = "0";
+                break;
+            default:
+                count = "6";
+                strongCount = "1";
+                break;
     }
     string inst = "Choose " + count + " numbers";
     string strongInst = "Choose " + strongCount + " number/s";
@@ -72,11 +73,14 @@ else //Form To fill
     <form id="all_tables_form" class="all_tables_form" method="post" action="/Forms/@action">
         <div class="form_wrapper" id="form_wrapper" data-detid=@ViewBag.detId>
 
-            <span class="form_name">@Model.Name</span>
+            <!--<p style="white-space: pre-line"></p>-->
+            <i dir="ltr" title="" class="fas fa-info-circle explain"></i>
+            <div style="white-space: pre-line" class="info">@Model.Explain</div>
+
             <div class="tables_wrapper multiple-items">
                 @for (int t = 1; t <= Model.NumOfTables; t++)
                 {
-
+                    
                     <div class="table" id="table">
                         <div class="inner_table" id="inner_table">
                             <div class="top_table" id="top_table">
@@ -125,6 +129,14 @@ else //Form To fill
         </div>
         <input hidden name="reg_numbers" id="reg_numbers" value="0" />
         <input hidden name="strong_numbers" id="strong_numbers" value="0" />
-        <button type="button" class="submit_tables">send</button>
+        @if (ViewBag.isView == false)
+        {
+            <button type="button" class="submit_tables">Add To Cart</button>
+        }
+        else
+        {
+            <button type="button" class="back">Back To Cart</button>
+        }
+
     </form>
 </div>

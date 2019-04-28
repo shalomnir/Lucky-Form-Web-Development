@@ -15,7 +15,7 @@ else //Form To fill
 <div>
     <div class="form_wrapper" id="form_wrapper" data-detid=@ViewBag.detId>
 
-        <span class="form_name">@Model.Name</span>
+        <p class="explain" style="white-space: pre-line">@Model.Explain</p>
         <script>
             $('.tables_wrapper').slick({
                 infinite: false,
@@ -64,7 +64,15 @@ else //Form To fill
                     </div>
                 }
             </div>
-            <button type="submit">send</button>
+            @if (ViewBag.isView == false)
+            {
+                <button type="button" class="submit_tables">Add To Cart</button>
+            }
+            else
+            {
+                <button type="button" class="back">Back To Cart</button>
+            }
+
         </form>
     </div>
 

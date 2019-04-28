@@ -25,7 +25,7 @@ namespace LuckyForm.DAL
 
         public List<Form> GetAllForms(string Type)
         {
-            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsExplain, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
                         FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
                         WHERE (((Forms.TypeID)='" + Type + "'))";           
             this.dt = this.sqlHelper.GetData(sql);
@@ -41,7 +41,8 @@ namespace LuckyForm.DAL
                          dr["FormsName"].ToString(),
                          dr["TypeID"].ToString(),
                          dr["TypeImagePath"].ToString(),
-                         (bool)dr["FormsPublished"]
+                         (bool)dr["FormsPublished"],
+                         dr["FormsExplain"].ToString()
                          );
                     
                     allForms.Add(form);
@@ -52,7 +53,7 @@ namespace LuckyForm.DAL
         }
         public Form GetFormById(string id)
         {
-            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
+            string sql = @"SELECT Forms.FormsID, Forms.FormsNumOfTables, Forms.FormsNumsInTable, Forms.FormsExplain, Forms.FormsName, Forms.TypeID, Forms.FormsPublished, Type.TypeImagePath
                             FROM Type INNER JOIN Forms ON Type.TypeID = Forms.TypeID
                             WHERE (((Forms.FormsID)=" + id + "));";
             this.dt = this.sqlHelper.GetData(sql);
@@ -64,8 +65,9 @@ namespace LuckyForm.DAL
                     int.Parse(dt.Rows[0]["FormsNumsInTable"].ToString()),
                     dt.Rows[0]["FormsName"].ToString(),
                     dt.Rows[0]["TypeID"].ToString(),
-                    dt.Rows[0]["TypeImagePath"].ToString(),
-                    (bool)dt.Rows[0]["FormsPublished"]                    
+                    dt.Rows[0]["TypeImagePath"].ToString(),                     
+                    (bool)dt.Rows[0]["FormsPublished"],
+                    dt.Rows[0]["FormsExplain"].ToString()
                     );
                 return form;
             }
