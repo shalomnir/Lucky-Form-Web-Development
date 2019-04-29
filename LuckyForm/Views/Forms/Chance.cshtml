@@ -21,7 +21,10 @@ else //Form To fill
 <body>
 
     <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitChanceForm">
-        <p class="explain" style="white-space: pre-line">@Model.Explain</p>
+
+        <i dir="ltr" title="" class="fas fa-info-circle explain"></i>
+        <div style="white-space: pre-line" class="info">@Model.Explain</div>
+
         <div name="ch_table" class="chance_table">
             <div class="instruction">
                 <span>Choose 1 card for each type </span>

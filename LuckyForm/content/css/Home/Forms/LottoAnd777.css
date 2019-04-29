@@ -138,11 +138,13 @@
     display:none;
     position:absolute;
     width:400px;
-   
-    background-color:chocolate;
+   color:#2a7698;
+    background-color:#e4fdcd;
     z-index:99;
-    margin-left:240px;
+    margin-left:219px;
     padding:15px;
+    border:solid 1px #1a5c7a;
+    margin-top: -6px;
     border-radius:0 10px 10px 10px;
 }
 .explain{
@@ -150,6 +152,11 @@
     font-size:30px;
     color:#2A7698;
     direction:ltr;
+    z-index:100;
      
    
+}
+.valid_error{
+    color:red!important;
+    
 }

@@ -49,45 +49,61 @@ $("document").ready(
             });
         $(".quick_pick_button").click(
             function () {
-                clearAllNumbers($(this).parents('#inner_table'));
-                CheckRandomNumbers($(this).parents('#top_table').siblings('.regular_numbers'));
-                if (formType === 1)
-                    CheckRandomNumbers($(this).parents('#top_table').siblings('.strong_numbers'));
+               
+        clearAllNumbers($(this).parents('#inner_table'));
+        CheckRandomNumbers($(this).parents('#top_table').siblings('.regular_numbers'));
+        if (formType === 1)
+            CheckRandomNumbers($(this).parents('#top_table').siblings('.strong_numbers'));
 
-                tableValidition($(this).parents(".inner_table"));
-            });
-        
-        $(".submit_tables").click(
-            function () {
-                var form = $(this).parents('form:first');
-                $("#reg_numbers").val(countChosenNumbers($(".regular_numbers:first")));
-                $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
-                if (formType === 1) {                
-                    if (!formValidation(form)) {
-                        alert("not valid");
-                        return;
-                    }
-                    else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0)) {
-                        alert("not pairs");
-                        return;
-                    }
-                     
-                    form.submit();
-                }
-                else {
-                    if (!formValidation(form)) {
-                        alert("not valid");
-                        return;
-                    }
-                    else if (!perfectTableCount(form) > 0 ) {
-                        alert("zero");
-                        return;
-                    }
-                    form.submit();
-                }
-        });
-        
+        tableValidition($(this).parents(".inner_table"));
     });
+        
+$(".submit_tables").click(
+    function () {
+                
+        var form = $(this).parents('form:first');
+        $("#reg_numbers").val(countChosenNumbers($(".regular_numbers:first")));
+        $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
+        if (formType === 1) {                
+            if (!formValidation(form)) {
+                setInterval(function () {
+                            
+                    $(".explain").toggleClass("valid_error");
+                }, 300)
+                alert("not valid");
+                return;
+            }
+            else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0)) {
+                setInterval(function () {
+
+                    $(".explain").toggleClass("valid_error");
+                }, 300)
+                alert("not pairs");
+                return;
+            }
+                     
+            form.submit();
+        }
+        else {
+            if (!formValidation(form)) {
+                setInterval(function () {
+
+                    $(".explain").toggleClass("valid_error");
+                }, 300)
+                alert("not valid");
+                return;
+            }
+            else if (!perfectTableCount(form) > 0) {
+                setInterval(function () {
+                    $(".explain").toggleClass("valid_error");}, 300)
+                alert("zero");
+                return;
+            }
+            form.submit();
+        }
+    });
+        
+});
 
 function formValidation(form) {
    

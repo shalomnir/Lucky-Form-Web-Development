@@ -15,7 +15,8 @@ else //Form To fill
 <div>
     <div class="form_wrapper" id="form_wrapper" data-detid=@ViewBag.detId>
 
-        <p class="explain" style="white-space: pre-line">@Model.Explain</p>
+        <i dir="ltr" title="" class="fas fa-info-circle explain"></i>
+        <div style="white-space: pre-line" class="info">@Model.Explain</div>
         <script>
             $('.tables_wrapper').slick({
                 infinite: false,
