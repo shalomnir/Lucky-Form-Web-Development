@@ -20,6 +20,8 @@ namespace LuckyForm.Controllers
         [HttpGet]
         public ActionResult GetFormsInType(string Type)
         {
+            if (Type == "0")
+                return PartialView("Index");
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
         [HttpGet]

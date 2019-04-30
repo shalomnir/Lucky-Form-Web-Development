@@ -54,7 +54,7 @@
 .LotteriesWrapper .sub_menu ul .home{
     width:80px;   
 }
-.LotteriesWrapper .sub_menu ul .home .home{
+.LotteriesWrapper .sub_menu ul .home{
     font-size: 30px;
     color: #666;
     text-decoration: none;   
@@ -65,7 +65,7 @@
     width:80px; 
     height:100%;
 }
-.LotteriesWrapper .sub_menu ul .home .home i{   
+.LotteriesWrapper .sub_menu ul .home i{   
     margin-top:17px;
 }
 

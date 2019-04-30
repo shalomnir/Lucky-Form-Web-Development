@@ -1,5 +1,12 @@
 ﻿$("document").ready(
     function () {
+        $.ajax({
+            url: '/Home/GetFormsInType?Type=0',
+            dataType: "html",
+            success: function (data) {
+                $('#LotteryContent').html(data);
+            }
+        });
         $(".sub_menu li").click(
             function () {
 
