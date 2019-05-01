@@ -152,6 +152,7 @@
     <Compile Include="DAL\OrderDB.cs" />
     <Compile Include="DAL\OrderDetailsDB.cs" />
     <Compile Include="DAL\PlayCardDB.cs" />
+    <Compile Include="DAL\PriceListDB.cs" />
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="DAL\TransactionDB.cs" />
     <Compile Include="DAL\UserDB.cs" />

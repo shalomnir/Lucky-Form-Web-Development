@@ -65,5 +65,37 @@ namespace LuckyForm.BLL
         {
             return bets.Split('#');
         }
+        public static string[] GetCombinations(string[] arr, int r)
+        {
+            
+            int n = arr.Length;
+            printCombination(arr, n, r);
+        }
+        //Print all possible strings of length k that can be formed from a set of n characters
+        static string[] combinationUtil(string[] arr, string[] data, int start, int end, int index, int r)
+        {
+            
+            if (index == r)
+            {
+                for (int j = 0; j < r; j++)
+                    Console.Write(data[j] + " ");
+                Console.WriteLine("");
+                return;
+            }
+
+            
+            for (int i = start; i <= end && end - i + 1 >= r - index; i++)
+            {
+                data[index] = arr[i];
+                return combinationUtil(arr, data, i + 1, end, index + 1, r);
+            }
+        }
+
+        
+        static string[] printCombination(string[] arr,int n, int r)
+        {
+            string[] data = new string[r];
+            return combinationUtil(arr, data, 0, n - 1, 0, r);
+        }
     }
 }
