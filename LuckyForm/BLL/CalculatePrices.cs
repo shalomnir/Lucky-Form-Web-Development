@@ -23,21 +23,23 @@ namespace LuckyForm.BLL
             }
             else if (formID == "3")
             {
-                return pricePerTable * tablesCount;
+                return FormProtocolHandler.nCk(FormProtocolHandler.NumOfBets(bets), 6) * pricePerTable;
+                
             }
             else if (formID == "4")
             {
-                return pricePerTable * tablesCount;
+                return 2*FormProtocolHandler.nCk(FormProtocolHandler.NumOfBets(bets), 6) * pricePerTable;
             }
-            else if (formID == "4")
-            {
-                return pricePerTable * tablesCount;
-            }
+            
             else if (formID == "5")
             {
-                return pricePerTable * tablesCount;
+                return 2 * FormProtocolHandler.nCk(FormProtocolHandler.NumOfBets(bets), 6) * pricePerTable;
             }
             else if (formID == "6")
+            {
+                return FormProtocolHandler.nCk(FormProtocolHandler.NumOfBets(bets), 6) * pricePerTable;
+            }
+            else if (formID == "7")
             {
                 return pricePerTable * tablesCount;
             }
