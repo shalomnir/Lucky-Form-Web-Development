@@ -11,7 +11,7 @@ namespace LuckyForm.Controllers
     public class HomeController : Controller
     {
         FormDB formDB = new FormDB();
-        
+        LotteryDB lotteryDB = new LotteryDB();
         // GET: Home
         public ActionResult MainPageLotteries()
         {
@@ -49,6 +49,19 @@ namespace LuckyForm.Controllers
             CountryDB countryDB = new CountryDB();
             return View(countryDB.GetAllCountries());
         }
+        [HttpGet]
+        public ActionResult UpdateBetsResults()
+        {         
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UpdateResults(string lottery_type, string result)
+        {
+            lotteryDB.UpdateResults(result, lottery_type);
+            
+            return MainPageView();
+        }
+        
         public ActionResult MainPageView()
         {
             

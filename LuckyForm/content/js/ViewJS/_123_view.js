@@ -31,7 +31,7 @@ function PaintNumbers(str) {
         $(this).find(".nums_row").each(function () {
             $(this).find("input").each(function () {
                 //alert(res[index].split(",")[innnerIndex] + "\n" + this.value);
-                if ((res[index].split(",")[innnerIndex]).indexOf(this.value) != -1) {
+                if ((res[index].split(",")[innnerIndex]).indexOf(this.value) !== -1) {
                     $(this).parent().addClass("clicked");
                 }
             });

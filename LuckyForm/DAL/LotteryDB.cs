@@ -38,5 +38,23 @@ namespace LuckyForm.DAL
             }
             return null;
         }
+        public String GetClosestLotteryByTypeID(string typeID)
+        {
+            string sql = @"SELECT TOP 1 * FROM Lotterys WHERE LotterysDate < " + DateTime.Now.ToShortDateString() + " AND " +
+                "TypeID='" + typeID + "'ORDER BY LotterysDate DESC";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (dt != null && dt.Rows.Count > 0)
+            {              
+                return dt.Rows[0]["LotterysID"].ToString();              
+            }
+            return null;
+        }
+        public void UpdateResults(string bets, string typeID)
+        {
+            string sql = @"UPDATE Lotterys
+                            SET LotterysBets = '" + bets +
+                            "' WHERE LotterysID = " + GetClosestLotteryByTypeID(typeID) + ";";
+            this.sqlHelper.UpdateData(sql);
+        }
     }
 }

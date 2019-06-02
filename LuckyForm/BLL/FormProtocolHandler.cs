@@ -75,6 +75,7 @@ namespace LuckyForm.BLL
             int n = arr.Length;
             List<string> results = new List<string>();
             generateCombination(Array.ConvertAll(arr, int.Parse), n, r, results);
+
             return results;
         }
         public static Double nCk(long n, long k)

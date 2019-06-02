@@ -24,6 +24,12 @@ namespace LuckyForm.DAL
         {
             this.sqlHelper = new SqlHelper(path);
         }
+        public void UpdateWinningStatus(bool won, string OrderDetailsID)
+        {
+            string sql = @"UPDATE OrderDetails
+                        SET OrderDetailsWon = " + won + "WHERE  OrderDetailsID = " + 1;
+            this.sqlHelper.UpdateData(sql);
+        }
         public void AddOrderDetails(string orderID, string formID, string lotteryID, string bets, double price)
         {
             string sql = @"INSERT INTO OrderDetails(OrderID, FormID, LotteryID, OrderDetailsBets, OrderDetailsPrice, orderDetailsDate)

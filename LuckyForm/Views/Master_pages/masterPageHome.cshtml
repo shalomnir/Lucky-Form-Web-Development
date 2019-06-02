@@ -66,8 +66,12 @@
                     </a>
                     <div class="dropdown-option">
                         <a href="#">Play Now</a>
+                        @if(sessionUser != null && sessionUser.PermissionType == "2")
+                        {
+                            <a href="/Home/UpdateBetsResults">Update Bets Results</a>
+                        }
                         <a href="#">Rapid Now</a>
-                        <a href="#">@this.ViewBag.isUserExist</a>
+                        <a href="~/Views/Home/UpdateBetsResults.cshtml">@this.ViewBag.isUserExist</a>
                         <a href="#">Sub-2</a>
                         <a href="#">Sub-3</a>
                         <a href="#">Sub-4</a>

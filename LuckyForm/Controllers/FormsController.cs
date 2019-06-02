@@ -17,8 +17,9 @@ namespace LuckyForm.Controllers
         OrderDetailsDB orderDetailsDB = new OrderDetailsDB();
         UserDB userDB = new UserDB();
         TransactionDB tranDB = new TransactionDB();
+        CalculatePrices calculatePrices = new CalculatePrices();
         // GET: Forms
-        
+
         public ActionResult Index()
         {
             return View();
@@ -48,7 +49,7 @@ namespace LuckyForm.Controllers
             string orderID = orderDB.GetOrderIdByUserID(userID);
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers), int.Parse(strong_numbers));
-            double price = CalculatePrices.GetLottoPrice(formID);
+            double price = calculatePrices.GetLottoPrice(bets, formID);
             if (orderID == "-1")
                 tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
             else
@@ -62,7 +63,7 @@ namespace LuckyForm.Controllers
             string orderID = orderDB.GetOrderIdByUserID(userID);
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers));
-            double price = CalculatePrices.GetLottoPrice(formID);
+            double price = calculatePrices.GetLottoPrice(bets, formID);
             if (orderID == "-1")
                 tranDB.ExecuteTransactionAddOrder("3", formID, userID, false, price, bets);
             else
@@ -77,7 +78,7 @@ namespace LuckyForm.Controllers
             string formID = Session["formID"].ToString();
             int[] counter = { int.Parse(first_row), int.Parse(second_row), int.Parse(third_row), int.Parse(fourth_row) };
             string bets = FormProtocolHandler.CreateChanceProtocolString(cards, counter);
-            double price = CalculatePrices.GetLottoPrice(formID);
+            double price = calculatePrices.GetLottoPrice(bets, formID);
             if (orderID == "-1")
                 tranDB.ExecuteTransactionAddOrder("2", formID, userID, false, price, bets);
             else
@@ -91,7 +92,7 @@ namespace LuckyForm.Controllers
             string orderID = orderDB.GetOrderIdByUserID(userID);
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, 3);
-            double price = CalculatePrices.GetLottoPrice(formID);
+            double price = calculatePrices.GetLottoPrice(bets, formID);
             if (orderID == "-1")
                 tranDB.ExecuteTransactionAddOrder("4", formID, userID, false, price, bets);
             else

@@ -98,6 +98,7 @@
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\Home\Slider.css" />
+    <Content Include="content\css\Home\UpdateBetsResults.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\css\Order\Cart.css" />
     <Content Include="content\css\plugins\flipclock.css" />
@@ -141,6 +142,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\CalculatePrices.cs" />
     <Compile Include="BLL\FormProtocolHandler.cs" />
+    <Compile Include="BLL\WinTest.cs" />
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -184,6 +186,7 @@
     <Content Include="Views\Forms\_123.cshtml" />
     <Content Include="ClassDiagram2.cd" />
     <Content Include="Views\Order\Cart.cshtml" />
+    <Content Include="Views\Home\UpdateBetsResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
