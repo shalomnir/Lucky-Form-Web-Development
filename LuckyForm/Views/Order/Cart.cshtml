@@ -51,17 +51,50 @@
                 }
             </div>
         </div>
-        <div class="summary">
-            <div>
-                <p class="head">SUMMARY</p>
+        <form class="summary" method="post" action="/Order/pay">
+            <div class="top">
+                <span>Pay Invoice</span>
             </div>
-            <div class="total">
-                <p>Total</p> <p class="sum">@ViewBag.Sum₪</p>
+            <div class="body">
+                <div class="inner_limits">
+                    <div class="credit_cards row">
+                        <img src="https://image.flaticon.com/icons/svg/217/217425.svg"/>
+                        <img src="https://image.flaticon.com/icons/svg/217/217423.svg" />
+                        <img src="https://image.flaticon.com/icons/svg/217/217424.svg" />
+                        <img src="https://image.flaticon.com/icons/svg/217/217426.svg" />
+                    </div>
+                    <div class="amount row">
+                        <span>Payment amount</span><br />
+                        <span>@ViewBag.Sum₪</span>
+                    </div>
+                    <div class="name row">
+                        <span>Name on card</span>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="card_number row">
+                        <span>Card number</span>
+                        <input type="text" name="card_number">
+                    </div>
+                    <div class="row">
+                        <div class="exp_date">
+                            <span>Expiry date</span>
+                            <input type="text" name="exp_date">
+                        </div>
+                        <div class="sec_code">
+                            <span>Security code</span>
+                            <input type="text" name="sec_code">
+                        </div>
+
+                    </div>
+                    <div class="postal row">
+                        <span>ZIP/Postal code</span>
+                        <input type="text" name="pos_code">
+                    </div>
+                    <button class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
+                </div>
             </div>
-            <div>
-                <button href="#">CHECKOUT</button>
-            </div>
-        </div>
+
+        </form>
 
     </div>
 

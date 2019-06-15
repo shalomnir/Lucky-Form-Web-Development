@@ -56,5 +56,12 @@ namespace LuckyForm.Controllers
 
             return orderDetailsDB.GetDetailsBetsById(detId);
         }
+        [HttpPost]
+        public ActionResult Pay(string name, string card_number, string exp_date, string sec_code, string pos_code)
+        {
+            string orderId = orderDB.GetOrderIdByUserID(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email));
+            orderDB.MarkAsPaid(orderId);
+            return null;
+        }
     }
 }

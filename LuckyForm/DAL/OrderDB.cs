@@ -73,7 +73,12 @@ namespace LuckyForm.DAL
             }
             return null;
         }
-
+        public void MarkAsPaid(string orderId)
+        {
+            string sql = @"UPDATE Orders
+                        SET OrderPaid = " + true + "WHERE  OrderID = " + orderId;
+            this.sqlHelper.UpdateData(sql);
+        }
 
     }
 }

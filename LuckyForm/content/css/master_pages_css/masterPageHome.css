@@ -144,7 +144,7 @@ body{
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+.modal input[type=text], input[type=password] {
     text-rendering: auto;
     background-color: #fff;
     background-image: none;
@@ -168,11 +168,11 @@ input[type=text], input[type=password] {
     width: 70.5%!important;
     margin-right:-5px!important;
 }
-.row{
+.modal .row{
     
     margin: 15px auto;
 }
-.icon {
+.modal .icon {
     font-size: 18px;
     font-weight: 400;
     padding:9px 5px 11px 10px;
