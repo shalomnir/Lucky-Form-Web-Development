@@ -24,8 +24,8 @@ namespace CreditCompany.DAL
         }
         public double GetCardFrame(CreditCard card)
         {
-            string sql = @"SELECT CardFrame WHERE CardID = '" + card.ID + "' AND CardCVV = '"
-                          + card.CVV + "' AND CardExpiryDate ='" + card.ExpiryDate + "';";
+            string sql = @"SELECT CardFrame FROM Card WHERE CardID = '" + card.ID + "' AND CardCVV = '"
+                          + card.CVV + "' AND CardExpiryDate =#" + card.ExpiryDate.ToString("M/d/yyyy") + "#;";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {

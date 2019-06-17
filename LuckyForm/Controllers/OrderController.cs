@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LuckyForm.CreditCompanyReference;
 
 namespace LuckyForm.Controllers
 {
@@ -59,8 +60,16 @@ namespace LuckyForm.Controllers
         [HttpPost]
         public ActionResult Pay(string name, string card_number, string exp_date, string sec_code, string pos_code)
         {
-            string orderId = orderDB.GetOrderIdByUserID(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email));
-            orderDB.MarkAsPaid(orderId);
+            CreditCompanyReference.CreditCard card = new CreditCard();
+            card.ID = card_number;
+            card.ExpiryDate = DateTime.Parse(exp_date);
+            card.CVV = sec_code;
+            CreditCompanyReference.CreditClient creditClient = new CreditClient();
+            if (creditClient.GetDealVerification(card, double.Parse("5.5"), 1, "1"))
+            {
+                string orderId = orderDB.GetOrderIdByUserID(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email));
+                orderDB.MarkAsPaid(orderId);
+            }
             return null;
         }
     }

@@ -62,7 +62,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service1.svc" />
+    <Content Include="App_Data\CreditCompany.accdb" />
+    <Content Include="Credit.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -72,15 +73,13 @@
     <Compile Include="DAL\SqlHelper.cs" />
     <Compile Include="Models\CreditCard.cs" />
     <Compile Include="Models\Deal.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
+    <Compile Include="Credit.svc.cs">
+      <DependentUpon>Credit.svc</DependentUpon>
     </Compile>
-    <Compile Include="IService1.cs" />
+    <Compile Include="ICredit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

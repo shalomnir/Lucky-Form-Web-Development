@@ -53,7 +53,27 @@ namespace LuckyForm.DAL
             }
             return null;
         }
-    
+        public List<Order> GetAllPaidOrdersOffUser(string userId)
+        {
+            string sql = @"SELECT * FROM Orders WHERE UserID = '" + userId + "' AND OrderPaid = True";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (this.dt != null && this.dt.Rows.Count > 0)
+            {
+                List<Order> allOrders = new List<Order>();
+                foreach (DataRow dr in this.dt.Rows)
+                {
+                    Order order = new Order();
+                    order.ID = dt.Rows[0]["OrderID"].ToString();
+                    order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
+                    order.User = userDB.GetUserById(dt.Rows[0]["UserID"].ToString());
+                    order.Paid = (bool)dt.Rows[0]["OrderPaid"];
+
+                    allOrders.Add(order);
+                }
+                return allOrders;
+            }
+            return null;
+        }
         public Order GetOrderByUserID(string ID)
         {
             string sql = @"SELECT Orders.OrderID, Orders.OrderPaid, Lotterys.LotterysID, OrderDetails.FormID, Orders.UserID
@@ -73,10 +93,26 @@ namespace LuckyForm.DAL
             }
             return null;
         }
+        public Order GetOrderById(string orderId)
+        {
+            string sql = @"SELECT * FROM Orders WHERE OrderID= " + orderId;
+            this.dt = this.sqlHelper.GetData(sql);
+            if (this.dt != null && this.dt.Rows.Count > 0)
+            {
+                Order order = new Order();
+                order.ID = dt.Rows[0]["OrderID"].ToString();
+                order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
+                order.User = userDB.GetUserById(dt.Rows[0]["UserID"].ToString());
+                order.Paid = (bool)dt.Rows[0]["OrderPaid"];
+               
+                return order;
+            }
+            return null;
+        }
         public void MarkAsPaid(string orderId)
         {
             string sql = @"UPDATE Orders
-                        SET OrderPaid = " + true + "WHERE  OrderID = " + orderId;
+                        SET OrderPaid = " + true + " WHERE OrderID = " + orderId;
             this.sqlHelper.UpdateData(sql);
         }
 

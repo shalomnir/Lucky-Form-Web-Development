@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyForm", "LuckyForm\LuckyForm.csproj", "{7736B3F2-27CF-424A-AF8E-8A8FF1DFA93F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3BA72CF-7BC2-4FAA-9231-CD1C396351DE} = {E3BA72CF-7BC2-4FAA-9231-CD1C396351DE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCompany", "CreditCompany\CreditCompany.csproj", "{E3BA72CF-7BC2-4FAA-9231-CD1C396351DE}"
 EndProject
@@ -24,5 +27,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD0979EB-CB62-4DD9-B87A-2C9CFD1D044A}
 	EndGlobalSection
 EndGlobal

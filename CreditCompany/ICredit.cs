@@ -11,14 +11,14 @@ namespace CreditCompany
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface ICredit
     {
 
         [OperationContract]
-        bool GetDealVerification(CreditCard card, double amount, int payments);
+        bool GetDealVerification(CreditCard card, double amount, int payments, string businessID);
 
         [OperationContract]
-        List<Deal> GetDealsReport(DateTime start, DateTime end);
+        List<Deal> GetDealsReport(DateTime start, DateTime end, string businessID);
         
         // TODO: Add your service operations here
     }

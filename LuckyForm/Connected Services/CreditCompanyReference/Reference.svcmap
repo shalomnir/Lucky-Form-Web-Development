@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a88db623-5b6a-4be3-ada5-ca6512ac0962" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1265/Credit.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Credit.disco" MetadataType="Disco" ID="5ad40214-fcbc-4b55-9f0b-f2ee55dadf5f" SourceId="1" SourceUrl="http://localhost:1265/Credit.svc?disco" />
+    <MetadataFile FileName="Credit.xsd" MetadataType="Schema" ID="cfdc75f8-0760-4f6d-86ea-8002bb4f11a2" SourceId="1" SourceUrl="http://localhost:1265/Credit.svc?xsd=xsd0" />
+    <MetadataFile FileName="Credit.wsdl" MetadataType="Wsdl" ID="7aa96529-ec17-4326-87fc-e141e4b10f0d" SourceId="1" SourceUrl="http://localhost:1265/Credit.svc?wsdl" />
+    <MetadataFile FileName="Credit1.xsd" MetadataType="Schema" ID="ce2461fc-97ac-4c00-9844-bf4a486d31c8" SourceId="1" SourceUrl="http://localhost:1265/Credit.svc?xsd=xsd1" />
+    <MetadataFile FileName="Credit2.xsd" MetadataType="Schema" ID="7b31ad08-0fdd-4c3f-8b26-d9a79b4496df" SourceId="1" SourceUrl="http://localhost:1265/Credit.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
