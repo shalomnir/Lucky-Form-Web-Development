@@ -16,7 +16,7 @@
     <div class="cart_wrapper">
         <div class="products">
             <div class="head">
-                <h1><b>YOUR CART ( @ViewBag.ProductsCount )</b></h1>
+                <h1><b>YOUR CART (@ViewBag.ProductsCount)</b></h1>
             </div>
 
             <div class="products-Wrapper">
@@ -44,7 +44,8 @@
 
                     }
                 }
-                else{ 
+                else
+                {
                     <div class="product">
 
                     </div>
@@ -58,7 +59,7 @@
             <div class="body">
                 <div class="inner_limits">
                     <div class="credit_cards row">
-                        <img src="https://image.flaticon.com/icons/svg/217/217425.svg"/>
+                        <img src="https://image.flaticon.com/icons/svg/217/217425.svg" />
                         <img src="https://image.flaticon.com/icons/svg/217/217423.svg" />
                         <img src="https://image.flaticon.com/icons/svg/217/217424.svg" />
                         <img src="https://image.flaticon.com/icons/svg/217/217426.svg" />
@@ -78,7 +79,28 @@
                     <div class="row">
                         <div class="exp_date">
                             <span>Expiry date</span>
-                            <input type="text" name="exp_date">
+                            <select name="exp_mm">
+                                <option value="01">January</option>
+                                <option value="02">February </option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select name="exp_yy">
+                                @for (int i = 0; i < 5; i++)
+                                {
+                                    <option value="@DateTime.Now.AddYears(i).Year"> @DateTime.Now.AddYears(i).Year</option>
+                                }
+
+
+                            </select>
                         </div>
                         <div class="sec_code">
                             <span>Security code</span>
@@ -90,7 +112,18 @@
                         <span>ZIP/Postal code</span>
                         <input type="text" name="pos_code">
                     </div>
+                    <div class="payments row">
+                        <span>Number of payments</span>
+                        <select name="payments">
+                            @for (int i = 1; i <= 12; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+
+                        </select>
+                    </div>
                     <button class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
+                    <input hidden name="price" value="@ViewBag.sum" />
                 </div>
             </div>
 

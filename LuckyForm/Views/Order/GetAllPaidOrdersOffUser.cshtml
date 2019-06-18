@@ -1,0 +1,51 @@
+﻿@using LuckyForm.Models
+@{
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+}
+@model List<Order>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Paid Orders</title>
+    <link href="~/content/css/Order/Cart.css" rel="stylesheet" />
+    <script src="~/content/js/Order/Cart.js"></script>
+</head>
+<body>
+    <div>
+        @if (Model != null)
+        {
+            foreach (Order order in Model)
+            {
+                foreach (OrderDetails det in order.Orders)
+                {
+
+                    <div class="product">
+
+                        <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+                        <div class="product_details" data-detid=@det.ID data-formid=@det.Form.ID>
+                            <span><b>Form Name:</b> @det.Form.Name</span><br />
+                            <span><b>Price:</b> @det.Price₪</span><br />
+                            <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
+                            <div class="buttons">
+                                <a class="view_form_button"><b>VIEW</b></a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                }
+            }
+        }
+        else
+        {
+            <div class="product">
+
+            </div>
+        }
+    </div>
+</body>
+</html>

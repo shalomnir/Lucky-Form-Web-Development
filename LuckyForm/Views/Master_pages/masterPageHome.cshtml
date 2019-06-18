@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>masterPageHome</title>        
+    <title>masterPageHome</title>
     <link href="~/content/css/master_pages_css/masterPageHome.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="~/content/js/plugins/jquery.validate.min.js"></script>
@@ -24,7 +24,6 @@
             #modal-wrapper {
                 display: block;
             }
-            
         </style>
     }
 </head>
@@ -40,25 +39,24 @@
                     </a>
 
                 </li>
-                @if(sessionUser != null)
+                @if (sessionUser != null)
                 {
                     <li>
                         <a class="menu_section" href="/Users/Logout">
                             Logout
-                        <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
                         </a>
                     </li>
+
+
+                    <li>
+                        <a class="menu_section" href="/Order/Cart">
+                            Cart
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+
+                    </li>
                 }
-                <li class="dropdown">
-                    <a class="menu_section" href="/Order/Cart">
-                        Cart
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <div class="dropdown-option">
-                        <a href="#">asdasd</a>
-                        <!--TO DO A LOOP THAT OVER ON ALL PRUDACTS-->
-                    </div>
-                </li>
                 <li class="dropdown">
                     <a class="menu_section" href="/GameOption.html">
                         Game Option
@@ -66,12 +64,17 @@
                     </a>
                     <div class="dropdown-option">
                         <a href="#">Play Now</a>
-                        @if(sessionUser != null && sessionUser.PermissionType == "2")
+                        @if (sessionUser != null)
                         {
-                            <a href="/Home/UpdateBetsResults">Update Bets Results</a>
+                            if (sessionUser.PermissionType == "2")
+                            {
+                                <a href="/Home/UpdateBetsResults">Update Bets Results</a>
+                            }                            
+                            <a href="/Order/GetAllPaidOrdersOffuser">Paid Orders</a>
+
                         }
+
                         <a href="#">Rapid Now</a>
-                        <a href="~/Views/Home/UpdateBetsResults.cshtml">@this.ViewBag.isUserExist</a>
                         <a href="#">Sub-2</a>
                         <a href="#">Sub-3</a>
                         <a href="#">Sub-4</a>
@@ -89,9 +92,9 @@
                     <li>
                         <a class="menu_section user_name" href="/Users/PersonalArea">
                             !Welcome, <i class="fas fa-user"></i> @sessionUser.FirstName @sessionUser.LastName
-                        
+
                         </a>
-                    </li>                    
+                    </li>
                 }
                 else
                 {
@@ -106,7 +109,7 @@
                             Login
                             <i class="fas fa-lock"></i>
                         </a>
-                    
+
                     </li>
                 }
 
@@ -114,7 +117,7 @@
         </div>
     </div>
     <div class="Wrapper">
-       
+
         <ul id="social-icon">
 
             <li id="headLiveSupport">
@@ -133,10 +136,10 @@
                 </a>
             </li>
         </ul>
-        <div class="main">           
+        <div class="main">
             <div id="modal-wrapper" class="modal">
 
-                <div class="modal-content animate">                    
+                <div class="modal-content animate">
                     <form id="verified_form_sign_up" class="sign-up" method="post" action="/Users/SignUp">
                         <div class="modal-header">SIGN UP</div>
                         <div class="sign_up_block">
@@ -186,7 +189,7 @@
                                     }
                                 </select>
                                 <select class="custom-select form-group" name="select_day" required>
-                                    
+
                                     @for (int day = 1; day <= 31; day++)
                                     {
                                         <option value="@day">@day</option>
@@ -248,9 +251,9 @@
                                 </span>
                                 <input class="password form-group" id="psw-login" type="password" placeholder="Password" name="password">
                                 <span onclick="ShowPass('psw-login')" class="show_pass" title="Show Password"><i class="far fa-eye"></i></span>
-                                @if(ViewBag.isUserAuthenticated == false)
+                                @if (ViewBag.isUserAuthenticated == false)
                                 {
-                                <label class="error" for="email">Invalid ID or password.Please try again..</label>
+                                    <label class="error" for="email">Invalid ID or password.Please try again..</label>
                                 }
                             </div>
                             <div class="loading">
@@ -264,7 +267,7 @@
                     <div class="imgcontainer">
                         <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
                     </div>
-                </div>                   
+                </div>
             </div>
             @RenderBody()
         </div>
@@ -339,7 +342,7 @@
         </div>
 
     </footer>
-    
-    
+
+
 </body>
 </html>

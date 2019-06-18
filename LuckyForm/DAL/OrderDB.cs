@@ -24,7 +24,7 @@ namespace LuckyForm.DAL
         }
         public string GetOrderIdByUserID(string ID)
         {
-            string sql = @"SELECT * FROM Orders WHERE UserID=" + ID;
+            string sql = @"SELECT * FROM Orders WHERE UserID=" + ID + " AND OrderPaid = False";
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
@@ -42,10 +42,10 @@ namespace LuckyForm.DAL
                 foreach (DataRow dr in this.dt.Rows)
                 {
                     Order order = new Order();
-                    order.ID = dt.Rows[0]["OrderID"].ToString();
+                    order.ID = dr["OrderID"].ToString();
                     order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
-                    order.User = userDB.GetUserById(dt.Rows[0]["UserID"].ToString());
-                    order.Paid = (bool)dt.Rows[0]["OrderPaid"];
+                    order.User = userDB.GetUserById(dr["UserID"].ToString());
+                    order.Paid = (bool)dr["OrderPaid"];
 
                     allOrders.Add(order);
                 }
@@ -55,18 +55,19 @@ namespace LuckyForm.DAL
         }
         public List<Order> GetAllPaidOrdersOffUser(string userId)
         {
-            string sql = @"SELECT * FROM Orders WHERE UserID = '" + userId + "' AND OrderPaid = True";
+            string sql = @"SELECT * FROM Orders WHERE UserID = " + userId + " AND OrderPaid = True";
             this.dt = this.sqlHelper.GetData(sql);
             if (this.dt != null && this.dt.Rows.Count > 0)
             {
                 List<Order> allOrders = new List<Order>();
                 foreach (DataRow dr in this.dt.Rows)
                 {
+                    
                     Order order = new Order();
-                    order.ID = dt.Rows[0]["OrderID"].ToString();
+                    order.ID = dr["OrderID"].ToString();
                     order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
-                    order.User = userDB.GetUserById(dt.Rows[0]["UserID"].ToString());
-                    order.Paid = (bool)dt.Rows[0]["OrderPaid"];
+                    order.User = userDB.GetUserById(dr["UserID"].ToString());
+                    order.Paid = (bool)dr["OrderPaid"];
 
                     allOrders.Add(order);
                 }

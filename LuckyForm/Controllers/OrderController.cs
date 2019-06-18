@@ -54,23 +54,32 @@ namespace LuckyForm.Controllers
         [HttpGet]
         public string GetBetsById(string detId)
         {
-
             return orderDetailsDB.GetDetailsBetsById(detId);
         }
+        [HttpGet]
+        public ActionResult GetAllPaidOrdersOffUser()
+        {
+            return View(orderDB.GetAllPaidOrdersOffUser(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email)));
+        }
         [HttpPost]
-        public ActionResult Pay(string name, string card_number, string exp_date, string sec_code, string pos_code)
+        public ActionResult Pay(string name, string card_number, string exp_mm, string exp_yy, string sec_code, string pos_code, string price, string payments)
         {
             CreditCompanyReference.CreditCard card = new CreditCard();
             card.ID = card_number;
-            card.ExpiryDate = DateTime.Parse(exp_date);
+            card.ExpiryDate = new DateTime(int.Parse(exp_yy), int.Parse(exp_mm), 1);
             card.CVV = sec_code;
             CreditCompanyReference.CreditClient creditClient = new CreditClient();
-            if (creditClient.GetDealVerification(card, double.Parse("5.5"), 1, "1"))
+            if (creditClient.GetDealVerification(card, double.Parse(price), int.Parse(payments), "1"))
             {
                 string orderId = orderDB.GetOrderIdByUserID(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email));
                 orderDB.MarkAsPaid(orderId);
+                return null;
             }
-            return null;
+            else
+            {
+                return View();
+            }
+            
         }
     }
 }
