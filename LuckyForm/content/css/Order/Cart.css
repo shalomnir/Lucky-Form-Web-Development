@@ -14,12 +14,19 @@
     border-bottom:none;
     width:60%;
 }
+.cart_wrapper paid_products{
+    width:80%!important;
+}
 .cart_wrapper .products h1 {
     
     background-color: #eef2f4;
     padding: 20px;
    color: #71828a;
     font-weight:900;
+}
+.cart_wrapper .products products-Wrapper{
+    display:flex;
+    flex-wrap:wrap;
 }
 .cart_wrapper .product{
     padding-top:10px;
@@ -48,6 +55,7 @@
     padding:7px 25px;
     border-radius:5px;
     background-color:#efefef;
+    cursor:pointer;
 }
 .cart_wrapper .product .buttons a:hover{
     background-color:#ccc;
@@ -87,7 +95,15 @@
     width:40px;
     margin-left:10px;
 }
-
+.cart_wrapper .summary .body .row select{   
+    border: 1px solid #bbb;
+    box-shadow: none;
+    color: #666;
+    line-height: 1.7;
+    padding: 12px 14px;
+    border-radius: 4px;
+    display:inline-block;
+}
 .cart_wrapper .summary .body .row input {
     width: 100%;
     border: 1px solid #bbb;
@@ -102,15 +118,15 @@
     width:80%;
     margin:0 auto;
 }
-.cart_wrapper .summary .body .exp_date, .sec_code {
-    width: 48%;
-    display: inline-block;
-}
-.cart_wrapper .summary .body .sec_code input {   
-    border-radius:0 4px 4px 0!important;    
-}
 .cart_wrapper .summary .body .sec_code {
-    margin-left:4px;
+    width:89px;   
+}
+.cart_wrapper .summary .body .payment{
+    width:137px;  
+}
+.cart_wrapper .summary .body .sec_pays{
+    display:flex;
+    flex-wrap:wrap; 
 }
 .cart_wrapper .summary .body .pay {
     width:102%;

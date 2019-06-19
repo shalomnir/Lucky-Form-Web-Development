@@ -20,7 +20,7 @@ namespace CreditCompany
         {
             double frame = cardDB.GetCardFrame(card);
             double sum = dealDB.GetDealsSum(card.ID);
-            if (frame == -1)
+            if (frame == -1 || DateTime.Compare(DateTime.Now, card.ExpiryDate) >= 0)
                 return false;
             else if (frame + sum - amount / payments > 0)
             {

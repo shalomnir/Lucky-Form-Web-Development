@@ -76,10 +76,10 @@
                         <span>Card number</span>
                         <input type="text" name="card_number">
                     </div>
-                    <div class="row">
-                        <div class="exp_date">
-                            <span>Expiry date</span>
-                            <select name="exp_mm">
+                    <div class="exp_date row">                       
+                            <span>Expiry date</span><br />
+                            <select name="exp_mm" >
+                                <option value="" disabled selected>Month</option>
                                 <option value="01">January</option>
                                 <option value="02">February </option>
                                 <option value="03">March</option>
@@ -94,34 +94,35 @@
                                 <option value="12">December</option>
                             </select>
                             <select name="exp_yy">
+                                <option value="" disabled selected>Year</option>
                                 @for (int i = 0; i < 5; i++)
                                 {
                                     <option value="@DateTime.Now.AddYears(i).Year"> @DateTime.Now.AddYears(i).Year</option>
                                 }
-
+                            </select>
+                        </div>                        
+                    <div class="row sec_pays">
+                        <div class="sec_code">
+                            <span>Security code</span><br />
+                            <input type="text" name="sec_code">
+                        </div>
+                        <div class="payment">
+                            <span>Number of payments</span><br />
+                            <select name="payments">
+                                <option selected="selected">1</option>
+                                @for (int i = 2; i <= 12; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
 
                             </select>
                         </div>
-                        <div class="sec_code">
-                            <span>Security code</span>
-                            <input type="text" name="sec_code">
-                        </div>
-
                     </div>
                     <div class="postal row">
                         <span>ZIP/Postal code</span>
                         <input type="text" name="pos_code">
                     </div>
-                    <div class="payments row">
-                        <span>Number of payments</span>
-                        <select name="payments">
-                            @for (int i = 1; i <= 12; i++)
-                            {
-                                <option value="@i">@i</option>
-                            }
-
-                        </select>
-                    </div>
+                    
                     <button class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
                     <input hidden name="price" value="@ViewBag.sum" />
                 </div>

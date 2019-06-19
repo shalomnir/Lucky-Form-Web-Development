@@ -48,7 +48,7 @@ $("document").ready(
             return this.optional(element)
                 || value.length >= 2               
             && value.match(new RegExp("^[a-zA-Z\s]+$"));
-        }, 'Your password must contain at least 2 characters and can contain letters only\.')
+        }, 'Your Name must contain at least 2 characters and can contain letters only\.')
 
         $.validator.addMethod('strongPassword', function(value, element) {
             return this.optional(element) 

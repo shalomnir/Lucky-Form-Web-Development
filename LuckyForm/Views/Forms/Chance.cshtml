@@ -20,7 +20,7 @@ else //Form To fill
 <title></title>
 <body>
 
-    <form class="chance_form" data-formid="@Model.ID" method="post" action="/Forms/SubmitChanceForm">
+    <form class="chance_form" data-formid="@Model.ID" data-detid=@ViewBag.detId id="form_wrapper" method="post" action="/Forms/SubmitChanceForm">
 
         <i dir="ltr" title="" class="fas fa-info-circle explain"></i>
         <div style="white-space: pre-line" class="info">@Model.Explain</div>

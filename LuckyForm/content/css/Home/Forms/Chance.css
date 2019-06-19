@@ -1,29 +1,35 @@
 ﻿
-.choose_chance_type .card_type {
-    -webkit-text-stroke: 1px red;
+.card_type {   
     color: white;
     font-weight: bolder;
-    font-size:35px;
+    font-size: 35px;
     border: 1px solid #E2E2E2;
-    border-radius: 4px;  
-    padding-top:30px;
-    
-    width:200px;
-}  
-.choose_chance_type .card_type .number{
-    margin-bottom:15px;
+    border-radius: 4px;
+    padding-top: 30px;
+    margin-top: 20px;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-left: 6px;
 }
-.choose_chance_type .card_type input{
-    display:none;
-}
+
+.card_type .number {
+        margin-bottom: 15px;
+    }
+
+.card_type input {
+        display: none;
+    }
+
 .disabled {
-    cursor: not-allowed!important;
+    cursor: not-allowed !important;
 }
+
 .chance_table {
     margin: 0 auto;
     width: 934px;
     border-bottom: 1px solid #E2E2E2;
 }
+
 .table_perfect {
     border: 3px solid #67be13 !important;
     border-radius: 4px;
@@ -33,11 +39,13 @@
     border: 3px solid #BF390F !important;
     border-radius: 4px;
 }
+
 .clicked {
     transform: scale(1.2);
     border: 1px solid #67be13 !important;
     border-radius: 9px;
 }
+
 .chance_table .instruction {
     background: #1A5C7A;
     color: #fff;
@@ -45,85 +53,90 @@
     padding-top: 10px;
     padding-left: 18px;
     margin-bottom: 4px;
-    font-weight:700;
+    font-weight: 700;
     width: 100%;
 }
 
-.chance_table
-{
+.chance_table {
     display: flex;
     flex-wrap: wrap;
     border-top: 1px solid #E2E2E2;
     padding-bottom: 30px;
     padding: 20px;
     font-size: 16px;
-    font-weight: 700;  
-    
-}
-.chance_table .card_type img.card_img{
-    width:80px;
-    height:122px;
-    margin-right: 20px;
-}
-.not_clicked{
-    transform:none!important;
-    /*transform:scale(1);*/
-    cursor:default!important;
-}
-.chance_table .card_type img.card_type_img{
-    width:80px;
-    height:122px;
-    
-}
-.chance_table .card_type img.card_img:hover{
-   transform: scale(1.2);
-   cursor:pointer;
+    font-weight: 700;
 }
 
-.chance_table .img_checkbox{
-    display:none;
+    .chance_table .card_type img.card_img {
+        width: 80px;
+        height: 122px;
+       margin-right: 6px;
+    margin-left: 6px;
+    }
+
+.not_clicked {
+    transform: none !important;
+    /*transform:scale(1);*/
+    cursor: default !important;
 }
-.chance_form .submit_tables,.back{
-    margin-top:50px;
-    width:300px;
-    color:aliceblue;
-    background-color:#67be13!important;
-    display:block;
-    margin:50px auto 0 auto;
+
+.chance_table .card_type img.card_type_img {
+    width: 80px;
+    height: 122px;
+}
+
+.chance_table .card_type img.card_img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.chance_table .img_checkbox {
+    display: none;
+}
+
+.chance_form .submit_tables, .back {
+    margin-top: 50px;
+    width: 300px;
+    color: aliceblue;
+    background-color: #67be13 !important;
+    display: block;
+    margin: 50px auto 0 auto;
     padding: 15px 13px;
-    font-size: 18px;    
+    font-size: 18px;
     text-align: center;
-    border: none;    
+    border: none;
     font-weight: 700;
     border-radius: 5px;
-     cursor:pointer;
+    cursor: pointer;
 }
-.chance_form .submit_tables,.back{
-    background-color: #5ba911!important;
-    
+
+.chance_form .submit_tables, .back {
+    background-color: #5ba911 !important;
 }
-.explain:hover+.info{
-    display:block;
+
+.explain:hover + .info {
+    display: block;
 }
-.info{
-    display:none;
-    position:absolute;
-    width:400px;
-   color:#2a7698;
-    background-color:#e4fdcd;
-    z-index:99;
-    margin-left:219px;
-    padding:15px;
-    border:solid 1px #1a5c7a;
+
+.info {
+    display: none;
+    position: absolute;
+    width: 400px;
+    color: #2a7698;
+    background-color: #e4fdcd;
+    z-index: 99;
+    margin-left: 219px;
+    padding: 15px;
+    border: solid 1px #1a5c7a;
     margin-top: -6px;
-    border-radius:0 10px 10px 10px;
+    border-radius: 0 10px 10px 10px;
 }
-.explain{
-    margin-left:200px;
-    font-size:30px;
-    color:#2A7698;
-    direction:ltr;
-    z-index:100;
-     
-   
+
+.explain {
+    margin-left: 200px;
+    font-size: 30px;
+    color: #2A7698;
+    direction: ltr;
+    z-index: 100;
+    margin-bottom: 20px;
 }

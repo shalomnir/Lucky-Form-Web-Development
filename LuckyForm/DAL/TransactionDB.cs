@@ -15,8 +15,8 @@ namespace LuckyForm.DAL
         public TransactionDB()
         {
             this.con = new OleDbConnection();
-            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
-            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
+            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
+            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
             this.com = new OleDbCommand();
             this.com.Connection = this.con;
         }
@@ -65,10 +65,7 @@ namespace LuckyForm.DAL
                     Console.WriteLine("Both records are written to database.");
                 }
                 catch (Exception ex)
-                {
-                    Console.WriteLine("Commit Exception Type: {0}", ex.GetType());
-                    Console.WriteLine("  Message: {0}", ex.Message);
-
+                {                    
                     // Attempt to roll back the transaction.
                     try
                     {

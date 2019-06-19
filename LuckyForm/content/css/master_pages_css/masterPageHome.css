@@ -44,7 +44,7 @@ body{
     color: #efefef;
     padding-top: 17px;
     width:120px;
-    padding-bottom: 15px;
+    padding-bottom: 13px;
     cursor:pointer;
 }
 .menu .content ul li a.user_name{
@@ -123,8 +123,7 @@ body{
 
 .Wrapper #LotteryContent{
     background-color:#fff;
-    padding-top:20px;
-    padding:20px 10px 30px 10px;
+   padding: 10px 10px 10px 5px;
 }
 
 
