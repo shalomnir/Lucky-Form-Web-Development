@@ -36,11 +36,9 @@ function PaintNumbers(str) {
         if (index > res.length - 1) {
             return false;
         }
-        alert(index);
         reg = res[index].split("*")[0];
         
-        $(this).find(".regular_numbers").find('input').each(function () {
-            //alert("bets: " + reg + "\ncurr: " + this.value + "\n" + reg.indexOf(this.value));           
+        $(this).find(".regular_numbers").find('input').each(function () {           
             if ((reg.split(",")).indexOf(this.value) != -1) {
                 
                 $(this).parent().addClass("clicked");
@@ -52,8 +50,7 @@ function PaintNumbers(str) {
             if (strong.indexOf(this.value) != -1) {
                 $(this).parent().addClass("clicked");
             }
-        });
-        
+        });        
         index++;
     });
 }

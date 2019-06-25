@@ -19,22 +19,13 @@
         });
     });
 function PaintNumbers(str) {
-    alert(str);
     var res = str.split("#");
-    var index = 0;
-    var innnerIndex = 0; 
+    var index = 0;   
     $(".chance_table").find(".card_type").each(function () {
-        $(this).find("input").each(function () {
-            //alert(res[index].split(",")[innnerIndex] + "\n" + this.value);
-            //alert("Value: " + $(this).val());
-            //alert("Natun: " + (res[index].split(",")[innnerIndex]));
+        $(this).find("input").each(function () {            
             if (((res[index]).indexOf($(this).val()) > -1)) {
                 $(this).next().addClass("clicked");
-            }
-            /*if (innnerIndex >= ((res[index].split(",")).length - 1)) {
-                alert("yo innnn");
-                return false;
-            }*/            
+            }              
         });
         index++;
     });     

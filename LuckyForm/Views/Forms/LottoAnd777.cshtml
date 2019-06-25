@@ -131,11 +131,12 @@ else //Form To fill
         <input hidden name="strong_numbers" id="strong_numbers" value="0" />
         @if (ViewBag.isView == false)
         {
-            <button type="button" class="submit_tables">Add To Cart</button>
+            <button type="button"  class="submit_tables">Add To Cart</button>
         }
         else
         {
-            <button type="button" class="back">Back To Cart</button>
+
+            <button type="button" onclick="location.href='/Order/Cart'" class="back">Back To Cart</button>
         }
 
     </form>

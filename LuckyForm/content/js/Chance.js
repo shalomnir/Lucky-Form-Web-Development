@@ -31,14 +31,7 @@ $("document").ready(
 
                 tableValidition($(this));
             });
-        $(".test").click(
-            function () {
-               
-                alert('1 ' + countChosenNumbers());    
-                alert('2 ' + countChosenNumbers($(".chance_form .card_type:nth-child(3)")));
-                alert('3 ' + countChosenNumbers($(".chance_form .card_type:nth-child(4)")));
-                alert('4 ' + countChosenNumbers($(".chance_form .card_type:nth-child(5)")));
-            });
+        
         $(".submit_tables").click(
             function () {
                 var form = $(this).parents('form:first');
@@ -48,9 +41,19 @@ $("document").ready(
                 $("#third_row").val(countChosenNumbers($(".chance_form .card_type:nth-child(4)")));
                 $("#fourth_row").val(countChosenNumbers($(".chance_form .card_type:nth-child(5)")));
 
-                if (formID === 11) {
+                if (formID === 10) {
+                    
+                    if (!formValidation(form)) {
+
+                        ("Invalid form, read instruction");
+                        return;
+                    }
+                    form.submit();
+                }
+                else if (formID === 11) {
+                   
                     if (perfectTableCount(form) < 4) {
-                        //alert("must fill all tables");
+                        alert("You must fill all the tables");
                         form.find('.card_type').each(function (i) {
                             if (!$(this).hasClass("table_perfect")) {
                                 $(this).addClass("table_error");                                                                                                                          
@@ -59,21 +62,16 @@ $("document").ready(
                         return;
                     }
                 }
-                
-                if (formID === 10) {
-                    if (!formValidation(form)) {
-                        alert("not valid");
-                        return;
-                    }
-                    form.submit();
-                }
+
                 else {
-                    if (!formValidation(form)) {
-                        alert("not valid");
-                        return;
-                    }
-                    else if (!perfectTableCount(form) > 0) {
-                        alert("zero");
+                    
+                    if (!formValidation(form) || perfectTableCount(form) < 4) {
+                        alert("You must fill all the tables");
+                        form.find('.card_type').each(function (i) {
+                            if (!$(this).hasClass("table_perfect")) {
+                                $(this).addClass("table_error");
+                            }
+                        });
                         return;
                     }
                     form.submit();
@@ -89,7 +87,6 @@ function perfectTableCount(form) {
         if ($(this).hasClass("table_perfect")) {
             count++;
         }
-
     });
     return count;
 }

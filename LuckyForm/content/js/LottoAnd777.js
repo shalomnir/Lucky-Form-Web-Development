@@ -67,29 +67,27 @@ $(".submit_tables").click(
         if (formType === 1) {                
             if (!formValidation(form)) {
                 
-                alert("not valid");
+                alert("Form fill is invalid. Read the instruction.");
                 return;
             }
-            else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0) && (formId === 1 || formId === 2)) {               
-                alert("not pairs");
+            else if (!(perfectTableCount(form) > 0))
+            {
+                alert("You nust fill the tables.");
+            }
+            else if ((formId === 1 || formId === 2) && !(perfectTableCount(form) % 2 === 0)) {               
+                alert("You nust fill in an even number of tables");
                 return;
             }
                      
             form.submit();
         }
         else {
-            if (!formValidation(form)) {
-                setInterval(function () {
-
-                    $(".explain").toggleClass("valid_error");
-                }, 300)
-                alert("not valid");
+            if (!formValidation(form)) {  
+                alert("Form fill is invalid. Read the instruction.");
                 return;
             }
-            else if (!perfectTableCount(form) > 0) {
-                setInterval(function () {
-                    $(".explain").toggleClass("valid_error");}, 300)
-                alert("zero");
+            else if (!perfectTableCount(form) > 0) {             
+                alert("You nust fill the tables.");
                 return;
             }
             form.submit();

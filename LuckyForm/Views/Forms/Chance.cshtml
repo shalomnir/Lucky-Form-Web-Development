@@ -27,7 +27,18 @@ else //Form To fill
 
         <div name="ch_table" class="chance_table">
             <div class="instruction">
-                <span>Choose 1 card for each type </span>
+                @if (Model.ID == "10")
+                {
+                    <span>Choose 1 card for each type. </span>
+                }
+                else if(Model.ID == "11")
+                {
+                    <span>Choose 1 card for each type. You must fill all the tabels  </span>
+                }
+                else
+                {
+                    <span>Choose 1-4 cards for each type. You must fill all the tabels  </span>
+                }
             </div>
 
             @foreach (KeyValuePair<string, List<PlayCard>> playCardType in playCards)
@@ -55,7 +66,7 @@ else //Form To fill
         }
         else
         {
-            <button type="button" class="back">Back To Cart</button>
+            <button type="button" onclick="location.href='/Order/Cart'" class="back">Back To Cart</button>
         }
         
     </form>

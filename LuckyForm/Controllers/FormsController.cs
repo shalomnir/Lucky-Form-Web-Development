@@ -50,6 +50,7 @@ namespace LuckyForm.Controllers
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers), int.Parse(strong_numbers));
             double price = calculatePrices.GetLottoPrice(bets, formID);
+            price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
             else
@@ -64,6 +65,7 @@ namespace LuckyForm.Controllers
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, int.Parse(reg_numbers));
             double price = calculatePrices.GetLottoPrice(bets, formID);
+            price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("3", formID, userID, false, price, bets);
             else
@@ -79,6 +81,7 @@ namespace LuckyForm.Controllers
             int[] counter = { int.Parse(first_row), int.Parse(second_row), int.Parse(third_row), int.Parse(fourth_row) };
             string bets = FormProtocolHandler.CreateChanceProtocolString(cards, counter);
             double price = calculatePrices.GetLottoPrice(bets, formID);
+            price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("2", formID, userID, false, price, bets);
             else
@@ -93,6 +96,7 @@ namespace LuckyForm.Controllers
             string formID = Session["formID"].ToString();
             string bets = FormProtocolHandler.CreateProtocolString(numbers, 3);
             double price = calculatePrices.GetLottoPrice(bets, formID);
+            price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("4", formID, userID, false, price, bets);
             else
