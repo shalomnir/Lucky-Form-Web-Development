@@ -67,7 +67,7 @@ namespace LuckyForm.BLL
         }
         public static int NumOfBets(string bets)
         {
-            return (bets.Split('#')[0].Split(',')).Length + 1;
+            return (bets.Split('#')[0].Split(',')).Length;
         }
         public static List<string> GetCombinations(string[] arr, int r)
         {

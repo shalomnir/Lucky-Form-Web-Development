@@ -44,7 +44,7 @@ body{
     color: #efefef;
     padding-top: 17px;
     width:120px;
-    padding-bottom: 13px;
+    height: 30px;
     cursor:pointer;
 }
 .menu .content ul li a.user_name{

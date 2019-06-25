@@ -42,9 +42,8 @@
                 if (perfectTableCount(form) === 0 || !formValidation(form)) {
                     alert("ERROR");
                     return;               
-                    form.submit();
                 }
-               
+                form.submit();
             });
 
     });

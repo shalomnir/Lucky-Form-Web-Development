@@ -85,7 +85,7 @@
     height: 122px;
 }
 
-.chance_table .card_type img.card_img:hover {
+.chance_table .card_type img.scale_on_hover:hover {
     transform: scale(1.2);
     cursor: pointer;
 }

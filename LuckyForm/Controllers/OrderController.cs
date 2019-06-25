@@ -19,6 +19,8 @@ namespace LuckyForm.Controllers
         [HttpGet]
         public ActionResult Cart()
         {
+            if (Session["user"] == null)
+                return View("~/Views/_404.cshtml");
             string userID = userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email);
             ViewBag.Sum = orderDetailsDB.CountOrdersByID(orderDB.GetOrderIdByUserID(userID));
             if (ViewBag.Sum != 0)

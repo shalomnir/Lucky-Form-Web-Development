@@ -70,11 +70,11 @@
                     </div>
                     <div class="name row">
                         <span>Name on card</span>
-                        <input type="text" name="name">
+                        <input type="text" maxlength="30" name="name" chars="a-zA-z\s">
                     </div>
                     <div class="card_number row">
                         <span>Card number</span>
-                        <input type="text" name="card_number">
+                        <input type="text" class="number_only" name="card_number">
                     </div>
                     <div class="exp_date row">                       
                             <span>Expiry date</span><br />
@@ -104,7 +104,7 @@
                     <div class="row sec_pays">
                         <div class="sec_code">
                             <span>Security code</span><br />
-                            <input type="text" name="sec_code">
+                            <input type="text" maxlength="4" class="number_only" name="sec_code">
                         </div>
                         <div class="payment">
                             <span>Number of payments</span><br />
@@ -120,10 +120,10 @@
                     </div>
                     <div class="postal row">
                         <span>ZIP/Postal code</span>
-                        <input type="text" name="pos_code">
+                        <input type="text" class="number_only" name="pos_code">
                     </div>
                     
-                    <button class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
+                    <button type="button" class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
                     <input hidden name="price" value="@ViewBag.sum" />
                 </div>
             </div>

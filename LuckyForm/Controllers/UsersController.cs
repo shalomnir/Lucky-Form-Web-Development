@@ -69,6 +69,8 @@ namespace LuckyForm.Controllers
         // GET: Users
         public ActionResult PersonalArea(string email)
         {
+            if (Session["user"] == null)
+                return View("~/Views/_404.cshtml");
             SessionUser sessionUser = Session["user"] as SessionUser;
             return View(userDB.GetUserByEmail(sessionUser.Email));
         }

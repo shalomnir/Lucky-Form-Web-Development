@@ -51,7 +51,7 @@ namespace LuckyForm.DAL
                     orderDetails.OrderID = dr["OrderID"].ToString();
                     orderDetails.Lottery =lotteryDB.GetLotteryById(dr["LotteryID"].ToString());
                     orderDetails.Bets = dr["OrderDetailsBets"].ToString();
-                    orderDetails.Price = int.Parse(dr["OrderDetailsPrice"].ToString());//TO FIX DOUBLE
+                    orderDetails.Price = double.Parse(dr["OrderDetailsPrice"].ToString());//TO FIX DOUBLE
                     orderDetails.Date = DateTime.Parse(dr["orderDetailsDate"].ToString());
 
                     allDetails.Add(orderDetails);
@@ -67,7 +67,7 @@ namespace LuckyForm.DAL
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
-                return int.Parse(dt.Rows[0][0].ToString());//FIX
+                return double.Parse(dt.Rows[0][0].ToString());
             }
             return -1;
         }

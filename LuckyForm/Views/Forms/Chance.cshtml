@@ -37,7 +37,7 @@ else //Form To fill
                     @foreach (PlayCard card in playCardType.Value)
                     {
                         <input type="checkbox" class="img_checkbox" name="cards" value="@cardCount" />
-                        <img class="card_img" src="~/content/Images/playCards/@card.Img" />
+                        <img class="card_img scale_on_hover" src="~/content/Images/playCards/@card.Img" />
                         cardCount++;
                     }
                     <img class="card_type_img" src="~/content/Images/playCards/@(playCardType.Key).svg" />

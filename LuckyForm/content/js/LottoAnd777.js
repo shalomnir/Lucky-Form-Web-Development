@@ -66,18 +66,11 @@ $(".submit_tables").click(
         $("#strong_numbers").val(countChosenNumbers($(".strong_numbers:first")));
         if (formType === 1) {                
             if (!formValidation(form)) {
-                setInterval(function () {
-                            
-                    $(".explain").toggleClass("valid_error");
-                }, 300)
+                
                 alert("not valid");
                 return;
             }
-            else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0)) {
-                setInterval(function () {
-
-                    $(".explain").toggleClass("valid_error");
-                }, 300)
+            else if (!(perfectTableCount(form) > 0 && perfectTableCount(form) % 2 === 0) && (formId === 1 || formId === 2)) {               
                 alert("not pairs");
                 return;
             }
