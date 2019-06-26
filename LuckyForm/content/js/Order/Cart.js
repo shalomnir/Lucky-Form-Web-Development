@@ -16,7 +16,7 @@
                 $(".form_wrapper").css("display", "table-row");
             });
         $(".pay").click(function () {
-            
+            $(this).parents("form").submit();
         });
         $(function () {
             $("input[name = 'name']").keydown(function (e) {

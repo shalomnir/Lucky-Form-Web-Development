@@ -27,7 +27,7 @@ namespace LuckyForm.DAL
         public void UpdateWinningStatus(bool won, string OrderDetailsID)
         {
             string sql = @"UPDATE OrderDetails
-                        SET OrderDetailsWon = " + won + "WHERE  OrderDetailsID = " + 1;//TO FIX
+                        SET OrderDetailsWon = " + won + " WHERE  OrderDetailsID = " + OrderDetailsID;
             this.sqlHelper.UpdateData(sql);
         }
         public void AddOrderDetails(string orderID, string formID, string lotteryID, string bets, double price)

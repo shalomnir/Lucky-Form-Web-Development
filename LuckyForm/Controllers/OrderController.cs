@@ -66,6 +66,7 @@ namespace LuckyForm.Controllers
         [HttpPost]
         public ActionResult Pay(string name, string card_number, string exp_mm, string exp_yy, string sec_code, string pos_code, string price, string payments)
         {
+            
             CreditCompanyReference.CreditCard card = new CreditCard();
             card.ID = card_number;
             card.ExpiryDate = new DateTime(int.Parse(exp_yy), int.Parse(exp_mm), 1);

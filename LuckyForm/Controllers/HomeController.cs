@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LuckyForm.BLL;
 
 namespace LuckyForm.Controllers
 {
@@ -12,6 +13,7 @@ namespace LuckyForm.Controllers
     {
         FormDB formDB = new FormDB();
         LotteryDB lotteryDB = new LotteryDB();
+        WinTest winTest = new WinTest();
         // GET: Home
         public ActionResult MainPageLotteries()
         {
@@ -58,7 +60,15 @@ namespace LuckyForm.Controllers
         public ActionResult UpdateResults(string lottery_type, string result)
         {
             lotteryDB.UpdateResults(result, lottery_type);
-            
+            try
+            {
+                winTest.ItarateOrderDetails(result, lottery_type);
+            }
+            catch(Exception e)
+            {
+                ViewBag.error = "Incorrect format or content. Note the type of lottery!";
+                return View("UpdateBetsResults");
+            }
             return MainPageView();
         }
         

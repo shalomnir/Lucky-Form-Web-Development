@@ -186,6 +186,7 @@
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\PlayCard.cs" />
     <Compile Include="Models\SessionUser.cs" />
+    <Compile Include="Models\table.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,6 +218,7 @@
     </None>
     <Content Include="Views\Order\GetAllPaidOrdersOffUser.cshtml" />
     <Content Include="Views\_404.cshtml" />
+    <Content Include="Views\Home\DealsByTimeRange.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

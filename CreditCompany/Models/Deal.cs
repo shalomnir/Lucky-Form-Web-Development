@@ -11,6 +11,6 @@ namespace CreditCompany.Models
         public string CardID { get; set; }
         public DateTime Date { get; set; }
         public double Amount { get; set; }
-        public int Payments { get; set; }
+        
     }
 }

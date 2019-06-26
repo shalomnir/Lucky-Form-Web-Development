@@ -1,0 +1,23 @@
+﻿@using LuckyForm.CreditCompanyReference;
+@{
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+    
+}
+@model List<CreditCompanyReference.Deal>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DealsByTimeRange</title>
+</head>
+<body>
+    <div>
+        <form class="deals_form" method="post" action="/Home/GetDeals">
+            <input type="date" name="start" class="date" />
+            <input type="date" name="end" class="date" />
+            <button type="button"></button>
+        </form>
+    </div>
+</body>
+</html>

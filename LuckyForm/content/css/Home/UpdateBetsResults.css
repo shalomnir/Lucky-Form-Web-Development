@@ -23,14 +23,19 @@
 .fill_area {
     margin: 20px 0 0 20px;
 }
-
+.update_form .error{
+    font-size:20px;
+    color:red;
+    margin:0 auto;
+    margin-top:30px;
+}
 .update_form .submit_bets {
-    margin-top: 50px;
+    
     width: 300px;
     color: aliceblue;
     background-color: #67be13 !important;
     display: block;
-    margin: 50px auto 0 auto;
+    margin: 30px auto 0 auto;
     padding: 15px 13px;
     font-size: 18px;
     text-align: center;

@@ -69,6 +69,10 @@ namespace LuckyForm.BLL
         {
             return (bets.Split('#')[0].Split(',')).Length;
         }
+        public static int NumOfStrongBets(string bets)
+        {
+            return (bets.Split('#')[0].Split('*')[1].Split(',')).Length;
+        }
         public static List<string> GetCombinations(string[] arr, int r)
         {
             
@@ -77,6 +81,86 @@ namespace LuckyForm.BLL
             generateCombination(Array.ConvertAll(arr, int.Parse), n, r, results);
 
             return results;
+        }
+        // Return true if arr2[] is  
+        // a subset of arr1[] */ 
+        public static bool isSubset(string[] arr1, string[] arr2, int m, int n)
+        {
+            foreach(string s in arr2)
+            {
+                if (!arr1.Contains<string>(s))
+                    return false;
+            }
+            return true;
+        }
+        public static bool cmpArr(string[] arr1, string[] arr2, int len)
+        {
+            for(int i =0;i<len;i++)
+            {
+                if (arr1[i] != arr2[i])
+                    return false;
+            }
+            return true;                    
+        }
+        public static bool areEqual(string[] arr1, string[] arr2)
+        {
+            int n = arr1.Length;
+            int m = arr2.Length;
+
+            // If lengths of array are not 
+            // equal means array are not equal 
+            if (n != m)
+                return false;
+
+            // Sort both arrays 
+            Array.Sort(arr1);
+            Array.Sort(arr2);
+
+            // Linearly compare elements 
+            for (int i = 0; i < n; i++)
+                if (arr1[i] != arr2[i])
+                    return false;
+            // If all elements were same. 
+            return true;
+        }
+        public static List<string[]> ListArrFromListString(List<table> tables)
+        {
+            List<string[]> tbls = new List<string[]>();
+            foreach (table t in tables)
+            {
+                int len = t.regularNums.Count + t.strongNums.Count;
+                string[] arr = new string[len];
+                for(int i=0;i<len;i++)
+                {
+                    //TODO
+                }
+            }
+            return tbls;
+        }
+        public static List<table> ProtocolToClass(string bets, string type)
+        {
+            List<table> betsTables = new List<table>();
+            foreach (string table in FormProtocolHandler.SplitTabels(bets))
+            {
+                if (table.Length > 0)
+                {
+                    string strong = "";
+                    string reg = table.Split('*')[0];
+                    if (type == "1")
+                        strong = table.Split('*')[1];
+                    table t = new table();
+                    foreach (string num in reg.Split(','))
+                    {
+                        t.regularNums.Add(num);
+                    }
+                    foreach (string num in strong.Split(','))
+                    {
+                        t.strongNums.Add(num);
+                    }
+                    betsTables.Add(t);
+                }
+            }
+            return betsTables;
         }
         public static Double nCk(long n, long k)
         {

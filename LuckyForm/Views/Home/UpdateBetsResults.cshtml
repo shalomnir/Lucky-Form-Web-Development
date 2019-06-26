@@ -31,13 +31,17 @@
             <div class="fill_area">
                 <p>
                     Fill out the bets according to the next protocol: <br />
-                    numbers*strongs#numbers*strongs#<br />  <br />
+                    numbers*strongs<br />  <br />
                 </p>
                 
-                <input type="text" name="result"  pattern="[0-9,#*]{1,144}" required placeholder="For Example: 1,2,3,4*5,6#7,8,9,10*#11,12#" />
+                <input type="text" name="result"  pattern="[0-9,#*]{1,144}" required placeholder="For Example: 1,2,3,4,5,6*7,8" />
                 <br>
-
+                
             </div>
+            @if(ViewBag.error != null)
+                {
+                    <p class="error">@ViewBag.error</p>
+                }
             <button class="submit_bets">Update Bets</button>
         </form>
     </div>

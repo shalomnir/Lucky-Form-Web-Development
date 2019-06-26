@@ -53,6 +53,27 @@ namespace LuckyForm.DAL
             }
             return null;
         }
+        public List<Order> GetAllOrdersToIterate()
+        {
+            string sql = @"SELECT * FROM Orders WHERE OrderPaid = True";
+            this.dt = this.sqlHelper.GetData(sql);
+            if (this.dt != null && this.dt.Rows.Count > 0)
+            {
+                List<Order> allOrders = new List<Order>();
+                foreach (DataRow dr in this.dt.Rows)
+                {
+                    Order order = new Order();
+                    order.ID = dr["OrderID"].ToString();
+                    order.Orders = orderDetailsDB.GetDetailsByOrderId(order.ID);
+                    order.User = userDB.GetUserById(dr["UserID"].ToString());
+                    order.Paid = (bool)dr["OrderPaid"];
+
+                    allOrders.Add(order);
+                }
+                return allOrders;
+            }
+            return null;
+        }
         public List<Order> GetAllPaidOrdersOffUser(string userId)
         {
             string sql = @"SELECT * FROM Orders WHERE UserID = " + userId + " AND OrderPaid = True";
