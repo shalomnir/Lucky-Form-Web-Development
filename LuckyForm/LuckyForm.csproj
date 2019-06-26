@@ -218,7 +218,7 @@
     </None>
     <Content Include="Views\Order\GetAllPaidOrdersOffUser.cshtml" />
     <Content Include="Views\_404.cshtml" />
-    <Content Include="Views\Home\DealsByTimeRange.cshtml" />
+    <Content Include="Views\Home\GetDealsByTimeRange.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

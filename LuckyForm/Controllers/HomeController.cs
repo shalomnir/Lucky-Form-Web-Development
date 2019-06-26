@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LuckyForm.BLL;
-
+using LuckyForm.CreditCompanyReference;
 namespace LuckyForm.Controllers
 {
     public class HomeController : Controller
@@ -55,6 +55,18 @@ namespace LuckyForm.Controllers
         public ActionResult UpdateBetsResults()
         {         
             return View();
+        }
+        [HttpGet]
+        public ActionResult GetDeals()
+        {
+            return View("GetDealsByTimeRange");
+        }
+        [HttpPost]
+        public ActionResult GetDealsByTimeRange(string start, string end)
+        {            
+            CreditCompanyReference.CreditClient creditClient = new CreditClient();
+            List<Deal> deals = creditClient.GetDealsReport(DateTime.Parse(start), DateTime.Parse(end), "1").OfType<Deal>().ToList();            
+            return View(deals);
         }
         [HttpPost]
         public ActionResult UpdateResults(string lottery_type, string result)

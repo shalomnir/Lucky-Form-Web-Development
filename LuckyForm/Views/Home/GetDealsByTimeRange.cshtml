@@ -1,9 +1,9 @@
-﻿@using LuckyForm.CreditCompanyReference;
+﻿@using LuckyForm.CreditCompanyReference
 @{
     Layout = "~/Views/Master_pages/masterPageHome.cshtml";
-    
+
 }
-@model List<CreditCompanyReference.Deal>
+@model List<Deal>
 <!DOCTYPE html>
 
 <html>
@@ -13,11 +13,18 @@
 </head>
 <body>
     <div>
-        <form class="deals_form" method="post" action="/Home/GetDeals">
+        <form class="deals_form" method="post" action="/Home/GetDealsByTimeRange">
             <input type="date" name="start" class="date" />
             <input type="date" name="end" class="date" />
-            <button type="button"></button>
+            <button type="button">Get Deals</button>
         </form>
+        @if(Model != null)
+        {
+            foreach(Deal d in Model)
+            {
+                <p>@d.ID</p><br />
+            }
+        }
     </div>
 </body>
 </html>
