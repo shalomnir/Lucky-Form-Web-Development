@@ -18,8 +18,8 @@ namespace LuckyForm.DAL
         public SqlHelper()
         {
             this.con = new OleDbConnection();
-            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\LuckyForm\App_Data\DatabaseLotto.accdb;Persist Security Info=True";
-            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\App_Data\CreditCompany.accdb;Persist Security Info=True";
+            this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\nir\Lucky-Form-Web-Development\CreditCompany\App_Data\CreditCompany.accdb;Persist Security Info=True";
+            //this.con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\App_Data\CreditCompany.accdb;Persist Security Info=True";
             this.com = new OleDbCommand();
             this.com.Connection = this.con;
 

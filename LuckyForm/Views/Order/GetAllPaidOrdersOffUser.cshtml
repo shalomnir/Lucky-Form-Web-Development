@@ -34,6 +34,18 @@
                                     <span><b>Form Name:</b> @det.Form.Name</span><br />
                                     <span><b>Price:</b> @det.Price₪</span><br />
                                     <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
+                                    @{ 
+                                        DateTime t1 = (ViewBag.lotterys[int.Parse(det.Lottery.ID) - 1]).Date;
+                                        DateTime t2 = DateTime.Now;
+                                    }
+                                    @if (DateTime.Compare(t1,t2) >= 0)
+                                    {
+                                        <span><b>Won:</b> Unknow</span><br />
+                                    }
+                                    else
+                                    {
+                                        <span><b>Won:</b> @det.Won</span><br />
+                                    }
                                     <div class="buttons">
                                         <a class="view_form_button"><b>VIEW</b></a>
                                     </div>

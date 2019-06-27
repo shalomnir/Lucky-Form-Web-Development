@@ -14,5 +14,6 @@ namespace LuckyForm.Models
         public string Bets { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; }
+        public bool Won { get; set; }
     }
 }

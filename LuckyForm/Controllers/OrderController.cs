@@ -15,6 +15,7 @@ namespace LuckyForm.Controllers
         PlayCardDB playCardDB = new PlayCardDB();
         UserDB userDB = new UserDB();
         OrderDB orderDB = new OrderDB();
+        LotteryDB lotteryDB = new LotteryDB();
         OrderDetailsDB orderDetailsDB = new OrderDetailsDB();
         [HttpGet]
         public ActionResult Cart()
@@ -61,6 +62,14 @@ namespace LuckyForm.Controllers
         [HttpGet]
         public ActionResult GetAllPaidOrdersOffUser()
         {
+            Lottery[] lotterys= new Lottery[4];
+            for(int i = 0;i<4;i++)
+            {
+                lotterys[i] = lotteryDB.GetLotteryById(lotteryDB.GetClosestLotteryByTypeID((i + 1).ToString()));
+            }
+            ViewBag.lotterys = lotterys;
+            if (Session["user"] == null)
+                return View("~/Views/_404.cshtml");
             return View(orderDB.GetAllPaidOrdersOffUser(userDB.GetUserIdByEmail((Session["user"] as SessionUser).Email)));
         }
         [HttpPost]

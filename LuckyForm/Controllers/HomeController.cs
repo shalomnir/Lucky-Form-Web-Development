@@ -65,7 +65,7 @@ namespace LuckyForm.Controllers
         public ActionResult GetDealsByTimeRange(string start, string end)
         {            
             CreditCompanyReference.CreditClient creditClient = new CreditClient();
-            List<Deal> deals = creditClient.GetDealsReport(DateTime.Parse(start), DateTime.Parse(end), "1").OfType<Deal>().ToList();            
+            Deal[] deals = creditClient.GetDealsReport(DateTime.Parse(start), DateTime.Parse(end), "1");
             return View(deals);
         }
         [HttpPost]

@@ -53,7 +53,7 @@ namespace LuckyForm.DAL
                     orderDetails.Bets = dr["OrderDetailsBets"].ToString();
                     orderDetails.Price = double.Parse(dr["OrderDetailsPrice"].ToString());//TO FIX DOUBLE
                     orderDetails.Date = DateTime.Parse(dr["orderDetailsDate"].ToString());
-
+                    orderDetails.Won = (bool)(dr["OrderDetailsWon"]);
                     allDetails.Add(orderDetails);
                 }
                 return allDetails;

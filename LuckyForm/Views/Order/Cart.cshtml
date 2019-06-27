@@ -70,15 +70,15 @@
                     </div>
                     <div class="name row">
                         <span>Name on card</span>
-                        <input type="text" maxlength="30" name="name" chars="a-zA-z\s">
+                        <input type="text" maxlength="30" required name="name" chars="a-zA-z\s">
                     </div>
                     <div class="card_number row">
                         <span>Card number</span>
-                        <input type="text" class="number_only" name="card_number">
+                        <input type="text" class="number_only" required name="card_number">
                     </div>
                     <div class="exp_date row">                       
                             <span>Expiry date</span><br />
-                            <select name="exp_mm" >
+                            <select required name="exp_mm" >
                                 <option value="" disabled selected>Month</option>
                                 <option value="01">January</option>
                                 <option value="02">February </option>
@@ -93,7 +93,7 @@
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                             </select>
-                            <select name="exp_yy">
+                            <select required name="exp_yy">
                                 <option value="" disabled selected>Year</option>
                                 @for (int i = 0; i < 5; i++)
                                 {
@@ -104,11 +104,11 @@
                     <div class="row sec_pays">
                         <div class="sec_code">
                             <span>Security code</span><br />
-                            <input type="text" maxlength="4" class="number_only" name="sec_code">
+                            <input type="text" required maxlength="4" class="number_only" name="sec_code">
                         </div>
                         <div class="payment">
                             <span>Number of payments</span><br />
-                            <select name="payments">
+                            <select required name="payments">
                                 <option selected="selected">1</option>
                                 @for (int i = 2; i <= 12; i++)
                                 {
@@ -120,7 +120,7 @@
                     </div>
                     <div class="postal row">
                         <span>ZIP/Postal code</span>
-                        <input type="text" class="number_only" name="pos_code">
+                        <input type="text" required class="number_only" name="pos_code">
                     </div>
                     
                     <button type="button" class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>

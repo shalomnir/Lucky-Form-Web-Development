@@ -16,6 +16,13 @@
                 $(".form_wrapper").css("display", "table-row");
             });
         $(".pay").click(function () {
+            var empty = $(this).parents("form").find("input").filter(function () {
+                return this.value === "";
+            });
+            if (empty.length) {
+                //At least one input is empty
+                return;
+            }
             $(this).parents("form").submit();
         });
         $(function () {

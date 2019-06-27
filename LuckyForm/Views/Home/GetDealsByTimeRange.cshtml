@@ -3,7 +3,7 @@
     Layout = "~/Views/Master_pages/masterPageHome.cshtml";
 
 }
-@model List<Deal>
+@model Deal[]
 <!DOCTYPE html>
 
 <html>
@@ -16,14 +16,30 @@
         <form class="deals_form" method="post" action="/Home/GetDealsByTimeRange">
             <input type="date" name="start" class="date" />
             <input type="date" name="end" class="date" />
-            <button type="button">Get Deals</button>
+            <button type="submit">Get Deals</button>
         </form>
-        @if(Model != null)
+        @if (Model != null)
         {
-            foreach(Deal d in Model)
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Card Number</th>
+                    <th>Date</th>
+                    <th>Amount</th>                   
+                </tr>
+                                
+            
+            @foreach (Deal d in Model)
             {
-                <p>@d.ID</p><br />
+                <tr>
+                    <td>@d.ID</td>
+                    <td>@d.CardID</td>
+                    <td>@d.Date.ToShortDateString()</td>
+                    <td>@(-d.Amount)</td>                    
+                </tr>
+                
             }
+                </table>
         }
     </div>
 </body>

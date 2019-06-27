@@ -73,6 +73,7 @@ $(".submit_tables").click(
             else if (!(perfectTableCount(form) > 0))
             {
                 alert("You nust fill the tables.");
+                return;
             }
             else if ((formId === 1 || formId === 2) && !(perfectTableCount(form) % 2 === 0)) {               
                 alert("You nust fill in an even number of tables");
