@@ -1,0 +1,42 @@
+﻿.add_lottery_wrapper{
+    background-color:white;
+    text-align:center;
+    padding:20px 0;
+    width:50%;
+    margin:0 auto;
+}
+.add_lottery_wrapper h1{
+    
+}
+.add_lottery_wrapper .add_lottery{
+   margin-top: 20px;
+}
+.add_lottery_wrapper .add_lottery .choose_ins{
+    margin-top:20px;
+}
+.add_lottery_wrapper .add_lottery .date{
+    margin-top:20px;
+}
+.add_lottery_wrapper .add_lottery button{
+    margin-top:20px;
+}
+
+.add_lottery_wrapper .add_lottery button{
+    
+    width: 150px;
+    color: aliceblue;
+    background-color: #67be13 !important;
+    display: block;
+    margin: 40px auto 0 auto;
+    padding: 15px 13px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add_lottery_wrapper .add_lottery button {
+    background-color: #5ba911 !important;
+}

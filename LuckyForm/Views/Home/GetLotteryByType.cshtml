@@ -1,0 +1,14 @@
+﻿@using LuckyForm.Models
+@model List<Lottery>
+<p>Choose Lottery to update:</p>
+<ul>
+    @foreach (Lottery l in Model)
+    {
+        if (l.Bets == "")
+        {
+            <li class="lottery">
+                <a href="/Home/InsertBets?lotteryId=@l.ID">@l.Date.ToShortDateString()</a>
+            </li>
+        }
+    }
+</ul>

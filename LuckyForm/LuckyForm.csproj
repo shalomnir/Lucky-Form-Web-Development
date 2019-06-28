@@ -103,14 +103,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="content\css\Home\AddLotteryInType.css" />
     <Content Include="content\css\Home\ContactUs.css" />
     <Content Include="content\css\Home\Forms\Chance.css" />
     <Content Include="content\css\Home\Forms\LottoAnd777.css" />
     <Content Include="content\css\Home\Forms\_123.css" />
+    <Content Include="content\css\Home\InsertBets.css" />
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
     <Content Include="content\css\Home\Slider.css" />
-    <Content Include="content\css\Home\UpdateBetsResults.css" />
+    <Content Include="content\css\Home\UpdateLotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\css\Order\Cart.css" />
     <Content Include="content\css\plugins\flipclock.css" />
@@ -144,6 +146,7 @@
     <Content Include="content\js\Order\Cart.js" />
     <Content Include="content\js\plugins\jquery.validate.min.js" />
     <Content Include="content\js\plugins\slick.js" />
+    <Content Include="content\js\UpdateLotteries.js" />
     <Content Include="content\js\ViewJS\Chance_view.js" />
     <Content Include="content\js\ViewJS\LottoAnd777_view.js" />
     <Content Include="content\js\ViewJS\_123_view.js" />
@@ -205,7 +208,6 @@
     <Content Include="Views\Forms\_123.cshtml" />
     <Content Include="ClassDiagram2.cd" />
     <Content Include="Views\Order\Cart.cshtml" />
-    <Content Include="Views\Home\UpdateBetsResults.cshtml" />
     <None Include="Connected Services\CreditCompanyReference\Credit.wsdl" />
     <None Include="Connected Services\CreditCompanyReference\Credit.xsd">
       <SubType>Designer</SubType>
@@ -219,6 +221,10 @@
     <Content Include="Views\Order\GetAllPaidOrdersOffUser.cshtml" />
     <Content Include="Views\_404.cshtml" />
     <Content Include="Views\Home\GetDealsByTimeRange.cshtml" />
+    <Content Include="Views\Home\UpdateLotteries.cshtml" />
+    <Content Include="Views\Home\GetLotteryByType.cshtml" />
+    <Content Include="Views\Home\AddLotteryInType.cshtml" />
+    <Content Include="Views\Home\InsertBets.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+}
+@model string
+<link href="~/content/css/Home/AddLotteryInType.css" rel="stylesheet" />
+<div class="add_lottery_wrapper">
+    <h1>Add a Lottery</h1>
+
+    <form class="add_lottery" action="/Home/AddLottery" method="post">
+        <label class="choose_ins">Choose lottery's date:</label><br />
+        <input class="date" type="date" name="date" /><br />
+        <input hidden name="type" value=@ViewBag.lotteryType />
+        <button type="submit">Add Lottery</button>
+    </form>
+</div>
+

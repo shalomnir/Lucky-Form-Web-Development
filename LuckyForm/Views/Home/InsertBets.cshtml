@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "InsertBets";
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+}
+<link href="~/content/css/Home/InsertBets.css" rel="stylesheet" />
+<div class="insert_bets_wrapper">
+    <h1>Insert Bets Into A Lottery</h1>
+
+    <form class="insert_bets" action="/Home/InsertBetsToLottery" method="post">
+        <label class="pro_ins">
+            Enter Bets By Protocol:<br />
+            numbers*strong
+        </label><br />
+        
+        <input class="bets" type="text" name="bets" pattern="[0-9,#*]{1,144}" required placeholder="For Example: 1,2,3,4,5,6*7,8"/><br />
+        <input hidden name="id" value=@ViewBag.lotteryId />
+        @if(ViewBag.error != null)
+        {
+            <p class="error">@ViewBag.error</p>
+        }
+        <button type="submit">Enter Bets</button>
+    </form>
+</div>

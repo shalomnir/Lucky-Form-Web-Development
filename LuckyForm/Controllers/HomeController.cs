@@ -27,6 +27,11 @@ namespace LuckyForm.Controllers
             return PartialView("Lotteries",formDB.GetAllForms(Type));
         }
         [HttpGet]
+        public ActionResult GetLotteryByType(string Type)
+        {
+            return PartialView(lotteryDB.GetLotteriesByTypeID((int.Parse(Type) + 1).ToString()));
+        }
+        [HttpGet]
         public ActionResult AddForm(string formID)
         {
             Form form = formDB.GetFormById(formID);
@@ -52,10 +57,33 @@ namespace LuckyForm.Controllers
             return View(countryDB.GetAllCountries());
         }
         [HttpGet]
-        public ActionResult UpdateBetsResults()
-        {         
+        public ActionResult UpdateLotteries()
+        {
             return View();
         }
+        [HttpGet]
+        public ActionResult AddLotteryInType(string Type)
+        {
+            ViewBag.lotteryType = Type;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddLottery(string date, string type)
+        {
+            lotteryDB.AddLotteryInType((int.Parse(type) + 1).ToString(), DateTime.Parse(date));
+            return View("~/Views/Home/UpdateLotteries.cshtml");
+        }
+        [HttpGet]
+        public ActionResult InsertBets(string lotteryId)
+        {
+            ViewBag.lotteryId = lotteryId;
+            return View();
+        }
+        [HttpPost]
+         public ActionResult InsertBetsToLottery(string lotteryId)
+        {
+            return View("~/Views/Home/UpdateLotteries.cshtml");
+        }        
         [HttpGet]
         public ActionResult GetDeals()
         {

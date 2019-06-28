@@ -14,6 +14,7 @@ namespace LuckyForm.Controllers
         FormDB formDB = new FormDB();
         PlayCardDB playCardDB = new PlayCardDB();
         OrderDB orderDB = new OrderDB();
+        LotteryDB lotteryDB = new LotteryDB();
         OrderDetailsDB orderDetailsDB = new OrderDetailsDB();
         UserDB userDB = new UserDB();
         TransactionDB tranDB = new TransactionDB();
@@ -54,7 +55,7 @@ namespace LuckyForm.Controllers
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, "1", bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("1"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }
@@ -69,7 +70,7 @@ namespace LuckyForm.Controllers
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("3", formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, "3", bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("3"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }
@@ -85,7 +86,7 @@ namespace LuckyForm.Controllers
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("2", formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, "2", bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("2"), bets, price);
        
             return RedirectToAction("Cart", "Order");
         }
@@ -100,7 +101,7 @@ namespace LuckyForm.Controllers
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
                 tranDB.ExecuteTransactionAddOrder("4", formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, "4", bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("4"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }
