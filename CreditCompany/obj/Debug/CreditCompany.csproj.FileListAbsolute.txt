@@ -1,7 +1,6 @@
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.dll.config
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.dll
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.pdb
-C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.csprojResolveAssemblyReference.cache
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.csproj.CoreCompileInputs.cache
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.dll
 C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.pdb
@@ -11,3 +10,4 @@ D:\nir\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.pdb
 D:\nir\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.dll.config
 D:\nir\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.dll
 D:\nir\Lucky-Form-Web-Development\CreditCompany\bin\CreditCompany.pdb
+C:\Users\nirsh\Desktop\Lucky-Form-Web-Development\CreditCompany\obj\Debug\CreditCompany.csprojResolveAssemblyReference.cache

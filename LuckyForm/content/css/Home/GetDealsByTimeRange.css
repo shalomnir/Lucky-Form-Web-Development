@@ -1,0 +1,56 @@
+﻿.get_deals_wrapper{
+    background-color:white;
+    width:920px;
+    margin:0 auto;
+    padding:20px 30px;
+}
+.get_deals_wrapper label{
+    font-size:20px;
+}
+.get_deals_wrapper .lbl_end{
+    margin-left:50px;
+}
+.get_deals_wrapper #endDateId{
+    margin-right:50px;
+}
+.get_deals_wrapper .deals_form input{
+    font-size:20px;
+    height:20px;
+}
+.get_deals_wrapper button {
+   
+    width: 100px;
+    color: aliceblue;
+    background-color: #67be13 !important;
+   
+    padding: 5px 10px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.get_deals_wrapper .no_dls{
+    font-size:30px;
+    color:#808080;
+    margin-top:30px;
+    text-align:center;
+}
+.get_deals_wrapper button:hover {
+    background-color: #5ba911 !important;
+}
+table{
+    margin:30px auto;
+}
+table th {
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding:3px 0 3px 5px;
+}

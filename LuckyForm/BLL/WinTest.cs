@@ -17,7 +17,9 @@ namespace LuckyForm.BLL
             List<Order> orders = orderDB.GetAllOrdersToIterate();
             foreach(Order order in orders)
             {
-                //if(order.ID == "30")
+                
+                if (order.Orders != null)
+                {
                     foreach (OrderDetails orderDetails in order.Orders)
                     {
                         if (orderDetails.Form.Type == type)
@@ -26,6 +28,7 @@ namespace LuckyForm.BLL
                         }
 
                     }
+                }
             }
         }
         public bool CompareBetsToResult(string type, string formID, string bets, string results)

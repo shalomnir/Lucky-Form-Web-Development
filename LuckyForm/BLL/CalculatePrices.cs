@@ -24,7 +24,7 @@ namespace LuckyForm.BLL
             }    
             else if (formID == "5" || formID == "6")
             {
-                return FormProtocolHandler.nCk(FormProtocolHandler.NumOfBets(bets) - FormProtocolHandler.NumOfStrongBets(bets), 6) * pricePerTable * FormProtocolHandler.NumOfStrongBets(bets);
+                return FormProtocolHandler.nCk(7, 6) * pricePerTable * FormProtocolHandler.NumOfStrongBets(bets);
             }           
             else if (formID == "7")
             {

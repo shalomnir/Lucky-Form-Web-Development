@@ -9,18 +9,26 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <script src="~/content/js/GetDealsByTimeRange.js"></script>
+    <link href="~/content/css/Home/GetDealsByTimeRange.css" rel="stylesheet" />
     <title>DealsByTimeRange</title>
 </head>
 <body>
-    <div>
+    <div class="get_deals_wrapper">
         <form class="deals_form" method="post" action="/Home/GetDealsByTimeRange">
-            <input type="date" name="start" class="date" />
-            <input type="date" name="end" class="date" />
-            <button type="submit">Get Deals</button>
+            <label >Enter Start Date:</label>
+            <input type="date" name="start" id="startDateId" class="date" />
+            <label class="lbl_end">Enter End Date:</label>
+            <input type="date" name="end" id="endDateId" class="date" />
+            <button type="button">Get Deals</button>
         </form>
+        @if(Model == null)
+            {
+                <p class="no_dls">There were no deals in the selected time period</p>
+            }
         @if (Model != null)
         {
-            <table style="width:100%">
+            <table style="width:70%">
                 <tr>
                     <th>ID</th>
                     <th>Card Number</th>

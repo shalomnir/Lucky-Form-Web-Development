@@ -122,7 +122,12 @@
                         <span>ZIP/Postal code</span>
                         <input type="text" required class="number_only" name="pos_code">
                     </div>
-                    
+                    @if(ViewBag.CreditSuccess != null)
+                    {
+                    <p class="error">
+                        There was a problem with the charge, please try again later or contact your credit card company.
+                    </p>
+                    }
                     <button type="button" class="pay row"><i class="fas fa-lock"></i>Pay @ViewBag.Sum₪</button>
                     <input hidden name="price" value="@ViewBag.sum" />
                 </div>

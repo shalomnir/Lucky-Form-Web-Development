@@ -14,7 +14,7 @@
         </label><br />
         
         <input class="bets" type="text" name="bets" pattern="[0-9,#*]{1,144}" required placeholder="For Example: 1,2,3,4,5,6*7,8"/><br />
-        <input hidden name="id" value=@ViewBag.lotteryId />
+        <input hidden name="lotteryId" value=@ViewBag.lotteryId />
         @if(ViewBag.error != null)
         {
             <p class="error">@ViewBag.error</p>

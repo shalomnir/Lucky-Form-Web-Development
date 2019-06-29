@@ -108,6 +108,7 @@
     <Content Include="content\css\Home\Forms\Chance.css" />
     <Content Include="content\css\Home\Forms\LottoAnd777.css" />
     <Content Include="content\css\Home\Forms\_123.css" />
+    <Content Include="content\css\Home\GetDealsByTimeRange.css" />
     <Content Include="content\css\Home\InsertBets.css" />
     <Content Include="content\css\Home\Lotteries.css" />
     <Content Include="content\css\Home\MainPageLotteries.css" />
@@ -115,6 +116,8 @@
     <Content Include="content\css\Home\UpdateLotteries.css" />
     <Content Include="content\css\master_pages_css\masterPageHome.css" />
     <Content Include="content\css\Order\Cart.css" />
+    <Content Include="content\css\Order\GetAllPaidOrdresOfUser.css" />
+    <Content Include="content\css\Order\Pay.css" />
     <Content Include="content\css\plugins\flipclock.css" />
     <Content Include="content\css\plugins\slick.css" />
     <Content Include="content\css\Users\PersonalArea.css" />
@@ -140,6 +143,7 @@
     <Content Include="content\Images\Home\wait.gif" />
     <Content Include="content\Images\page_pic_50.jpg" />
     <Content Include="content\js\Chance.js" />
+    <Content Include="content\js\GetDealsByTimeRange.js" />
     <Content Include="content\js\LottoAnd777.js" />
     <Content Include="content\js\MainPageLotteries.js" />
     <Content Include="content\js\master_page.js" />
@@ -184,6 +188,7 @@
     </Compile>
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Lottery.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetails.cs" />
@@ -225,6 +230,7 @@
     <Content Include="Views\Home\GetLotteryByType.cshtml" />
     <Content Include="Views\Home\AddLotteryInType.cshtml" />
     <Content Include="Views\Home\InsertBets.cshtml" />
+    <Content Include="Views\Order\Pay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

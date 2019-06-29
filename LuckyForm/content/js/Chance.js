@@ -61,6 +61,7 @@ $("document").ready(
                         });
                         return;
                     }
+                    form.submit();
                 }
 
                 else {
@@ -76,7 +77,7 @@ $("document").ready(
                     }
                     form.submit();
                 }
-                form.submit();
+                
             });
 
     });

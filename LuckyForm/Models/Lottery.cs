@@ -11,6 +11,7 @@ namespace LuckyForm.Models
         public string Name { get; set; }        
         public DateTime Date { get; set; }
         public string Bets { get; set; }
-       
+        public string TypeID { get; set; }
+
     }
 }

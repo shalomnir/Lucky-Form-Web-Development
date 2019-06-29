@@ -29,7 +29,7 @@ namespace LuckyForm.DAL
         }
         public Lottery GetLotteryById(string id)
         {
-            string sql = @"SELECT Lotterys.LotterysID, Lotterys.LotterysDate, Lotterys.LotterysBets, Type.TypeName
+            string sql = @"SELECT Lotterys.LotterysID, Lotterys.LotterysDate, Lotterys.TypeID, Lotterys.LotterysBets, Type.TypeName
                         FROM Type INNER JOIN Lotterys ON Type.TypeID = Lotterys.TypeID
                         WHERE (((Lotterys.LotterysID)=" + id + "));";
             this.dt = this.sqlHelper.GetData(sql);
@@ -39,7 +39,8 @@ namespace LuckyForm.DAL
                 lottery.ID = dt.Rows[0]["LotterysID"].ToString();
                 lottery.Name = dt.Rows[0]["TypeName"].ToString();
                 lottery.Date =DateTime.Parse(dt.Rows[0]["LotterysDate"].ToString());
-                lottery.Bets = dt.Rows[0]["LotterysBets"].ToString();
+                lottery.Bets = dt.Rows[0]["LotterysBets"].ToString(); 
+                lottery.TypeID = dt.Rows[0]["TypeID"].ToString();
                 return lottery;
             }
             return null;
@@ -47,7 +48,7 @@ namespace LuckyForm.DAL
         public String GetClosestLotteryByTypeID(string typeID)
         {
             string sql = @"SELECT TOP 1 * FROM Lotterys WHERE LotterysDate < " + DateTime.Now.ToShortDateString() + " AND " +
-                "TypeID='" + typeID + "'ORDER BY LotterysDate DESC";
+                "TypeID='" + typeID + "'ORDER BY LotterysDate ASC";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {              
@@ -58,7 +59,7 @@ namespace LuckyForm.DAL
         public String GetClosestNextLotteryByTypeID(string typeID)
         {
             string sql = @"SELECT TOP 1 * FROM Lotterys WHERE LotterysDate > #" + DateTime.Now.ToShortDateString() + "# AND " +
-                "TypeID='" + typeID + "'ORDER BY LotterysDate DESC";
+                "TypeID='" + typeID + "' ORDER BY LotterysDate DESC";
             this.dt = this.sqlHelper.GetData(sql);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -82,17 +83,18 @@ namespace LuckyForm.DAL
                     lottery.Name = dr["TypeName"].ToString();
                     lottery.Date = DateTime.Parse(dr["LotterysDate"].ToString());
                     lottery.Bets = dr["LotterysBets"].ToString();
+                    lottery.TypeID = typeID;
                     allLotteries.Add(lottery);
                 }
                 return allLotteries;
             }
             return null;
         }
-        public void UpdateResults(string bets, string typeID)
+        public void UpdateResults(string bets, string lotteryID)
         {
             string sql = @"UPDATE Lotterys
                             SET LotterysBets = '" + bets +
-                            "' WHERE LotterysID = " + GetClosestLotteryByTypeID(typeID) + ";";
+                            "' WHERE LotterysID = " + lotteryID + ";";
             this.sqlHelper.UpdateData(sql);
         }
     }

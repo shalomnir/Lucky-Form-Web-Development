@@ -9,7 +9,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Paid Orders</title>
-    <link href="~/content/css/Order/Cart.css" rel="stylesheet" />
+
+    <link href="~/content/css/Order/GetAllPaidOrdresOfUser.css" rel="stylesheet" />
     <script src="~/content/js/Order/Cart.js"></script>
 </head>
 <body>
@@ -24,45 +25,56 @@
                 {
                     foreach (Order order in Model)
                     {
-                        foreach (OrderDetails det in order.Orders)
+                        if (order.Orders != null)
                         {
+                            foreach (OrderDetails det in order.Orders)
+                            {
 
-                            <div class="product">
+                                <div class="product">
 
-                                <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
-                                <div class="product_details" data-detid=@det.ID data-formid=@det.Form.ID>
-                                    <span><b>Form Name:</b> @det.Form.Name</span><br />
-                                    <span><b>Price:</b> @det.Price₪</span><br />
-                                    <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
-                                    @{ 
-                                        DateTime t1 = (ViewBag.lotterys[int.Parse(det.Lottery.ID) - 1]).Date;
-                                        DateTime t2 = DateTime.Now;
-                                    }
-                                    @if (DateTime.Compare(t1,t2) >= 0)
-                                    {
-                                        <span><b>Won:</b> Unknow</span><br />
-                                    }
-                                    else
-                                    {
-                                        <span><b>Won:</b> @det.Won</span><br />
-                                    }
-                                    <div class="buttons">
-                                        <a class="view_form_button"><b>VIEW</b></a>
+                                    <img src="~/content/Images/Home/logos/@det.Form.ImagePath" />
+                                    <div class="product_details" data-detid=@det.ID data-formid=@det.Form.ID>
+                                        <span><b>Form Name:</b> @det.Form.Name</span><br />
+                                        <span><b>Price:</b> @det.Price₪</span><br />
+                                        <span><b>Date:</b> @det.Date.ToShortDateString()</span><br />
+                                        @{
+
+                                            DateTime t1 = det.Lottery.Date;//(ViewBag.lotterys[int.Parse(det.Lottery.TypeID) - 1]).Date;
+                                            DateTime t2 = DateTime.Now;
+                                        }
+                                        @if (DateTime.Compare(t1, t2) > 0)
+                                        {
+                                            <span><b>Won:</b><i style="color:dimgrey" class="fas fa-question-circle"></i> Wait for the lottery!</span><br />
+                                        }
+                                        else
+                                        {
+
+                                            if (det.Won)
+                                            {
+                                                <span><b>Won:</b> <i style="color:forestgreen" class="fas fa-trophy"></i> You Won!</span><br />
+                                            }
+                                            else
+                                            {
+                                                <span><b>Won:</b> <i style="color:red" class="fas fa-times-circle"></i> You Lose!</span><br />
+                                            }
+
+                                        }
+                                        <div class="buttons">
+                                            <a class="view_form_button"><b>VIEW</b></a>
+                                        </div>
                                     </div>
+
+
+
                                 </div>
 
-
-
-                            </div>
-
+                            }
                         }
                     }
                 }
                 else
                 {
-                    <div class="product">
-
-                    </div>
+                    <p>You have not yet paid for any form</p>
                 }
             </div>
         </div>

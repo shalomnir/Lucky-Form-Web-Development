@@ -70,7 +70,7 @@ namespace LuckyForm.Controllers
         [HttpPost]
         public ActionResult AddLottery(string date, string type)
         {
-            lotteryDB.AddLotteryInType((int.Parse(type) + 1).ToString(), DateTime.Parse(date));
+            lotteryDB.AddLotteryInType((int.Parse(type) + 1).ToString(), DateTime.Parse(DateTime.Parse(date).ToString("MM-dd-yyyy")));
             return View("~/Views/Home/UpdateLotteries.cshtml");
         }
         [HttpGet]
@@ -80,8 +80,18 @@ namespace LuckyForm.Controllers
             return View();
         }
         [HttpPost]
-         public ActionResult InsertBetsToLottery(string lotteryId)
+         public ActionResult InsertBetsToLottery(string lotteryId, string bets)
         {
+            try
+            {
+                winTest.ItarateOrderDetails(bets, lotteryDB.GetLotteryById(lotteryId).TypeID);
+            }
+            catch (Exception e)
+            {
+                ViewBag.error = "Incorrect format or content. Note the type of lottery!";
+                return InsertBets(lotteryId);
+            }
+            lotteryDB.UpdateResults(bets, lotteryId);
             return View("~/Views/Home/UpdateLotteries.cshtml");
         }        
         [HttpGet]
@@ -93,7 +103,8 @@ namespace LuckyForm.Controllers
         public ActionResult GetDealsByTimeRange(string start, string end)
         {            
             CreditCompanyReference.CreditClient creditClient = new CreditClient();
-            Deal[] deals = creditClient.GetDealsReport(DateTime.Parse(start), DateTime.Parse(end), "1");
+
+            Deal[] deals = creditClient.GetDealsReport(DateTime.Parse(DateTime.Parse(start).ToString("MM-dd-yyyy")), DateTime.Parse(DateTime.Parse(end).ToString("MM-dd-yyyy")), "1");
             return View(deals);
         }
         [HttpPost]

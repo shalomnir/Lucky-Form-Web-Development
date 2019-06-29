@@ -12,7 +12,7 @@
     border: 1px solid #d4d4d4;
     border-radius:10px 10px 0 0;
     border-bottom:none;
-    width:60%;
+    width:100%;
 }
 .cart_wrapper paid_products{
     width:80%!important;
@@ -27,14 +27,15 @@
 .cart_wrapper .products .products-Wrapper{
     display:flex;
     flex-wrap:wrap;
-    
+    width: 94%;
+    margin: 0 auto;
 }
 .cart_wrapper .product{
     padding-top:10px;
     padding-left:20px;
     padding-bottom:20px;
     border-bottom: 1px solid #eee;
-       width: 100%;
+    width: 400px;
     
 }
 .cart_wrapper .product img{

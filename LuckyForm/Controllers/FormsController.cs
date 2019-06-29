@@ -53,9 +53,9 @@ namespace LuckyForm.Controllers
             double price = calculatePrices.GetLottoPrice(bets, formID);
             price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
-                tranDB.ExecuteTransactionAddOrder("1",formID , userID, false, price, bets);
+                tranDB.ExecuteTransactionAddOrder(lotteryDB.GetClosestNextLotteryByTypeID("1"), formID , userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("1"), bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestNextLotteryByTypeID("1"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }
@@ -68,9 +68,9 @@ namespace LuckyForm.Controllers
             double price = calculatePrices.GetLottoPrice(bets, formID);
             price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
-                tranDB.ExecuteTransactionAddOrder("3", formID, userID, false, price, bets);
+                tranDB.ExecuteTransactionAddOrder(lotteryDB.GetClosestNextLotteryByTypeID("3"), formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("3"), bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestNextLotteryByTypeID("3"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }
@@ -84,9 +84,9 @@ namespace LuckyForm.Controllers
             double price = calculatePrices.GetLottoPrice(bets, formID);
             price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
-                tranDB.ExecuteTransactionAddOrder("2", formID, userID, false, price, bets);
+                tranDB.ExecuteTransactionAddOrder(lotteryDB.GetClosestNextLotteryByTypeID("2"), formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("2"), bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestNextLotteryByTypeID("2"), bets, price);
        
             return RedirectToAction("Cart", "Order");
         }
@@ -99,9 +99,9 @@ namespace LuckyForm.Controllers
             double price = calculatePrices.GetLottoPrice(bets, formID);
             price = Math.Round(price, 2, MidpointRounding.AwayFromZero);
             if (orderID == "-1" || orderDB.GetOrderById(orderID).Paid)
-                tranDB.ExecuteTransactionAddOrder("4", formID, userID, false, price, bets);
+                tranDB.ExecuteTransactionAddOrder(lotteryDB.GetClosestNextLotteryByTypeID("4"), formID, userID, false, price, bets);
             else
-                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestLotteryByTypeID("4"), bets, price);
+                orderDetailsDB.AddOrderDetails(orderID, formID, lotteryDB.GetClosestNextLotteryByTypeID("4"), bets, price);
 
             return RedirectToAction("Cart", "Order");
         }

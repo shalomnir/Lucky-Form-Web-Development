@@ -1,0 +1,62 @@
+﻿@using LuckyForm.Models
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Master_pages/masterPageHome.cshtml";
+    double sum = 0;
+
+}
+@model Invoice
+<link href="~/content/css/Order/Pay.css" rel="stylesheet" />
+<div class="invoice_wrapper">
+    <div class="head_invoice">
+        <img src="~/content/Images/Home/Logo.png" class="logo" />
+        <span class="web_add">https://www.LuckyForm.com</span>
+
+    </div>
+    <div class="invoice_det">
+        <div class="customer">
+            <h1>INVOICE</h1>
+            <p>@Model.Name</p>
+            <p>@Model.Postcode</p>
+        </div>
+        <div class="company">
+            <p>LuckyForm</p>
+            <p>Ge'a, Hadarom, Israel</p>
+            <p>Ge'a</p>
+            <p>79110</p>
+        </div>
+    </div>
+    <div class="invoice_prodacts">
+        <table>
+            <tr>
+                <th width="85%">Description</th>
+                <th width="15%">Price</th>
+
+            </tr>
+            @if (Model.Products != null)
+            {
+                foreach (OrderDetails od in Model.Products)
+                {
+                    <tr>
+                        <td>@od.Form.Name</td>
+                        <td>@od.Price</td>
+
+                    </tr>
+                    sum += od.Price;
+                }
+            }
+            <tr class="total">
+                <td><b>TOTAL</b></td>
+                <td>@sum</td>
+            </tr>
+        </table>
+        <div class="payments">
+            *Number Of Payments: @Model.Payments
+        </div>
+    </div>
+    <div class="foot">
+        <h1>Thanks For Buying! See You Next Time!</h1>
+    </div>
+</div>
+
+
